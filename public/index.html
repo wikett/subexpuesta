@@ -10,6 +10,10 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="app/56d0d3f6.vendor.css"/>
     <link rel="stylesheet" href="app/73768428.app.css"/>
@@ -31,7 +35,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div class="body">
+      <div ng-include="'components/navbar/navbar.html'"></div>
+      <div ui-view=""></div>
+      <div ng-include="'components/footer/footer.html'"></div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -50,7 +58,7 @@
     <![endif]-->
     <script src="app/17f2e133.vendor.js"></script>
 
-        <script src="app/7ffaa8e1.app.js"></script>
+        <script src="app/b8295ed1.app.js"></script>
          <script src="assets/js/theme.js"></script>
      
         <script src="assets/js/view.home.js"></script>
