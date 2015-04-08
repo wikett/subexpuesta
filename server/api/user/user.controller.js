@@ -75,21 +75,21 @@ exports.changePassword = function(req, res, next) {
 
   User.findById(userId, function (err, user) {
     if(user.authenticate(oldPass)) {
-      if(newPass!='undefined' && newPass.length>0)
+      if(newPass!=='undefined' && newPass.length>0)
       user.password = newPass;
-      if(newName!='undefined' && newName.length>0)
+      if(newName!=='undefined' && newName.length>0)
         user.name = newName;
-      if(newLocation!='undefined' && newLocation.length>0)
+      if(newLocation!=='undefined' && newLocation.length>0)
         user.location = newLocation;
-      if(newWeb!='undefined' && newWeb.length>0)
+      if(newWeb!=='undefined' && newWeb.length>0)
         user.web = newWeb;
-      if(newAvatar!='undefined' && newAvatar.length>0)
+      if(newAvatar!=='undefined' && newAvatar.length>0)
         user.avatar = newAvatar;
       user.participarConcursos = newSorteo;
       user.newsletter = newNewsletter;
       user.save(function(err) {
         if (err) return validationError(res, err);
-        console.log('Usuario actualizado correctamente');
+        
         res.send(200);
       });
     } else {
@@ -102,7 +102,7 @@ exports.changePassword = function(req, res, next) {
  * Change a users password
  */
 exports.actualizarDatos = function(req, res, next) {
-  console.log('Entramos en actualizar Datos Usuario');
+  
   var userId = req.user._id;
   var nombre = String(req.body.nombre);
   var web = String(req.body.web);

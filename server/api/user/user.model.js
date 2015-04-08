@@ -11,7 +11,7 @@ var UserSchema = new Schema({
   username: {type: String},
   location: {type: String},
   web: {type: String},
-  avatar: {type: String},
+  avatar: {type: String, default:'assets/images/clients/avatar-default.png'},
   participarConcursos: {type: Boolean},
   newsletter: {type: Boolean, default: true},
   role: {
