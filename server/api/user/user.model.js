@@ -9,6 +9,11 @@ var UserSchema = new Schema({
   name: String,
   email: { type: String, lowercase: true },
   username: {type: String},
+  location: {type: String},
+  web: {type: String},
+  avatar: {type: String},
+  participarConcursos: {type: Boolean},
+  newsletter: {type: Boolean, default: true},
   role: {
     type: String,
     default: 'user'

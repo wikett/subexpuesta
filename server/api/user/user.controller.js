@@ -63,20 +63,51 @@ exports.destroy = function(req, res) {
  */
 exports.changePassword = function(req, res, next) {
   var userId = req.user._id;
-  var oldPass = String(req.body.oldPassword);
+
+  var oldPass = String(req.body.passwordActual);
   var newPass = String(req.body.newPassword);
+  var newName = String(req.body.newName);
+  var newLocation = String(req.body.newLocation);
+  var newWeb = String(req.body.newWeb);
+  var newAvatar = String(req.body.newAvatar);
+  var newSorteo = Boolean(req.body.newSorteo);
+  var newNewsletter = Boolean(req.body.newNewsletter);
 
   User.findById(userId, function (err, user) {
     if(user.authenticate(oldPass)) {
+      if(newPass!='undefined' && newPass.length>0)
       user.password = newPass;
+      if(newName!='undefined' && newName.length>0)
+        user.name = newName;
+      if(newLocation!='undefined' && newLocation.length>0)
+        user.location = newLocation;
+      if(newWeb!='undefined' && newWeb.length>0)
+        user.web = newWeb;
+      if(newAvatar!='undefined' && newAvatar.length>0)
+        user.avatar = newAvatar;
+      user.participarConcursos = newSorteo;
+      user.newsletter = newNewsletter;
       user.save(function(err) {
         if (err) return validationError(res, err);
+        console.log('Usuario actualizado correctamente');
         res.send(200);
       });
     } else {
       res.send(403);
     }
   });
+};
+
+/**
+ * Change a users password
+ */
+exports.actualizarDatos = function(req, res, next) {
+  console.log('Entramos en actualizar Datos Usuario');
+  var userId = req.user._id;
+  var nombre = String(req.body.nombre);
+  var web = String(req.body.web);
+  
+  return res.send(204);
 };
 
 /**
