@@ -1,0 +1,79 @@
+
+<div role="main" class="main">
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Inicio</a></li>
+          <li class="active">Iniciar Sesión</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Iniciar Sesión</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row featured-boxes login">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="featured-box featured-box-secundary default info-content">
+            <div class="box-content">
+              <h4>Inicia Sesión</h4>
+              <form class="form" name="form" ng-submit="login(form)" novalidate>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>E-mail</label>
+                      <input type="email" name="email" class="form-control input-lg" ng-model="user.email" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <a class="pull-right" href="#">(Olvidaste tu password?)</a>
+                      <label>Password</label>
+                      <input type="password" name="password" class="form-control input-lg" ng-model="user.password" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group has-error">
+                      <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+                        Por favor, introduzca su email y contraseña
+                      </p>
+                      <p class="help-block" ng-show="form.email.$error.email && submitted">
+                        Dirección de email incorrecta
+                      </p>
+                      <p class="help-block">{{ errors.other }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                        <a href="/signup" >¿No tienes cuenta? Regístrate</a>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="submit" value="Login" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+ 
+  
+</div>
+</div>

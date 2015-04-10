@@ -1,0 +1,102 @@
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Inicio</a></li>
+          <li class="active">Crear Cuenta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Crear Cuenta</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row featured-boxes login">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="featured-box featured-box-secundary default info-content">
+            <div class="box-content">
+              <h4>Crear Cuenta</h4>
+              <form class="form" name="form" ng-submit="register(form)" novalidate>
+              <div class="row">
+                  <div class="form-group" ng-class="{ 'has-success': form.username.$valid && submitted,
+                    'has-error': form.username.$invalid && submitted }">
+                    <label>Usuario</label>
+                    <input type="text" name="username" class="form-control" ng-model="user.username" required mongoose-error/>
+                    <p class="help-block" ng-show="form.username.$error.required && submitted">
+                      Olvidaste poner tu nombre de usuario
+                    </p>
+                    <p class="help-block" ng-show="form.username.$error.mongoose">
+                      {{ errors.username }}
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+                    'has-error': form.email.$invalid && submitted }">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" ng-model="user.email" required mongoose-error/>
+                    <p class="help-block" ng-show="form.email.$error.email && submitted">
+                      No parece un email correcto
+                    </p>
+                    <p class="help-block" ng-show="form.email.$error.required && submitted">
+                      Olvidaste poner tu correo
+                    </p>
+                    <p class="help-block" ng-show="form.email.$error.mongoose">
+                      {{ errors.email }}
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="form-group"  ng-class="{ 'has-success': form.password.$valid && submitted,
+                    'has-error': form.password.$invalid && submitted }">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6"required mongoose-error>
+                    <p class="help-block"
+                      ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
+                      La contraseña debe tener al menos 6 caracteres.
+                    </p>
+                    <p class="help-block" ng-show="form.password.$error.mongoose">
+                      {{ errors.password }}
+                    </p>
+                    
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
+                    'has-error': form.password.$invalid && submitted }">
+                    <label>Repetir Contraseña</label>
+                    <input type="password" name="passwordagain" class="form-control" ng-model="user.passwordagain" required>
+                    <p class="help-block"
+                      ng-show="(user.password != user.passwordagain) && submitted">
+                      No coinciden las contraseñas
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="/login" >¿Tienes ya cuenta? Inicia Sesión</a>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="submit" value="Crear" class="btn btn-success btn-lg pull-right">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+</div>

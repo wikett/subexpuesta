@@ -1,0 +1,82 @@
+<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Inicio</a></li>
+									<li class="active">Mejora la Web</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Mejora la Web</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="alert alert-info alert-admin">
+								<div class="row">
+									<div class="col-md-8">
+										<h4>Tu opinión cuenta</h4>
+										<p>Cualquier sugerencia que se te ocurra, un problema que encuentres, alguna funcionalidad nueva que te gustaría que apareciera en la web o cualquier comentario para mejorar la web es bienvenido. Totalmente anónimo y gratuito jeje
+										</p>
+									</div>
+									<div class="col-md-4 visible-md visible-lg">
+										<img class="pull-right" src="assets/images/mejora-la-web.png" style="width: 372px; margin:0px;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container">										
+					<section class="panel">
+						<header class="panel-heading">
+							
+							<button class="btn btn-success" ng-click="isCollapsed=!isCollapsed">Añade nueva mejora</button>
+							<div collapse="isCollapsed">
+								<div class="form-group" style="margin-top:20px;">
+											<label class="col-md-2 control-label">Describe la mejora</label>
+											<div class="col-md-10">
+																
+												<div class="input-group mb-md">
+													<input type="text" class="form-control" ng-model="descripcionMejora">
+													<span class="input-group-btn">
+														<button class="btn btn-success" type="button" ng-click="crearMejora()">Guardar</button>
+													</span>
+												</div>
+											</div>
+										</div>
+							</div>
+							<alert type="info"  close="mejoraCreada=false" ng-show="mejoraCreada" style="margin-top:20px;"> Tu mejora ha sido guardada. En cuanto se pueda nos pondremos en manos a la obra con ella. Gracias!</alert>
+
+						</header>
+						<div class="panel-body">
+							<table class="table table-no-more table-bordered table-striped mb-none">
+								<thead>
+									<tr>
+										<th>Fecha</th>
+										<th>Mejora</th>
+										<th>Estado</th>
+										<th>Votos</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="mejora in listaMejoras">
+										<td data-title="Fecha">{{mejora.fecha | date:'dd-MM-yyyy'}}</td>
+										<td data-title="Mejroa">{{mejora.descripcion}}</td>
+										<td data-title="Mejroa">{{estadosMejoras[mejora.estado]}}</td>
+										<td data-title="Votos">{{mejora.votos}}</td>
+										<td><a href="" ng-click="actualizarVoto(mejora._id, true)"><i class="fa fa-thumbs-o-up"></i></a> <a href="" ng-click="actualizarVoto(mejora._id, false)"><i class="fa fa-thumbs-o-down"></i></a> <a href="" ng-click="borrarMejora(mejora._id)" ng-show="isAdmin()"><i class="fa fa-trash-o"></i></a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>

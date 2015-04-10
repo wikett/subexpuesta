@@ -1,0 +1,151 @@
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Mi Cuenta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Mi Cuenta</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <form class="form-horizontal form-bordered" name="form" ng-submit="changePassword(form)" novalidate>
+        <section class="panel">
+          <header class="panel-heading">
+            <h2 class="panel-title">Tus datos</h2>
+          </header>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">Nombre</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="name" ng-model="user.name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">¿De dónde eres?</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="location" ng-model="user.location">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">Web Personal</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="web" ng-model="user.web">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputSuccess">Alertas</label>
+              <div class="col-md-6">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="participarConcursos" ng-model="user.participarConcursos">
+                    Me gustaría participar en sorteos de material fotográfico, linciencias o similar.
+                  </label>
+                </div>
+                
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="newsletter" ng-model="user.newsletter">
+                    Me gustaría recibir el boletín de noticias
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <a href="" class="col-md-3 control-label" for="inputDefault" ng-click="isCollapsed = !isCollapsed">Editar Avatar <i ng-class="isCollapsed ? 'fa fa-chevron-right' : 'fa fa-chevron-down'"></i></a>
+             
+                <div class="col-md-6">
+              <div collapse="isCollapsed">
+            
+               
+              <input type="file" id="fileInput" class="form-control" />
+              <div style="background: #E4E4E4;overflow: hidden;width:538px;height:350px; margin-top:15px;">
+                <img-crop image="myImage" area-type="square" result-image="myCroppedImage" result-image-size="120"></img-crop>
+              </div>
+              <div>Imagen final:</div>
+              <div><img ng-src="{{myCroppedImage}}" /></div>
+              </div>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+
+        
+        
+        <section class="panel">
+          <header class="panel-heading">
+            <div class="panel-actions">
+            </div>
+            
+            <h2 class="panel-title">Cambiar contraseña</h2>
+          </header>
+          <div class="panel-body">
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">Nueva contraseña</label>
+              <div class="col-md-6">
+                
+                <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
+                ng-minlength="6" />
+                <p class="help-block"
+                  ng-show="form.newPassword.$error.minlength && (form.newPassword.$dirty || submitted)">
+                  La contraseña debe tener al menos 6 caracteres.
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">Repetir nueva contraseña</label>
+              <div class="col-md-6">
+                <input type="password" name="renewPassword" class="form-control" ng-model="renewPassword">
+              </div>
+            </div>
+            <div class="col-md-9">  
+             <alert type="danger"  close="closeAlert()" ng-show="errors.passwordIguales.length>0"> {{ errors.passwordIguales }}</alert>
+            </div>
+                        
+          </div>
+        </section>
+        <section class="panel">
+          <header class="panel-heading">
+            <div class="panel-actions">
+            </div>
+            
+            <h2 class="panel-title">Vuelve a introducir tu contraseña</h2>
+          </header>
+          <div class="panel-body">            
+            
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="inputDefault">Tu actual contraseña<span style="color:red">*</span></label>
+              <div class="col-md-6">
+                <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
+                mongoose-error required/>
+                <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
+              </div>
+
+            </div>   
+            <div class="col-md-9">         
+            <alert type="success"  close="closeAlert($index)" ng-show="message.length>0"> {{message}}</alert>
+            <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+            <button class="btn btn-lg btn-success pull-right" type="submit">Guardar</button>
+            </div>
+            
+            
+          </div>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>
