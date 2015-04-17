@@ -16,6 +16,7 @@ var LocalizacionesSchema = new Schema({
   lugarPublico: Boolean,
   acceso: String,
   facilidadAcceso: Number,
+  peligrosidad: Number,
   contaminacionLuminica: Number,
   notasAdicionales: String,
   estado: {type: Number, default: 0} // 0->Pendiente de revisar

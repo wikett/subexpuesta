@@ -11,6 +11,16 @@ exports.index = function(req, res) {
   });
 };
 
+// Get a list of localizaciones by User
+exports.getLocalizacionesByUser = function(req, res){
+  //console.log('getLocalizacionesByUser: '+req.params.autor);
+  Localizaciones.find({ autor: req.params.autor}, function(err, localizaciones){
+    if(err) { return handleError(res, err); }
+    if(!localizaciones) { return res.send(404); }
+    return res.json(localizaciones);
+  });
+};
+
 // Get a single localizaciones
 exports.show = function(req, res) {
   Localizaciones.findById(req.params.id, function (err, localizaciones) {
