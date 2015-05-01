@@ -1,3 +1,51 @@
-<div class="col-md-12">
-This is the localizaciones view.
+<style>
+	.angular-google-map-container {  width:100%; height: 400px; }
+</style>
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li class="active">Mapa</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Localización de fotografias nocturnas</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+	<div class="col-md-8">
+		Haz click en un punto para ver los detalles de la localización
+		<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds" >
+			<ui-gmap-markers models="misLocalizaciones" coords="'self'" icon="'icon'" click="'misLocalizaciones.events'" doCluster="true" >
+
+			</ui-gmap-markers>
+		</ui-gmap-google-map>
+	</div>
+	<div class="col-md-4">
+
+	<div ng-show="fotoActual.idClodinary.length>0">
+		<h3 style="margin-bottom: 8px;">{{fotoActual.titulo}}</h3>
+		<cl-image public-id="{{fotoActual.idClodinary}}" class="thumbnail inline" crop="fit" width="380" format="jpg" ></cl-image>
+		<p><strong>Autor:</strong> <a href="/tus-localizaciones/{{fotoActual.autor}}">{{fotoActual.autor}}</a></p>
+		<p><strong>Fecha:</strong> {{fotoActual.fechaToma | date:'dd/MM/yyyy'}}</p>
+		<p><strong>Etiquetas:</strong><span ng-repeat="etiqueta in fotoActual.tags"> {{etiqueta}}, </span></p>
+		<p><strong>Acceso:</strong> {{fotoActual.acceso}}</p>
+		<p><strong>Peligrosidad de la zona:</strong> {{fotoActual.peligrosidad}}/10</p>
+		<p><strong>Contaminacion luminica:</strong> {{fotoActual.contaminacion}}/10</p>
+		<p ng-show="fotoActual.notas.length>0"><strong>Notas adicionales:</strong> {{fotoActual.notas}}</p>
+		<a href="/localizaciones/{{fotoActual._id}}/{{fotoActual.titulo | seo}}">Ver detalle</a>
+	</div>
+
+	</div>
+	</div>
+	<!--<div class="row">
+		<p ng-repeat="localizacion in listaLocalizaciones">{{localizacion.titulo}}</p>
+	</div>-->
 </div>

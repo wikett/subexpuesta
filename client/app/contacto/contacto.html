@@ -1,0 +1,115 @@
+			<div role="main" class="main">
+
+				<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="/">Inicio</a></li>
+									<li class="active">Contata con Nosotros</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Contata con Nosotros</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-6">
+
+
+							<h2 class="short"><strong>Escríbenos</strong></h2>
+							<form id="contactForm">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-6">
+											<label>Tu nombre <span ng-show="!nombre.length>0" style="color:red">*</span></label>
+											<input type="text" value="" maxlength="100" class="form-control" name="name" id="name" ng-model='nombre' required>
+										</div>
+										<div class="col-md-6">
+											<label>Tu email <span ng-show="!direccion.length>0" style="color:red">*</span></label>
+											<input type="text" value="" maxlength="100" class="form-control" name="direccion" id="direccion" ng-model='direccion'  required>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Asunto</label>
+											<input type="text" value=""  maxlength="100" class="form-control" ng-model='asunto'  name="subject" id="subject" >
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>Mensaje <span ng-show="!mensaje.length>0" style="color:red">*</span></label>
+											<textarea maxlength="5000" ng-model='mensaje'  rows="10" class="form-control" name="mensaje" id="mensaje" required></textarea>
+										</div>
+									</div>
+								</div>
+								<div>
+								<span style="color:red">*</span> Campos obligatorios
+								</div>
+
+							<div class="alert alert-success" id="contactSuccess" ng-show="enviado">
+								<strong>Enviado correctamente!</strong> En la mayor brevedad posible nos pondremos en contacto contigo. Gracias!
+							</div>
+							<div ng-show="enviando" class="pull-right">
+								<strong style="font-size:24px;"><i class="fa fa-spinner fa-pulse"></i></strong>
+							</div>
+							<div class="alert alert-danger" id="contactError" ng-show="mostrarError">
+								<strong>Error!</strong> Ha habido un problema en el envio. Por favor intentelo pasado unos minutos.
+							</div>
+								<div class="row">
+									<div class="col-md-12">
+										<input ng-click="enviarCorreo()" value="Enviar" ng-disabled="nombre.length===0 || direccion.length===0 || mensaje.length===0" class="btn btn-success btn-lg pull-right" data-loading-text="Loading...">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+
+							<h4 class="push-top">Estamos en  <strong>contacto</strong></h4>
+							<p>Cualquier problema, sugerencia o incidencia que encuentres con la web, ponte en contacto con nosotros. Lo resolveremos lo más rápido posible!</p>
+
+							<hr />
+
+							<h4>La <strong>Oficina</strong></h4>
+							<ul class="list-unstyled">
+								<li><i class="fa fa-map-marker"></i> <strong>Dirección:</strong> 20 Wellwood Street, Belfast, Northen Ireland</li>
+								<li><i class="fa fa-phone"></i> <strong>Móvil:</strong> (+44) 7938 653 915</li>
+							</ul>
+
+							<hr />
+
+							<h4>Be <strong>Social</strong></h4>
+							<i class="fa  fa-facebook-square" style="font-size: 90px;"></i>
+							<i class="fa fa-twitter-square" style="font-size: 90px;"></i>
+							<i class="fa fa-instagram" style="font-size: 90px;"></i>
+							<i class="fa fa-google-plus-square" style="font-size: 90px;"></i>
+							
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--<section class="call-to-action featured footer">
+				<div class="container">
+					<div class="row">
+						<div class="center">
+							<h3>Porto is <strong>everything</strong> you need to create an <strong>awesome</strong> website! <a href="http://themeforest.net/item/porto-responsive-html5-template/4106987" target="_blank" class="btn btn-lg btn-primary" data-appear-animation="bounceIn">Buy Now!</a> <span class="arrow hlb hidden-xs hidden-sm hidden-md" data-appear-animation="rotateInUpLeft" style="top: -22px;"></span></h3>
+						</div>
+					</div>
+				</div>
+			</section>-->

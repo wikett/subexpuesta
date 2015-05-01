@@ -1,0 +1,132 @@
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li class="active">Mapa</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Sube tu fotografía</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-7">
+		<div class="form-group" >
+					<label>Selecciona la localización exacta</label> <span ng-show="!marker.coords.latitude>0" style="color:red">*</span><small>(Haz click en el mapa para situar el punto sobre el mapa)</small>
+					<div class="row">
+						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+							<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+							 </ui-gmap-marker>
+
+						</ui-gmap-google-map>
+					</div>
+					<span style="color:red">*</span> Campos obligatorios
+				</div>
+			
+		</div>
+		<div class="col-md-5">
+			<div class="row">
+				<div class="form-group" ng-class="{ 'has-success': form.titulo.$valid && submitted,
+					'has-error': form.titulo.$invalid && submitted }">
+					<label>Título <span ng-show="!localizacion.titulo.length>0" style="color:red">*</span></label>
+					
+					<input type="text" name="titulo" class="form-control" ng-model="localizacion.titulo" required mongoose-error/>
+					<p class="help-block" ng-show="form.titulo.$error.required && submitted">
+						Olvidaste poner el título
+					</p>
+					<p class="help-block" ng-show="form.titulo.$error.mongoose">
+						{{ errors.titulo }}
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<label>Fecha de la toma</label> <span ng-show="!dt.length>0" style="color:red">*</span>
+					<div class="row">
+						<div class="col-md-6">
+							<p class="input-group">
+								<input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="dateOptions"  ng-required="true" close-text="Close" />
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-7" style="margin-left: -15px;">
+					<div class="form-group">
+						<label>Subir fotografía</label> <span ng-show="!finalizado" style="color:red">*</span>
+						
+						<input type="file" name="file" class="cloudinary_fileupload" multiple ng-model="$parent.files">
+						<div class="file" ng-repeat="file in files">
+							<!--<h3><i ng-class="finalizado ? 'fa fa-check' : 'fa fa-spinner fa-pulse'"></i></h3>-->
+							
+							<div class="status"  ng-show="!finalizado">{{file.status}}</div>
+							
+							<div class="progress-bar" ng-show="!finalizado">
+								<div class="progress"style="width: {{file.progress}}%" ng-init="progress=0"></div>
+							</div>
+							<h4 class="success" ng-show="finalizado">Carga completada</h4>
+							
+						
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="file" ng-repeat="file in files">
+						<cl-image public-id="{{file.result.public_id}}" class="thumbnail inline" crop="fit" height="150" width="150" format="jpg"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<label>Etiquetas</label> <small>Utiliza palabras clave para que tu localización sea más fácil de encontrar.
+					<tags-input ng-model="tags" placeholder="Ejemplo: canon, mar, startrail, alicante">
+				    </tags-input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<label>Acceso</label> <span ng-show="!localizacion.acceso.length>0" style="color:red">*</span><small>(Se puede llegar con coche? solo a pie? el terreno es peligroso?)</small> <i data-toggle="tooltip" data-placement="top" title="Explica cómo está el acceso: si se puede llegar con coche, o hay que ir andando tantos minutos, si hay cerca zonas peligrosas, etc, etc..." class="fa fa-info-circle"></i>
+					<textarea class="form-control" ng-model="localizacion.acceso" rows="3" id="acceso" ng-model="localizacion.acceso" ></textarea>
+					
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<p style="margin:0px;"><label>Peligrosidad de la zona</label> <span ng-show="!rate>0" style="color:red">*</span></p>
+					<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" style="  font-size: 20px;"></rating>
+					<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly" >{{percent}}%</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<p style="margin:0px;"><label>Contaminación lumínica</label> <span ng-show="!rateCL>0" style="color:red">*</span></p>
+					<rating ng-model="rateCL" max="max" readonly="isReadonly" on-hover="hoveringOverCL(value)" on-leave="overStarCL = null" style="font-size: 20px;"></rating>
+					<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStarCL && !isReadonly" >{{percentCL}}%</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group" >
+					<label>Algo más que destacar</label>
+					<textarea class="form-control" ng-model="localizacion.notasAdicionales" rows="3" id="acceso" ng-model="localizacion.notasAdicionales" ></textarea>
+					
+					
+				</div>
+			</div>
+			<alert type="danger"  close="closeAlert($index)" ng-show="mensajeError.length>0"> {{ mensajeError }}</alert>
+			<h3 ng-show="localizacionCreada">Fotografía guardada correctamente!</h3>
+			<button class="btn btn-lg btn-success pull-right" type="button" ng-click="crearLocalizacion()" ng-disabled="localizacionCreada">Guardar</button>
+		</div>
+	</div>
+</div>

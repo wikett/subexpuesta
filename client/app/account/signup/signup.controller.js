@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+  .controller('SignupCtrl', function ($scope, Auth, $location, $window, Email) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -16,8 +16,15 @@ angular.module('subexpuestaV2App')
           password: $scope.user.password
         })
         .then( function() {
+          Email.EmailEnviar.enviarMail({
+                direccion: $scope.user.email
+            },function(mensaje) {
+
+            });
+
           // Account created, redirect to home
           $location.path('/');
+
         })
         .catch( function(err) {
           err = err.data;
@@ -33,26 +40,7 @@ angular.module('subexpuestaV2App')
       }
     };
 
-    $scope.crearAdmin = function(){
-      Auth.createUser({
-          name: 'Enrique',
-          username: 'SuperAdmin',
-          email: 'enrique.ac9@gmail.com',
-          password: 'poiuasdf77',
-          provider: 'local',
-          role: 'admin'
-        })
-        .then( function() {
-          // Account created, redirect to home
-          console.log('Admin creado correctamente');
-        })
-        .catch( function(err) {
-          err = err.data;
-          console.log('ERROR: '+JSON.stringify(err));
-          $scope.errors = {};
-        });
-      
-    };
+    
 
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;

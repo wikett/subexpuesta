@@ -20,6 +20,7 @@
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
       <link rel="stylesheet" href="bower_components/ngImgCrop/compile/minified/ng-img-crop.css" />
+      <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -28,6 +29,7 @@
       <link rel="stylesheet" href="app/account/login/login.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/contacto/contacto.css">
       <link rel="stylesheet" href="app/localizaciones/localizaciones.css">
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/mejora/mejora.css">
@@ -35,15 +37,21 @@
       <!-- endinjector -->
     <!-- endbuild -->
 
+    <link rel="stylesheet" href="bower_components/lightbox/css/lightbox.css" />
+    
     <link rel="stylesheet" href="assets/css/theme.css">
     <link rel="stylesheet" href="assets/css/theme-elements.css">
     <link rel="stylesheet" href="assets/css/theme-blog.css">
     <link rel="stylesheet" href="assets/css/theme-shop.css">
     <link rel="stylesheet" href="assets/css/theme-animate.css">
+
+
+
+<link rel="stylesheet" href="assets/css/skins/default.css">
     
 
-    <link rel="stylesheet" href="assets/css/skins/default.css">
 
+   <!-- <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   </head>
   <body ng-app="subexpuestaV2App">
@@ -84,8 +92,32 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+      <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> 
+     <!-- jquery file upload related. only needed if jquery file upload is used -->
+  <script src="bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="bower_components/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="bower_components/blueimp-file-upload/js/jquery.fileupload.js"></script>
+
+  <!-- end jquery file upload related -->
+  <script src="bower_components/cloudinary_js/js/jquery.cloudinary.js"></script>
+  <!-- angular file upload -->
+  <script src="bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
+  <!-- angular dependencies -->
+  <!-- cloudinary angular plugin -->
+  <script src="bower_components/cloudinary_ng/js/angular.cloudinary.js"></script>
+  <!-- angular file upload -->
+  <script src="bower_components/ng-file-upload/angular-file-upload.min.js"></script> 
+  <script src="bower_components/lightbox/js/lightbox.js"></script> 
+
+
+
+
+
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
@@ -96,13 +128,22 @@
           <script src="app/account/signup/signup.controller.js"></script>
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
+          <script src="app/contacto/contacto.controller.js"></script>
+          <script src="app/contacto/contacto.js"></script>
+          <script src="app/email/email.service.js"></script>
           <script src="app/localizaciones/localizaciones.controller.js"></script>
           <script src="app/localizaciones/localizaciones.js"></script>
+          <script src="app/localizaciones/localizaciones.service.js"></script>
+          <script src="app/localizaciones/localizacionesEditar.controller.js"></script>
+          <script src="app/localizaciones/localizacionesMapa.controller.js"></script>
+          <script src="app/localizaciones/localizacionesPortfolio.controller.js"></script>
+          <script src="app/localizaciones/localizacionesVista.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/mejora/mejora.controller.js"></script>
           <script src="app/mejora/mejora.js"></script>
           <script src="app/mejora/mejora.service.js"></script>
+          <script src="app/seo/seo.filter.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/modal/modal.service.js"></script>
@@ -110,6 +151,8 @@
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
+
+
          <script src="assets/js/theme.js"></script>
      
         <script src="assets/js/view.home.js"></script>

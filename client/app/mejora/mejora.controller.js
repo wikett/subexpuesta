@@ -34,15 +34,14 @@ angular.module('subexpuestaV2App')
     };
 
     $scope.actualizarVoto = function(idMejora, valor){
-    	console.log('MejoraCtrl actualizarVoto: '+idMejora);
+    	//console.log('MejoraCtrl actualizarVoto: '+idMejora);
     	$scope.actualizarMejora = Mejora.get({id: idMejora}, function(){
     		if(valor)
     			$scope.actualizarMejora.votos++;
     		else
     			$scope.actualizarMejora.votos--;
     		$scope.actualizarMejora.$update().then(function(response){
-        		getListaMejoras();
-        		
+        		getListaMejoras();        		
        	 });
     	});
      		

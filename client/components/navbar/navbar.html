@@ -5,7 +5,8 @@
             <!--<a href="index.html">
               <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="img/logo.png">
             </a>-->
-            <h1><a href="/">Subexpuesta.com</a></h1>
+            <!-- <h1><a href="/">Subexpuesta.com</a></h1>-->
+            <h1><a href="/"><img src="/assets/images/subexpuesta-logo.png" alt="Subexpuesta.com" width="304px" /></a></h1> 
           </div>
           <!--<div class="search">
             <form id="searchForm" action="page-search-results.html" method="get">
@@ -57,7 +58,7 @@
                   <a href="shortcodes.html">Blog</a>
                 </li>
                 <li>
-                  <a href="shortcodes.html">Contacto</a>
+                  <a href="/contacto">Contacto</a>
                 </li>
                 <li >
                   <a ng-show="!isLoggedIn()" href="/login" style="color:#444;" ><i class="fa fa-user"></i> Iniciar Sesión</a>
@@ -76,19 +77,19 @@
                               <div class="img-thumbnail">
                                 <img ng-src="{{getCurrentUser().avatar}}" />
                               </div>
-                              <p><strong>{{getCurrentUser().username}}</strong><a href="http://{{getCurrentUser().web}}" target="_blank" ng-show="getCurrentUser().web.length>0">Mi web</a></p>
+                              <p><strong>{{getCurrentUser().username}}</strong><i class="fa fa-camera"></i> <a href="/tus-localizaciones/{{getCurrentUser().username}}">Tus fotos</a></p>
                             </div>
                           </div>
                           <div class="col-md-5">
-                            <ul class="list-account-options">
+                            <ul class="list-unstyled">
                               <li>
-                                <a href="/settings">Subir Foto</a>
+                                <i class="fa fa-cloud-upload"></i> <a href="/crear-localizaciones">Subir Foto</a>
                               </li>
                               <li>
-                                <a href="/settings">Mi Cuenta</a>
+                                <i class="fa fa-cog"></i> <a href="/settings">Mi Cuenta</a>
                               </li>
                               <li>
-                                <a href="" ng-click="logout()">Cerrar Sesión</a>
+                               <i class="fa fa-sign-out"></i> <a href="" ng-click="logout()">Cerrar Sesión</a>
                               </li>
                             </ul>
                           </div>

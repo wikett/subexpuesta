@@ -18,6 +18,8 @@ module.exports = {
     uri:    process.env.MONGOLAB_URI ||
             process.env.MONGOHQ_URL ||
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-            'mongodb://LeObfHNJpuhT:XKvZYlPNmMHw@mongosoup-cont002.mongosoup.de:32421/cc_LeObfHNJpuhT'
+            //'mongodb://LeObfHNJpuhT:XKvZYlPNmMHw@mongosoup-cont002.mongosoup.de:32421/cc_LeObfHNJpuhT'
+            'mongodb://superadmin:poiuasdf77@ds037601.mongolab.com:37601/heroku_app35451627'
+            
   }
 };

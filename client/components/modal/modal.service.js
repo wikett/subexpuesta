@@ -42,6 +42,7 @@ angular.module('subexpuestaV2App')
            * @param  {All}           - any additional args are passed staight to del callback
            */
           return function() {
+            console.log('arguments: '+JSON.stringify(arguments));
             var args = Array.prototype.slice.call(arguments),
                 name = args.shift(),
                 deleteModal;
@@ -49,17 +50,17 @@ angular.module('subexpuestaV2App')
             deleteModal = openModal({
               modal: {
                 dismissable: true,
-                title: 'Confirm Delete',
-                html: '<p>Are you sure you want to delete <strong>' + name + '</strong> ?</p>',
+                title: 'Confirmacion de borrado',
+                html: '<p>¿Estás seguro de borrar la localización: <strong>' + name + '</strong> ?</p>',
                 buttons: [{
                   classes: 'btn-danger',
-                  text: 'Delete',
+                  text: 'Borrar',
                   click: function(e) {
                     deleteModal.close(e);
                   }
                 }, {
                   classes: 'btn-default',
-                  text: 'Cancel',
+                  text: 'Cancelar',
                   click: function(e) {
                     deleteModal.dismiss(e);
                   }
