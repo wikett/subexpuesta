@@ -15,7 +15,7 @@ var options = {
 
 exports.enviarEmail = function(req, res) {
 
-  console.log('enviarEmail!!!!!!!!!!!!!!!: '+req.body.direccion);
+  //console.log('enviarEmail!!!!!!!!!!!!!!!: '+req.body.direccion);
   var mailer = nodemailer.createTransport(sgTransport(options));
   var email = {
       to: req.body.direccion,

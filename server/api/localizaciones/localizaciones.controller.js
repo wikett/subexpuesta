@@ -11,10 +11,14 @@ exports.index = function(req, res) {
   });
 };
 
+
+resetPasswordExpires: { $gt: Date.now() } 
+
+
 // Get a list of localizaciones by User
 exports.getLocalizacionesByUser = function(req, res){
   //console.log('getLocalizacionesByUser: '+req.params.autor);
-  Localizaciones.find({ autor: req.params.autor}, function(err, localizaciones){
+  Localizaciones.find({ autor: req.params.autor, estado: { $lt: 5 } }, function(err, localizaciones){
     if(err) { return handleError(res, err); }
     if(!localizaciones) { return res.send(404); }
     return res.json(localizaciones);

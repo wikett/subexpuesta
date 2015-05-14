@@ -15,6 +15,9 @@ module.exports = {
   GOOGLE_ID: 'app-id',
   GOOGLE_SECRET: 'secret',
 
+  SENDGRID_API_USER: 'wikett',
+  SENDGRID_API_USER: 'poiuasdf77',
+
   // Control debug level for modules using visionmedia/debug
   DEBUG: ''
 };
