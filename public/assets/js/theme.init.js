@@ -19,3 +19,4 @@
 	}
 
 }).apply(this, [jQuery]);
+

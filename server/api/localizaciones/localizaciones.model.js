@@ -19,6 +19,7 @@ var LocalizacionesSchema = new Schema({
   peligrosidad: Number,
   contaminacionLuminica: Number,
   notasAdicionales: String,
+  direccion: String,
   estado: {type: Number, default: 0} // 0->Pendiente de revisar 5-> Borrada
 });
 
