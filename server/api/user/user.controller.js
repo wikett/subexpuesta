@@ -68,6 +68,7 @@ exports.destroy = function(req, res) {
 exports.changePassword = function(req, res, next) {
   var userId = req.user._id;
 
+console.log('urlFacebook: '+JSON.stringify(req.body.newUrlFacebook));
   var oldPass = String(req.body.passwordActual);
   var newPass = String(req.body.newPassword);
   var newName = String(req.body.newName);
@@ -76,8 +77,13 @@ exports.changePassword = function(req, res, next) {
   var newAvatar = String(req.body.newAvatar);
   var newSorteo = Boolean(req.body.newSorteo);
   var newNewsletter = Boolean(req.body.newNewsletter);
+    var newUrlFacebook = String(req.body.newUrlFacebook);
+  var newUrlTwitter= String(req.body.newUrlTwitter);
+
+
 
   User.findById(userId, function (err, user) {
+
     if(user.authenticate(oldPass)) {
       if(newPass!=='undefined' && newPass.length>0)
       user.password = newPass;
@@ -87,8 +93,13 @@ exports.changePassword = function(req, res, next) {
         user.location = newLocation;
       if(newWeb!=='undefined' && newWeb.length>0)
         user.web = newWeb;
+      if(newUrlFacebook!=='undefined' && newUrlFacebook.length>0)
+        user.urlFacebook = newUrlFacebook;
+      if(newUrlTwitter!=='undefined' && newUrlTwitter.length>0)
+        user.urlTwitter = newUrlTwitter;
       if(newAvatar!=='undefined' && newAvatar.length>0)
         user.avatar = newAvatar;
+
       user.participarConcursos = newSorteo;
       user.newsletter = newNewsletter;
       user.save(function(err) {
