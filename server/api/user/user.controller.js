@@ -24,6 +24,22 @@ exports.index = function(req, res) {
   });
 };
 
+exports.getusuario = function(req, res){
+    console.log('REQ.Apuntes.params: ' + req.params.username);
+
+    User.findOne({
+        'username': req.params.username
+    }).exec(function(err, usuarios) {
+        if (err) {
+            return res.jsonp(500, {
+                error: 'Cannot list the usuarios'
+            });
+        }
+        res.jsonp(usuarios);
+    });
+};
+
+
 /**
  * Creates a new user
  */
@@ -37,6 +53,7 @@ exports.create = function (req, res, next) {
     res.json({ token: token });
   });
 };
+
 
 /**
  * Get a single user

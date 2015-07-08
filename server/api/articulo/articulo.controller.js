@@ -11,6 +11,7 @@ exports.index = function(req, res) {
   });
 };
 
+
 // Get a single articulo
 exports.show = function(req, res) {
   Articulo.findById(req.params.id, function (err, articulo) {
