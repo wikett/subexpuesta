@@ -251,16 +251,14 @@ AddDefaultCharset utf-8
 # subdomains for certain parts of your website.
 
 <IfModule mod_rewrite.c>
-
     RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit/[0-9]|Twitterbot|Pinterest|Google.*snippet)
     RewriteRule localizaciones/(\d*)$ http://http://axiologia.hl283.dinaserver.com/page.php?id=$1 [P,L]
+
+    RewriteRule pepito http://www.subexpuesta.com/contacto [L]
 
     RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
     RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-    
-    
 </IfModule>
 
 

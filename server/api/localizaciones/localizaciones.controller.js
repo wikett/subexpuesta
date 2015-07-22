@@ -2,13 +2,18 @@
 
 var _ = require('lodash');
 var Localizaciones = require('./localizaciones.model');
+var fs = require('fs');
+var http = require('http');
 
 // Get list of localizacioness
 exports.index = function(req, res) {
+
   Localizaciones.find(function (err, localizacioness) {
     if(err) { return handleError(res, err); }
     return res.json(200, localizacioness);
+    //return res.send(200);
   });
+ 
 };
 
 
