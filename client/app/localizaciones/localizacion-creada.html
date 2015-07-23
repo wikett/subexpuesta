@@ -1,0 +1,60 @@
+
+<section class="page-top" >
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Home</a></li>
+									<li class="active">Localización Creada</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Localización Creada Correctamente!</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+<div class="container">
+					<div class="row featured-boxes">
+						<div class="col-md-3 col-sm-6">
+							<a href="/localizaciones" ><div class="featured-box featured-box-primary">
+								<div class="box-content">
+									<i class="icon-featured fa fa-globe"></i>
+									<h4>Mapa</h4>
+									<p>Explora tu nueva localización junto al resto del mapa.</p>
+								</div>
+							</div></a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="/crear-localizaciones" ><div class="featured-box featured-box-secundary">
+								<div class="box-content">
+									<i class="icon-featured fa fa-cloud-upload"></i>
+									<h4>Crea localización</h4>
+									<p>Sube otra localización y comparte tus conocimientos :)</p>
+								</div>
+							</div></a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="/tus-localizaciones/{{getCurrentUser.username}}" ><div class="featured-box featured-box-tertiary">
+								<div class="box-content">
+									<i class="icon-featured fa fa-trophy"></i>
+									<h4>{{listaLocalizaciones.length}} localizaciones</h4>
+									<p>Enhorabuena! Ya tienes creadas {{listaLocalizaciones.length}} localizaciones.</p>
+								</div>
+							</div></a>
+						</div>
+						<div class="col-md-3 col-sm-6">
+							<a href="/localizaciones/{{parametro}}/{{titulo}}" ><div class="featured-box featured-box-quartenary">
+								<div class="box-content">
+									<i class="icon-featured fa fa-cogs"></i>
+									<h4>Editar</h4>
+									<p>¿Se te ha olvidado añadir alguna información? Edítala </p>
+								</div>
+							</div></a>
+						</div>
+					</div>  
+</div>
+ 

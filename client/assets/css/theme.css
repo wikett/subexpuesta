@@ -1151,10 +1151,11 @@ body #header nav.mega-menu .mega-menu-signin ul.dropdown-menu li a, body #header
 		margin-bottom: 0;
 	}
 
+/*
 	#header .header-top, #header .social-icons, #header .search {
 		display: none;
 	}
-
+*/
 	#header .nav-collapse {
 		background: #171717;
 		width: 100%;

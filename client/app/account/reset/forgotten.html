@@ -1,0 +1,77 @@
+
+<div role="main" class="main">
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Inicio</a></li>
+          <li class="active">Olvidé mi contraseña</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Olvidé mi contraseña</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row featured-boxes login">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="featured-box featured-box-secundary default info-content">
+            <div class="box-content" ng-hide="enviado || error">
+              <h4>Solicitar nueva contraseña</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>E-mail</label>
+                      <input type="email"  class="form-control input-lg" ng-model="correo" required>
+                    </div>
+                  </div>
+                </div>              
+                <div class="row">
+                  <div class="col-md-6">
+                        <small> Se te enviará a tu email las instrucciones para resetear tu contraseña.</small>
+                  </div>
+
+                  <div class="col-md-6">
+                    <i class="fa fa-spinner fa-pulse" style="font-size:24px;" ng-show="enviando"></i><button class="btn btn-success pull-right" type="button" ng-click="olivdePassword()" ng-disabled="!correo.length>0 || enviando">Enviar</button>
+                  </div>
+                </div>
+            </div>
+            <div class="box-content" ng-show="enviado">
+              <h4>Solicitud enviada correctamente</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                     <p>Se te acaba de enviar un correo a la dirección falicitada para poder resetear tu contraseña. Abra el correo y siga las instrucciones para completar el proceso. Gracias</p>
+                    </div>
+                  </div>
+                </div>              
+            </div>
+            <div class="box-content" ng-show="error">
+              <h4>Se produjo un error</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                     <p>Por favor, revise que ha puesto su email correctamente o espere unos minutos para volver a intentarlo. Gracias</p>
+                     <a href="#" ng-click="volver()">Volver</a>
+                    </div>
+                  </div>
+                </div>              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+ 
+  
+</div>
+</div>

@@ -1,0 +1,49 @@
+<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Inicio</a></li>
+									<li class="active">Mejora la Web</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Actualizac Mejora Web</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">										
+					<section class="panel">
+						<div class="panel-body">
+							<table class="table table-no-more table-bordered table-striped mb-none">
+								<thead>
+									<tr>
+										<th>Fecha</th>
+										<th>Mejora</th>
+										<th>Estado</th>
+										<th>Votos</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="mejora in listaMejoras">
+										<td data-title="Fecha">{{mejora.fecha | date:'dd-MM-yyyy'}}</td>
+										<td data-title="Mejroa">{{mejora.descripcion}}</td>
+										<td data-title="Mejroa">
+										<select  ng-model="mejora.estado" ng-options="item.id as item.name for item in items"></select>
+									
+										</td>
+										<td data-title="Votos">{{mejora.votos}}</td>
+										<td><a href="" ng-click="actualizarVoto(mejora._id, true)"><i class="fa fa-thumbs-o-up"></i></a> <a href="" ng-click="actualizarVoto(mejora._id, false)"><i class="fa fa-thumbs-o-down"></i></a> <a href="" ng-click="borrarMejora(mejora._id)" ng-show="isAdmin()"><i class="fa fa-trash-o"></i></a></td>
+										<td><button type="text" class="btn btn-default" ng-click="actualizarMejora(mejora._id, mejora.estado)">Modificar</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>

@@ -2,15 +2,19 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="subexpuestaV2App"> <!--<![endif]-->
+  <head >
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
-    <meta name="description" content="">
+    <title>{{title}}</title>
+    <meta name="description" content="{{metaDescription}}">
     <meta name="viewport" content="width=device-width">
-    
+    <meta property="og:site_name" content="subexpuesta.com | Localizador de Fotografías Nocturnas"/>
+    <meta property="og:title" content="{{titleFB}}" />
+    <meta property="og:description" content="{{descriptionFB}}" />
+    <meta property="og:image" content="{{imageFB}}" />
+
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
@@ -29,10 +33,13 @@
       <link rel="stylesheet" href="app/account/login/login.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/articulo/articulo.css">
       <link rel="stylesheet" href="app/contacto/contacto.css">
       <link rel="stylesheet" href="app/localizaciones/localizaciones.css">
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/mejora/mejora.css">
+      <link rel="stylesheet" href="app/recomendaciones/recomendaciones.css">
+      <link rel="stylesheet" href="app/sobremi/sobremi.css">
       <link rel="stylesheet" href="components/modal/modal.css">
       <!-- endinjector -->
     <!-- endbuild -->
@@ -54,7 +61,7 @@
    <!-- <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   </head>
-  <body ng-app="subexpuestaV2App">
+  <body>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -73,8 +80,9 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-XXXXX-X');
+      ga('create', 'UA-63480947-1', 'auto');
       ga('send', 'pageview');
+
     </script>
 
     <!--[if lt IE 9]>
@@ -123,14 +131,27 @@
         <script src="app/app.js"></script>
           <!-- injector:js -->
           <script src="app/account/account.js"></script>
+          <script src="app/account/admin/lista-usuarios.controller.js"></script>
           <script src="app/account/login/login.controller.js"></script>
+          <script src="app/account/reset/forgotten.controller.js"></script>
+          <script src="app/account/reset/reset.controller.js"></script>
           <script src="app/account/settings/settings.controller.js"></script>
           <script src="app/account/signup/signup.controller.js"></script>
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
+          <script src="app/articulo/admin/crear-articulo.controller.js"></script>
+          <script src="app/articulo/admin/lista-articulos.controller.js"></script>
+          <script src="app/articulo/admin/modificar-articulo.controller.js"></script>
+          <script src="app/articulo/articulo.controller.js"></script>
+          <script src="app/articulo/articulo.js"></script>
+          <script src="app/articulo/articulo.service.js"></script>
+          <script src="app/articulo/articuloComentario.service.js"></script>
+          <script src="app/articulo/listaarticulos.controller.js"></script>
           <script src="app/contacto/contacto.controller.js"></script>
           <script src="app/contacto/contacto.js"></script>
           <script src="app/email/email.service.js"></script>
+          <script src="app/localizaciones/admin/modificar-localizacion.controller.js"></script>
+          <script src="app/localizaciones/localizacionCreada.controller.js"></script>
           <script src="app/localizaciones/localizaciones.controller.js"></script>
           <script src="app/localizaciones/localizaciones.js"></script>
           <script src="app/localizaciones/localizaciones.service.js"></script>
@@ -140,12 +161,24 @@
           <script src="app/localizaciones/localizacionesVista.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/main/sitemap.controller.js"></script>
+          <script src="app/mejora/admin/gestion-boletin.controller.js"></script>
+          <script src="app/mejora/admin/modificar-mejora.controller.js"></script>
           <script src="app/mejora/mejora.controller.js"></script>
           <script src="app/mejora/mejora.js"></script>
           <script src="app/mejora/mejora.service.js"></script>
+          <script src="app/recomendaciones/recomendaciones.controller.js"></script>
+          <script src="app/recomendaciones/recomendaciones.js"></script>
           <script src="app/seo/seo.filter.js"></script>
+          <script src="app/seo/username.filter.js"></script>
+          <script src="app/sobremi/sobremi.controller.js"></script>
+          <script src="app/sobremi/sobremi.js"></script>
           <script src="components/auth/auth.service.js"></script>
+          <script src="components/auth/forgotten.service.js"></script>
           <script src="components/auth/user.service.js"></script>
+          <script src="components/auth/usuario.service.js"></script>
+          <script src="components/footer/boletin.service.js"></script>
+          <script src="components/footer/footer.controller.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>

@@ -64,13 +64,23 @@ angular.module('subexpuestaV2App', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function ($rootScope, $location, Auth, $window) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
+      $window.scrollTo(0,0);
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
         }
       });
     });
+
+    
+    //console.log('Reseteo rootScope.title');
+    $rootScope.title = '';
+    $rootScope.metaDescription = '';
+    $rootScope.titleFB = '';
+    $rootScope.descriptionFB = '';
+    $rootScope.imageFB = 'http://subexpuesta.com/assets/images/subexpuesta-logo.png';
+
   });

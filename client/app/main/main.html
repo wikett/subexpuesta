@@ -1,5 +1,7 @@
 
-
+<style>
+  .angular-google-map-container {  width:100%; height: 400px; }
+</style>
       <div role="main" class="main">
 
 
@@ -28,12 +30,13 @@
         <div class="container">
 
           <div class="row center">
+          
             <div class="col-md-12">
               <h2 class="short word-rotator-title">
-                Descrubre las mejores fotografías <strong>nocturnas</strong> cerca de ti
+               <a href="/localizaciones" > Descrubre las mejores fotografías</a> <strong>nocturnas</strong> cerca de ti
               </h2>
               <p class="lead">
-                Conoce de cada localización cómo acceder, peligrosidad de la zona y la contaminación lumínica.<br />Descúbrelas!
+                Conoce de cada localización cómo acceder, peligrosidad de la zona y la contaminación lumínica.<br /><a href="/localizaciones" >Descúbrelas!</a>
 
               </p>
             </div>
@@ -44,9 +47,49 @@
         <div class="container">
           <div class="row center">
             <div class="col-md-12">
-              <a href="/localizaciones" ><img src="assets/images/picture-home.jpg" class="img-responsive" alt="malin head" style="margin: 45px 0px -35px;"></a>
+              Haz click en un punto para ver los detalles de la localización
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds" >
+                <ui-gmap-markers models="misLocalizaciones" coords="'self'" icon="'icon'" click="'misLocalizaciones.events'" doCluster="true" >
+                </ui-gmap-markers>
+                </ui-gmap-google-map>
             </div>
           </div>
+          <div class="row">
+            <h2 style="margin: 32px 0 32px 18px;">Últimas localizaciones subidas</h2>
+            <ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
+              <li ng-repeat="loca in listaLocalizaciones | filter:{estado:'!2'} |  orderBy:'-fechaSubida' | limitTo:4 " class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
+                <div class="portfolio-item img-thumbnail">
+                  <a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
+                    <img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">
+
+                    <span class="thumb-info-title">
+                      <span class="thumb-info-inner">{{loca.titulo}}</span>
+                      <span class="thumb-info-type">Ver</span>
+                      
+                    </span>
+                    <span class="thumb-info-action">
+                      <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                    </span>
+                  </a>
+                </div>
+              </li>
+              
+              
+            </ul>
+
+      </div>
+
+      <section class="call-to-action featured footer">
+          <div class="container">
+            <div class="row">
+              <div class="center">
+                <h3>Descubre el usuario que más localizaciones: <strong>{{usuarioMaximo.autor}}</strong>  <a href="/tus-localizaciones/{{usuarioMaximo.autor}}" class="btn btn-lg btn-primary" data-appear-animation="bounceIn">Ver Portfolio</a> <span class="arrow hlb hidden-xs hidden-sm hidden-md" data-appear-animation="rotateInUpLeft" style="top: -22px;"></span></h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         </div>
 
 

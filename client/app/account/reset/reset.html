@@ -1,0 +1,90 @@
+
+<div role="main" class="main">
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Inicio</a></li>
+          <li class="active">Crear nueva contraseña</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Crear nueva contraseña</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row featured-boxes login">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="featured-box featured-box-secundary default info-content">
+            <div class="box-content" ng-hide="enviado || error">
+              <h4>Crear Nueva contraseña</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Contraseña</label>
+                      <input type="password" name="password" class="form-control input-lg" ng-model="password" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Repetir Contraseña</label>
+                      <input type="password" name="passwordAgain" class="form-control input-lg" ng-model="passwordAgain" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" ng-show="errorPassword">
+                <div class="col-md-12">
+                  <div class="form-group has-error" >
+                    <p class="help-block">
+                      Las contraseñas no coinciden
+                    </p>
+                  </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                   <i class="fa fa-spinner fa-pulse" style="font-size:24px;" ng-show="enviando"></i><button class="btn btn-success pull-right" type="button" ng-click="resetear()" ng-disabled="!password.length>0 || !passwordAgain.length>0">Enviar</button>
+                  </div>
+                </div>
+            </div>
+            <div class="box-content" ng-show="enviado">
+              <h4>Contraseña actualizada correctamente</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                     <p>Vuelve a la página de login y ya puedes utilizar tu nueva contraseña. Gracias.</p>
+                     <a href="/login">Iniciar Sesión</a>
+                    </div>
+                  </div>
+                </div>              
+            </div>
+            <div class="box-content" ng-show="error">
+              <h4>Se produjo un error</h4>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                     <p>Token invalido o ha expirado su tiempo para renovar su contraseña (tienes una hora máximo para abrir el enlace que se envió a tu correo). Vuelva a solicitar cambio de contraseña. Gracias</p>
+                     <a href="/olvide-password" >Solicitar nueva contraseña</a>
+                    </div>
+                  </div>
+                </div>              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+ 
+  
+</div>
+</div>

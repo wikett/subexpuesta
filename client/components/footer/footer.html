@@ -1,53 +1,54 @@
-<footer id="footer">
+<footer id="footer" ng-controller="FooterCtrl">
 				<div class="container">
 					<div class="row">
 						<div class="footer-ribbon">
-							<span>Get in Touch</span>
+							<span>Nos sigues?</span>
 						</div>
 						<div class="col-md-3">
 							<div class="newsletter">
-								<h4>Newsletter</h4>
-								<p>Keep up on our always evolving product features and technology. Enter your e-mail and subscribe to our newsletter.</p>
+								<h4>Boletín de Noticias</h4>
+								<p>Mantente informado con todas las novedades de la web: concursos, sorteos, premios, mejores localizaciones...</p>
 			
-								<div class="alert alert-success hidden" id="newsletterSuccess">
-									<strong>Success!</strong> You've been added to our email list.
-								</div>
+								
 			
-								<div class="alert alert-danger hidden" id="newsletterError"></div>
+								
 			
-								<form id="newsletterForm">
 									<div class="input-group">
-										<input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+										<input class="form-control" placeholder="Tu Email" ng-model="correo" type="email">
 										<span class="input-group-btn">
-											<button class="btn btn-default" type="submit">Go!</button>
+											<button class="btn btn-default" ng-click="guardarEmail()" ng-disabled="!correo.length>0">Go!</button>
 										</span>
 									</div>
-								</form>
+								<div class="alert alert-success" style="margin-top:10px;" ng-show="boletinCreado">
+									<strong>Éxito!</strong> Gracias por unirte a nuestra lista.
+								</div>
+								<!--<div class="alert alert-danger" id="newsletterError"></div>-->
 							</div>
 						</div>
 						<div class="col-md-3">
-							<h4>Latest Tweets</h4>
+							<h4>Últimos tweets</h4>
 							<div id="tweet" class="twitter" data-plugin-tweets data-plugin-options='{"username": "", "count": 2}'>
-								<p>Please wait...</p>
+								<p>Cargando...</p>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="contact-details">
-								<h4>Contact Us</h4>
+								<h4>Contactanos</h4>
 								<ul class="contact">
-									<li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 1234 Street Name, City Name, United States</p></li>
-									<li><p><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-7890</p></li>
-									<li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+									<li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong> 20 Wellwood Street, Belfast, Northen Ireland</p></li>
+									<li><p><i class="fa fa-phone"></i> <strong>Movil:</strong> (+44) 7938653915</p></li>
+									<li><p><i class="fa fa-skype"></i> <strong>Skype:</strong> subexpuesta.com</p></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<h4>Follow Us</h4>
+							<h4>Be Social</h4>
 							<div class="social-icons">
 								<ul class="social-icons">
-									<li class="facebook"><a href="http://www.facebook.com/" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
-									<li class="twitter"><a href="http://www.twitter.com/" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
-									<li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" data-placement="bottom" data-tooltip title="Linkedin">Linkedin</a></li>
+									<li class="facebook"><a href="https://www.facebook.com/subexpuesta" target="_blank" data-placement="bottom" data-tooltip title="Facebook">Facebook</a></li>
+									<li class="twitter"><a href="https://twitter.com/subexpuesta_com" target="_blank" data-placement="bottom" data-tooltip title="Twitter">Twitter</a></li>
+									<li class="instagram"><a href="https://instagram.com/subexpuesta_com/" target="_blank" data-placement="bottom" data-tooltip title="Instagram">Instagram</a></li>
+
 								</ul>
 							</div>
 						</div>
@@ -57,19 +58,20 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-1">
-								<a href="index.html" class="logo">
-									<img alt="Porto Website Template" class="img-responsive" src="assets/images/logo-footer.png">
+								<a href="/" class="logo">
+									<img alt="www.subexpuesta.com" class="img-responsive"  src="assets/images/subexpuesta-logo.png">
 								</a>
 							</div>
-							<div class="col-md-7">
-								<p>© Copyright 2015. All Rights Reserved.</p>
-							</div>
 							<div class="col-md-4">
+								<p>© Copyright 2015. Todos los derechos reservados.</p>
+							</div>
+							<div class="col-md-7">
 								<nav id="sub-menu">
 									<ul>
-										<li><a href="page-faq.html">FAQ's</a></li>
-										<li><a href="sitemap.html">Sitemap</a></li>
-										<li><a href="contact-us.html">Contact</a></li>
+										<li><a href="/cookies">Información sobre cookies</a></li>
+										<li><a href="/terminos-de-uso">Términos de Uso</a></li>
+										<li><a href="/sitemap">Sitemap</a></li>
+										<li><a href="/contacto">Contacto</a></li>
 									</ul>
 								</nav>
 							</div>

@@ -1,0 +1,175 @@
+<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Home</a></li>
+									<li class="active">Blog</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Blog</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-9">
+							<div class="blog-posts">
+
+								<article ng-repeat="articulo in listaArticulos | orderBy: '-fechaCreacion'" class="post post-large">
+									<div class="post-image single">
+										<img class="img-thumbnail" src="{{articulo.imagen}}" alt="{{articulo.titulo}}">
+									</div>
+
+									<div class="post-date">
+										<span class="day">{{articulo.fechaCreacion | date:'d'}}</span>
+										<span class="month">{{articulo.fechaCreacion | date:'MMM'}}</span>
+									</div>
+
+									<div class="post-content">
+
+										<h2><a href="/articulo/{{articulo._id}}/{{articulo.titulo | seo}}">{{articulo.titulo}}</a></h2>
+										<p>{{articulo.contenido | limitTo: 300}} [...]</p>
+
+										<div class="post-meta">
+											<span><i class="fa fa-user"></i> Por <a href="#">{{articulo.autor}}</a> </span>
+											<!--<span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>-->
+											<!--<span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>-->
+											<a href="/articulo/{{articulo._id}}/{{articulo.titulo | seo}}" class="btn btn-xs btn-primary pull-right">Leer más...</a>
+										</div>
+									</div>
+								</article>
+
+
+								<!--<ul class="pagination pagination-lg pull-right">
+									<li><a href="#">«</a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">»</a></li>
+								</ul>-->
+
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<aside class="sidebar">
+
+								<!--<form>
+									<div class="input-group input-group-lg">
+										<input class="form-control" placeholder="Search..." name="s" id="s" type="text">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+								</form>
+
+								<hr />-->
+
+								<h4>Categorías</h4>
+								<ul class="nav nav-list primary push-bottom">
+									<li><a href="#">General</a></li>
+									<li><a href="#">LightPainting</a></li>
+									<li><a href="#">Técnica</a></li>
+									<li><a href="#">Comunidad</a></li>
+								</ul>
+
+								<h4>Be <strong>Social</strong></h4>
+							<a href="https://www.facebook.com/subexpuesta" target="_blank"><i class="fa  fa-facebook-square" style="font-size: 40px;"></i></a>
+							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-twitter-square" style="font-size: 40px;"></i></a>
+							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-instagram" style="font-size: 40px;"></i></a>
+							<a href="https://plus.google.com/u/0/b/106789030605644022112/dashboard/overview" target="_blank"><i class="fa fa-google-plus-square" style="font-size: 40px;"></i></a>
+
+								<div class="tabs" style="margin-top:20px;">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
+										
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="popularPosts">
+											<ul class="simple-post-list">
+												<li ng-repeat="articulo in listaArticulos">
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="{{articulo.imagen}}" width="50px" height="50px;" alt="{{articulo.titulo}}">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="/articulo/{{articulo._id}}/{{articulo.titulo | seo}}">{{articulo.titulo}}</a>
+														<div class="post-meta">
+															 {{articulo.fechaCreacion | date:'d MMM yyyy'}}
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!--<div class="tab-pane" id="recentPosts">
+											<ul class="simple-post-list">
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-2.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-3.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Odiosters Nullam Vitae</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-1.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>-->
+									</div>
+								</div>
+
+								<hr />
+
+								<h4>Colabora</h4>
+								<p>¿Te apetece contar tú historia, compartir cómo has encontrado una localización o quieres dar detalle de cómo has realizado una fotografía? Ponte en <a href="/contacto">contacto</a> con nosotros y cuéntanos.</p>
+
+							</aside>
+						</div>
+					</div>
+
+				</div>

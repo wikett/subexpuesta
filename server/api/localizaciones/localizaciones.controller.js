@@ -2,19 +2,28 @@
 
 var _ = require('lodash');
 var Localizaciones = require('./localizaciones.model');
+var fs = require('fs');
+var http = require('http');
 
 // Get list of localizacioness
 exports.index = function(req, res) {
+
   Localizaciones.find(function (err, localizacioness) {
     if(err) { return handleError(res, err); }
     return res.json(200, localizacioness);
+    //return res.send(200);
   });
+ 
 };
+
+
+resetPasswordExpires: { $gt: Date.now() } 
+
 
 // Get a list of localizaciones by User
 exports.getLocalizacionesByUser = function(req, res){
   //console.log('getLocalizacionesByUser: '+req.params.autor);
-  Localizaciones.find({ autor: req.params.autor}, function(err, localizaciones){
+  Localizaciones.find({ autor: req.params.autor, estado: { $lt: 5 } }, function(err, localizaciones){
     if(err) { return handleError(res, err); }
     if(!localizaciones) { return res.send(404); }
     return res.json(localizaciones);

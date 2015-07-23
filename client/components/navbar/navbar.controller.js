@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $log) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
@@ -12,7 +12,21 @@ angular.module('subexpuestaV2App')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-    console.log('getCurrentUser: '+JSON.stringify($scope.getCurrentUser));
+    $scope.menuExpandido = false;
+
+    $scope.cerrarMenu = function(){
+      $log.debug('Cerrar Menu');
+      $scope.menuExpandido = false;      
+    };
+
+    $scope.abrirMenu = function(){
+      $log.debug('Abrir Menu');
+      $scope.menuExpandido = true;      
+    };
+
+    $scope.swapMenu = function(){
+      $scope.menuExpandido = !$scope.menuExpandido;      
+    }
 
     $scope.logout = function() {
       Auth.logout();

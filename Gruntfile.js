@@ -347,7 +347,9 @@ module.exports = function (grunt) {
             'assets/fonts/**/*',
             'assets/css/**/*',
             'assets/js/**/*',
-            'index.html'
+            'index.html',
+            'google774170f3a8d668b8.html',
+            'sitemap.xml'
           ]
         }, {
           expand: true,

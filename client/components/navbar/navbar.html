@@ -1,4 +1,4 @@
-<header id="header" ng-controller="NavbarCtrl" >
+<header id="header" ng-controller="NavbarCtrl">
         <div class="container">
 
           <div class="logo">
@@ -19,49 +19,49 @@
             </form>
           </div>-->
           <ul class="social-icons">
-            <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
-            <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+            <li class="facebook"><a href="https://www.facebook.com/subexpuesta" target="_blank" title="Facebook">Facebook</a></li>
+            <li class="twitter"><a href="https://twitter.com/subexpuesta_com" target="_blank" title="Twitter">Twitter</a></li>
           </ul>
           <nav>
             <ul class="nav nav-pills nav-top">
               <li>
-                <a href="about-us.html"><i class="fa fa-angle-right"></i>Sobre Nosotros</a>
+                <a href="/sobrenosotros"><i class="fa fa-angle-right"></i>Sobre Nosotros</a>
               </li>
               <li>
                 <a href="/mejora"><i class="fa fa-angle-right"></i>Mejora la Web</a>
               </li>
             </ul>
           </nav>
-          <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+          <!--<button class="btn btn-responsive-nav btn-inverse" ng-click="abrirMenu()" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+          </button>-->
+          <button class="btn btn-responsive-nav btn-inverse" ng-click="swapMenu()">
             <i class="fa fa-bars"></i>
           </button>
         </div>
-        <div class="navbar-collapse nav-main-collapse collapse">
+        <div ng-class="menuExpandido ? 'navbar-collapse nav-main-collapse collapse in' : 'navbar-collapse nav-main-collapse collapse'">
           <div class="container">
-            <nav class="nav-main mega-menu" style="width:700px;">
-              <ul class="nav nav-pills nav-main" id="mainMenu" >
+            <nav class="nav-main mega-menu" style="width:636px;">
+              <ul class="nav nav-pills nav-main" >
                 
                 <li>
-                  <a class="dropdown-toggle" href="/">
+                  <a class="dropdown-toggle" ng-click="cerrarMenu()" href="/">
                     Inicio</a>
                 </li>
                 <li>
-                  <a href="/localizaciones">Mapa</a>
+                  <a href="/localizaciones" ng-click="cerrarMenu()">Mapa</a>
                 </li>
                 <li>
-                  <a href="shortcodes.html">Ranking</a>
+                  <a href="/recomendaciones" ng-click="cerrarMenu()">Recomendaciones</a>
                 </li>
                 <li>
-                  <a href="shortcodes.html">Recomendaciones</a>
+                  <a href="/blog" ng-click="cerrarMenu()">Blog</a>
                 </li>
                 <li>
-                  <a href="shortcodes.html">Blog</a>
-                </li>
-                <li>
-                  <a href="/contacto">Contacto</a>
+                  <a href="/contacto" ng-click="cerrarMenu()">Contacto</a>
                 </li>
                 <li >
-                  <a ng-show="!isLoggedIn()" href="/login" style="color:#444;" ><i class="fa fa-user"></i> Iniciar Sesión</a>
+                  <a ng-show="!isLoggedIn()" href="/login" style="color:#444;" ng-click="cerrarMenu()"><i class="fa fa-user"></i> Iniciar Sesión</a>
                 </li>
                 <li ng-show="isLoggedIn()"  class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
                   <a class="dropdown-toggle " href="page-login.html">
@@ -77,19 +77,20 @@
                               <div class="img-thumbnail">
                                 <img ng-src="{{getCurrentUser().avatar}}" />
                               </div>
-                              <p><strong>{{getCurrentUser().username}}</strong><i class="fa fa-camera"></i> <a href="/tus-localizaciones/{{getCurrentUser().username}}">Tus fotos</a></p>
+                              <p><strong>{{getCurrentUser().username}}</strong><i class="fa fa-camera"></i> <a href="/tus-localizaciones/{{getCurrentUser().username}}" ng-click="cerrarMenu()">Tus localizaciones</a></p>
+                              <p ng-if="isAdmin()"> <i class="fa fa-cog"></i> <a href="/admin">Admin</a></p>
                             </div>
                           </div>
                           <div class="col-md-5">
                             <ul class="list-unstyled">
                               <li>
-                                <i class="fa fa-cloud-upload"></i> <a href="/crear-localizaciones">Subir Foto</a>
+                                <i class="fa fa-cloud-upload"></i> <a href="/crear-localizaciones" ng-click="cerrarMenu()">Crear Localización</a>
                               </li>
                               <li>
-                                <i class="fa fa-cog"></i> <a href="/settings">Mi Cuenta</a>
+                                <i class="fa fa-cog"></i> <a href="/settings" ng-click="cerrarMenu()">Mi Cuenta</a>
                               </li>
                               <li>
-                               <i class="fa fa-sign-out"></i> <a href="" ng-click="logout()">Cerrar Sesión</a>
+                               <i class="fa fa-sign-out"></i> <a href="" ng-click="logout()" ng-click="cerrarMenu()">Cerrar Sesión</a>
                               </li>
                             </ul>
                           </div>

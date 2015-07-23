@@ -542,3 +542,9 @@ html[dir="rtl"] .tabs.tabs-vertical.tabs-right ul.nav-tabs li.active a:focus {
 	border-right-color: transparent;
 	border-left-color: #0088cc;
 }
+.modal-title .modal-header{
+	  color: #333;
+}
+.linkmapa a:hover{
+	color:red;
+}

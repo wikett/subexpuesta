@@ -24,6 +24,18 @@ angular.module('subexpuestaV2App')
         controller: 'LocalizacionesEditarCtrl',
         authenticate: true
       })
+      .state('adminlocalizaciones', {
+        url: '/admin/localizaciones',
+        templateUrl: 'app/localizaciones/admin/modificar-localizacion.html',
+        controller: 'AdminLocalizacionCtrl',
+        authenticate: true
+      })
+      .state('localizacioncreada', {
+        url: '/localizacion-creada/:id/:titulo',
+        templateUrl: 'app/localizaciones/localizacion-creada.html',
+        controller: 'LocalizacionCreadaCtrl',
+        authenticate: true
+      })      
       .state('crearlocalizaciones', {
         url: '/crear-localizaciones',
         templateUrl: 'app/localizaciones/crear-localizaciones.html',

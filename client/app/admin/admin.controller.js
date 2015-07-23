@@ -1,24 +1,26 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('AdminCtrl', function ($scope, $http, Auth, User, Modal) {
+  .controller('AdminCtrl', function ($scope, $http, Auth, User, $location, $log) {
+
+    $log.debug('Es admin: '+Auth.isAdmin());
+
+    if(!Auth.isAdmin())
+    {
+      $location.path('/');
+    }
+
+    
 
     // Use the User $resource to fetch all users
-    $scope.users = User.query();
+    /*$scope.users = User.query();
 
-   /* $scope.delete = Modal.confirm.delete(function(user) {
+    $scope.delete = function(user) {
       User.remove({ id: user._id });
       angular.forEach($scope.users, function(u, i) {
         if (u === user) {
           $scope.users.splice(i, 1);
         }
       });
-    });*/
-
- $scope.modal=Modal.confirm.askToLogin(function(message) { // callback when modal is confirmed
-        $location.path("/login"); //will redirect to login page, make sure your controller is using $location
-      });
-
-$scope.modal("follow");
-
+    };*/
   });

@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('ContactoCtrl', function ($scope, Email, $log) {
+  .controller('ContactoCtrl', function ($scope, $rootScope, Email, $log) {
+    
+     $rootScope.title = 'Ponte en contacto con nosotros | subexpuesta.com';
+     $rootScope.metaDescription = 'Cualquier problema, sugerencia o incidencia que encuentres con la web, ponte en contacto con nosotros. Lo resolveremos lo más rápido posible!';
+
     $scope.enviado = false;
     $scope.mostrarError = false;
     $scope.enviando = false;

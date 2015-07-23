@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('MejoraCtrl', function ($scope, Mejora, Auth) {
+  .controller('MejoraCtrl', function ($scope, $rootScope, Mejora, Auth) {
 
   	$scope.isAdmin = Auth.isAdmin;
+
+    $rootScope.title = 'Mejora la web | subexpuesta.com';
+    $rootScope.metaDescription = 'Cualquier sugerencia que se te ocurra, un problema que encuentres, alguna funcionalidad nueva que te gustaría que apareciera en la web o cualquier comentario para mejorar la web es bienvenido.';
 
   	$scope.listaMejoras = [];
   	$scope.descripcionMejora = '';

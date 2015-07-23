@@ -9,27 +9,40 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-12">
-								<h1>Portfolio</h1>
+							<div class="col-md-8">
+								<h1>{{nombreUsuario}}</h1>
+							    <a ng-show="sitioweb.length>0" href="{{sitioweb}}" target="_blank" style="margin-left:10px;">{{sitioweb}}</a>
+							</div>
+							<div class="col-md-4 text-right" >
+								<a ng-show="sitioFB.length>0" href="{{sitioFB}}" target="_blank" class="text-align:right;"><i class="fa  fa-facebook-square" style="font-size: 40px;   margin-right: 20px;"></i></a>
+							    <a ng-show="sitioTwitter.length>0" href="{{sitioTwitter}}" target="_blank"><i class="fa fa-twitter-square" style="font-size: 40px;  margin-right: 20px;"></i></a>
 							</div>
 						</div>
 					</div>
 				</section>
-
-				<!--<div class="sort-source-wrapper">
+				<!--
+				<section class="page-top">
 					<div class="container">
-						<ul class="nav nav-pills sort-source secundary pull-right" data-sort-id="portfolio" data-option-key="filter">
-							<li data-option-value="*" class="active"><a href="#">Show All</a></li>
-							<li data-option-value=".websites"><a href="#">Websites</a></li>
-							<li data-option-value=".logos"><a href="#">Logos</a></li>
-							<li data-option-value=".brands"><a href="#">Brands</a></li>
-						</ul>
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Home</a></li>
+									<li class="active">Portfolio</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Portfolio</h1>							    
+							</div>							
+						</div>
 					</div>
-				</div>-->
-					<div class="container">
+				</section>-->
+
+					<div class="container"> 
 			<div class="row">
 				<ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
-					<li ng-repeat="loca in listaLocalizaciones" class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
+					<li ng-repeat="loca in listaLocalizaciones | filter:{estado:'!2'}" class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
 						<div class="portfolio-item img-thumbnail">
 							<a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
 								<img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">

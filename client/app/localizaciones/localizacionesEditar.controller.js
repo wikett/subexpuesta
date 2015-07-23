@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth) {
+  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal) {
     
     $scope.getCurrentUser = Auth.getCurrentUser();
     
@@ -108,6 +108,9 @@ $scope.tags = [];
     });
 	
 
+
+
+
 $scope.editarLocalizacion = function(){
 		if($scope.marker.coords.latitude===0)
 		{
@@ -163,6 +166,8 @@ $scope.editarLocalizacion = function(){
        }
     };
 
+
+  
 
     function getLocalizacion() {
            

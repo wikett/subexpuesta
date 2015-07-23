@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+							<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th width="200px">Titulo</th>
+						<th >Contenido</th>
+						<th width="200px">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="articulo in listaArticulos" class="gradeX">
+						<td>{{articulo.fechaCreacion | date:'dd/MM/yyyy'}}</td>
+						<td width="200px">{{articulo.titulo}}</td>
+						<td >{{articulo.contenido | limitTo: 200}}</td>
+						<td width="200px"><a href="#">Ver</a> |<a href="/admin/modificar-articulos/{{articulo._id}}/">Modificar</a> | <a href="#">Borrar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		
+	</div>
+</div>

@@ -1,0 +1,263 @@
+
+
+				<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Home</a></li>
+									<li class="active">Blog</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>{{singleArticulo.titulo}}</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-9">
+							<div class="blog-posts single-post">
+
+								<article class="post post-large blog-single-post">
+									<div class="post-image">
+										<div class="owl-carousel" data-plugin-options='{"items":1}'>
+											<div>
+												<div class="img-thumbnail">
+													<img class="img-responsive"  src="{{singleArticulo.imagen}}" alt="{{singleArticulo.titulo}}">
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="post-date">
+										<span class="day">{{singleArticulo.fechaCreacion | date: 'd'}}</span>
+										<span class="month">{{singleArticulo.fechaCreacion | date: 'MMM'}}</span>
+									</div>
+
+									<div class="post-content">
+
+										<h2><a href="blog-post.html">{{singleArticulo.titulo}}</a></h2>
+
+										<div class="post-meta">
+											<span><i class="fa fa-user"></i> Por <a href="#">{{singleArticulo.autor}}</a> </span>
+											<!--<span><i class="fa fa-tag"></i> <a href="#">Duis</a>, <a href="#">News</a> </span>-->
+											<span><i class="fa fa-comments"></i> <a href="#">{{singleArticulo.comentarios.length}} Comentarios</a></span>
+										</div>
+										
+										<div ng-bind-html="singleArticulo.contenidoHTML">
+										</div>
+										
+
+
+										<div class="post-block post-share">
+											<h3><i class="fa fa-share"></i>Compartir artículo</h3>
+
+											<!-- AddThis Button BEGIN -->
+											<div class="addthis_toolbox addthis_default_style ">
+												<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+												<a class="addthis_button_tweet"></a>
+												<a class="addthis_button_pinterest_pinit"></a>
+												<a class="addthis_counter addthis_pill_style"></a>
+											</div>
+											<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
+											<!-- AddThis Button END -->
+
+										</div>
+
+										<!--<div class="post-block post-author clearfix">
+											<h3><i class="fa fa-user"></i>Autor</h3>
+											<div class="img-thumbnail">
+												<a href="blog-post.html">
+													<img src="assets/images/avatar.jpg" alt="">
+												</a>
+											</div>
+											<p><strong class="name"><a href="#">{{articulo.autor}}</a></strong></p>
+											<p>d </p>
+										</div>-->
+
+										<div class="post-block post-comments clearfix" ng-hide="singleArticulo.comentarios.length===0">
+											<h3><i class="fa fa-comments"></i>Comentarios ({{singleArticulo.comentarios.length}})</h3>
+
+											<ul class="comments">
+												<li ng-repeat="comentario in singleArticulo.comentarios">
+													<div class="comment">
+														<div class="img-thumbnail" style="border:0px">
+															<i class="fa fa-user" style="  font-size: 84px;margin-left: 17px;margin-top: 4px; color:{{listaColores[$index%9]}}"></i>
+														</div>
+														<div class="comment-block">
+															<div class="comment-arrow"></div>
+															<span class="comment-by">
+																<strong>{{comentario.nombre}}</strong>
+															</span>
+															<p>{{comentario.comentario}}</p>
+															<span class="date pull-right">{{comentario.fechaComentario | date: 'd MMM yyyy h:mm:ss a'}}</span>
+														</div>
+													</div>													
+												</li>
+												
+											</ul>
+
+										</div>
+
+										<div class="post-block post-leave-comment">
+											<h3>Dejar un comentario</h3>
+
+											
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-6">
+															<label>Tu nombre <span ng-show="!comentarioArticulo.nombre.length>0" style="color:red">*</span></label>
+															<input type="text" value="" maxlength="100" class="form-control" ng-model="comentarioArticulo.nombre">
+														</div>
+														<div class="col-md-6">
+															<label>Tu email <span ng-show="!comentarioArticulo.direccion.length>0"  style="color:red">*</span></label>
+															<input type="email" value="" maxlength="100" class="form-control" ng-model="comentarioArticulo.direccion">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+														<div class="col-md-12">
+															<label>Comentario <span  ng-show="!comentarioArticulo.comentario.length>0" style="color:red">*</span></label>
+															<textarea maxlength="5000" rows="10" class="form-control" ng-model="comentarioArticulo.comentario"></textarea>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<input ng-click="enviarComentario()" ng-disabled="comentarioArticulo.nombre.length===0 || comentarioArticulo.direccion.length===0 || comentarioArticulo.comentario.length===0" value="Enviar Comentario" class="btn btn-primary btn-lg" data-loading-text="Loading...">
+														 
+													</div>
+												</div>
+											
+										</div>
+
+									</div>
+								</article>
+
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<aside class="sidebar">
+
+								<!--<form>
+									<div class="input-group input-group-lg">
+										<input class="form-control" placeholder="Search..." name="s" id="s" type="text">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+										</span>
+									</div>
+								</form>
+
+								<hr />-->
+
+								<h4>Categorías</h4>
+								<ul class="nav nav-list primary push-bottom">
+									<li><a href="#">General</a></li>
+									<li><a href="#">LightPainting</a></li>
+									<li><a href="#">Técnica</a></li>
+									<li><a href="#">Comunidad</a></li>
+								</ul>
+
+								<h4>Be <strong>Social</strong></h4>
+							<a href="https://www.facebook.com/subexpuesta" target="_blank"><i class="fa  fa-facebook-square" style="font-size: 40px;"></i></a>
+							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-twitter-square" style="font-size: 40px;"></i></a>
+							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-instagram" style="font-size: 40px;"></i></a>
+							<a href="https://plus.google.com/u/0/b/106789030605644022112/dashboard/overview" target="_blank"><i class="fa fa-google-plus-square" style="font-size: 40px;"></i></a>
+
+								<div class="tabs"  style="margin-top:20px;">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Popular</a></li>
+										
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="popularPosts">
+											<ul class="simple-post-list">
+												<li ng-repeat="articulo in listaArticulos">
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="{{articulo.imagen}}" width="50px" height="50px;" alt="{{articulo.titulo}}">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="/articulo/{{articulo._id}}/{{articulo.titulo | seo}}">{{articulo.titulo}}</a>
+														<div class="post-meta">
+															 {{articulo.fechaCreacion | date:'d MMM yyyy'}}
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!--<div class="tab-pane" id="recentPosts">
+											<ul class="simple-post-list">
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-2.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Vitae Nibh Un Odiosters</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-3.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Odiosters Nullam Vitae</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="post-image">
+														<div class="img-thumbnail">
+															<a href="blog-post.html">
+																<img src="img/blog/blog-thumb-1.jpg" alt="">
+															</a>
+														</div>
+													</div>
+													<div class="post-info">
+														<a href="blog-post.html">Nullam Vitae Nibh Un Odiosters</a>
+														<div class="post-meta">
+															 Jan 10, 2013
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>-->
+									</div>
+								</div>
+
+								<hr />
+
+								<h4>Colabora</h4>
+								<p>¿Te apetece contar tú historia, compartir cómo has encontrado una localización o quieres dar detalle de cómo has realizado una fotografía? Ponte en <a href="/contacto">contacto</a> con nosotros y cuéntanos.</p>
+
+							</aside>
+						</div>
+					</div>
+
+				</div>
+
+			

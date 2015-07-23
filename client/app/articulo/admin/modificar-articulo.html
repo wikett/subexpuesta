@@ -1,0 +1,42 @@
+<div class="container">
+<h2>Modificar articulo</h2>
+	<div class="row">
+				<form ng-submit="modificarArticulo()">
+				  <div class="form-group">
+				    <label>Titulo</label>
+				    <input type="text" class="form-control" id="titulo" placeholder="Titulo" ng-model="titulo"> 
+				  </div>
+				  <div class="form-group">
+				    <label>Texto plano</label>
+				    <textarea class="form-control" id="contenido" ng-model="contenido"></textarea>
+				  </div>
+				  <div class="form-group">
+				    <label>Texto HTML</label>
+				    <textarea class="form-control" id="contenidoHTML" ng-model="contenidoHTML"></textarea>
+				  </div>
+				  <div class="form-group">
+				    <label>Autor</label>
+				    <textarea class="form-control" id="autor" placeholder="subexpuesta.com" ng-model="autor"></textarea>
+				  </div>
+				  <div class="form-group">
+				    <label>Imagen</label>
+				    <textarea class="form-control" id="imagen" placeholder="url de la imagen. 1280x500" ng-model="imagen"></textarea>
+				  </div>
+				  <div class="form-group">
+				    <label>Categoria</label>
+				    <select ng-model="model.id" convert-to-number>
+					  <option value="0">General</option>
+					  <option value="1">Congresos</option>
+					  <option value="2">Lightpainting</option>
+					  <option value="3">Astrofotografia</option>
+					  <option value="4">Trucos</option>
+					</select>
+				  </div>
+				  
+
+				  <button type="text" class="btn btn-default">Modificar</button>
+				</form>
+				<p ng-show="articuloModificado">Articulo modificado correctamente</p>
+		
+	</div>
+</div>

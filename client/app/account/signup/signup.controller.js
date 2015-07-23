@@ -9,9 +9,11 @@ angular.module('subexpuestaV2App')
       $scope.submitted = true;
 
       if(form.$valid) {
+        var usernameLimpio = ($scope.user.username.toString()).replace(/[&\/\\#,+()$~%.='!":*?<>{}]/g,'-');
+        console.log('usernameLimpio: '+usernameLimpio);
         Auth.createUser({
           name: $scope.user.name,
-          username: $scope.user.username,
+          username: usernameLimpio,
           email: $scope.user.email,
           password: $scope.user.password
         })

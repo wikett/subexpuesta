@@ -1,8 +1,17 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('LocalizacionesMapaCtrl', function ($scope, $log, Localizacion, uiGmapGoogleMapApi) {
+  .controller('LocalizacionesMapaCtrl', function ($scope, $rootScope, $log, Localizacion, uiGmapGoogleMapApi) {
     
+
+    
+    $rootScope.title = 'Mapa con Localizaciones de Fotografias Nocturnas | subexpuesta.com';
+    $rootScope.titleFB = 'Mapa con Localizaciones de Fotografias Nocturnas | subexpuesta.com';
+    $rootScope.metaDescription = 'Descubre localizaciones de fotografias nocturnas cerca de tu zona, o de un nuevo sitio para poder hacer tu version. Juega con el mapa y explora.';
+    $rootScope.descriptionFB = 'Descubre localizaciones de fotografias nocturnas cerca de tu zona, o de un nuevo sitio para poder hacer tu version. Juega con el mapa y explora.';
+    //$log.debug('LocalizacionesMapaCtrl | title: '+$rootScope.title);
+    
+    $scope.busqueda = '';
     $scope.listaLocalizaciones = {};
     $scope.misLocalizaciones = [];
     $scope.fotoActual = {};
@@ -12,7 +21,7 @@ angular.module('subexpuestaV2App')
       latitude: 40.399995,
       longitude: -4.087896
       },
-      zoom: 2,
+      zoom: 1,
       bounds: {},
       clusterOptions: {
         title: 'Hi I am a Cluster!',
@@ -90,7 +99,8 @@ angular.module('subexpuestaV2App')
 
           };
           //ret[idKey] = loca.cloudinaryId;
-          $scope.misLocalizaciones.push(ret);
+           if(loca.estado!=2)
+             $scope.misLocalizaciones.push(ret);
           });
 
 

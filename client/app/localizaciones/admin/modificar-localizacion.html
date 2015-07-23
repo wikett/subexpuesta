@@ -1,0 +1,46 @@
+<section class="page-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Inicio</a></li>
+									<li class="active">Localizaciones</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Localizaciones</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">										
+					<section class="panel">
+						<div class="panel-body">
+							<table class="table table-no-more table-bordered table-striped mb-none">
+								<thead>
+									<tr>
+										<th>Fecha</th>
+										<th>Titulo</th>
+										<th>Autor</th>
+										<th>Estado</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="localizacion in listaLocalizaciones">
+										<td data-title="Fecha">{{localizacion.fechaSubida | date:'dd-MM-yyyy'}}</td>
+										<td>{{localizacion.titulo}}</td>
+										<td data-title="Votos">{{localizacion.autor}}</td>
+										<td>
+											<select  ng-model="localizacion.estado" ng-options="item.id as item.name for item in items"></select>									
+										</td>
+										<td><button type="text" class="btn btn-default" ng-click="actualizarLocalizacion(localizacion._id, localizacion.estado)">Modificar</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>

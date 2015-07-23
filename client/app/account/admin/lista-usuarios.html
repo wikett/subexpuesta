@@ -1,0 +1,46 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<p>Buscar usuario por nombre: {{usuario}}</p>
+		<button class="btn btn-success" type="button" ng-click="usuarioAPI()">Buscar</button>
+		<hr />
+	</div>
+</div>
+
+
+	<div class="row">
+	<div class="col-md-12">
+							<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th width="20%" >Username</th>
+						<th>Email</th>
+						<th>Location</th>
+						<th>Web</th>
+						<th>Facebook</th>
+						<th>Twitter</th>
+						<th>Con</th>
+						<th>News</th>
+						<th >Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="usuario in listaUsuarios" class="gradeX">
+						<td>{{usuario.name | date:'dd/MM/yyyy'}}</td>
+						<td width="20%" ><input type="text" name="username" class="form-control" ng-model="usuario.username" /></td>
+
+						<td >{{usuario.email}}</td>
+						<td >{{usuario.location}}</td>
+						<td >{{usuario.web}}</td>
+						<td >{{usuario.urlFacebook}}</td>
+						<td >{{usuario.urlTwitter}}</td>
+						<td ><i ng-class="usuario.participarConcursos ? 'fa-check-square-o' : 'fa fa-square-o'"></i></td>
+						<td ><i ng-class="usuario.newsletter ? 'fa fa-check-square-o' : 'fa fa-square-o'"></i></td>
+						<td ><a href="#">Ver</a> |<a href="#">Modificar</a> | <a href="#">Borrar</a></td>
+					</tr>
+				</tbody>
+			</table>	
+			</div>	
+	</div>
+</div>

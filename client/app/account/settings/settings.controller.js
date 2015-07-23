@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, Auth, $log) {
     $scope.errors = {};
     $scope.passwordActual = '';
     $scope.renewPassword = '';    
@@ -43,7 +43,9 @@ angular.module('subexpuestaV2App')
       else
       {
         if(form.$valid) {
-          Auth.changePassword( $scope.passwordActual, $scope.user.newPassword, $scope.user.name, $scope.user.location, $scope.user.web, $scope.myCroppedImage, $scope.user.participarConcursos, $scope.user.newsletter)
+          $log.debug('urlFacebook: '+$scope.user.urlFacebook);
+          $log.debug('urlTwitter: '+$scope.user.urlTwitter);
+          Auth.changePassword( $scope.passwordActual, $scope.user.newPassword, $scope.user.name, $scope.user.location, $scope.user.web, $scope.myCroppedImage, $scope.user.participarConcursos, $scope.user.newsletter, $scope.user.urlFacebook, $scope.user.urlTwitter)
           .then( function() {
             $scope.message = 'Usuario actualizado correctamente!';
           })
