@@ -35,7 +35,16 @@ exports.show = function(req, res) {
   Localizaciones.findById(req.params.id, function (err, localizaciones) {
     if(err) { return handleError(res, err); }
     if(!localizaciones) { return res.send(404); }
-    return res.json(localizaciones);
+
+    if(req.params.id=='553a4f37ef87e26838562e09')
+    {
+      console.log('Redirect!!!!');
+      return res.send('Hola');
+    }
+    else{
+      return res.json(localizaciones);
+    }
+
   });
 };
 

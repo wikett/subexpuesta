@@ -71,27 +71,8 @@ function generate_xml_sitemap() {
     }
 
     //localizaciones
-    var xmlLocalizaciones = '';
-    priority = 0.8;
-    //console.log(xml);
-    Localizaciones.find(function (err, localizaciones) {
-      if(err) { return handleError(res, err); }
-      //console.log('localizaciones: '+localizaciones.length);
-        _.forEach(localizaciones,function(n,key){
-          
-          xmlLocalizaciones += '<url><loc>'+ root_path + 'localizaciones/' + n._id + '/' +  seoTitulo(n.titulo) + '</loc>' + '<changefreq>'+ freq +'</changefreq>' + '<priority>'+ priority +'</priority>' + '</url>';
-
-          xml += '<url>';
-          xml += '<loc>'+ root_path + 'localizaciones/' + n._id + '/' +  seoTitulo(n.titulo) + '</loc>';
-          xml += '<changefreq>'+ freq +'</changefreq>';
-          xml += '<priority>'+ priority +'</priority>';
-          xml += '</url>';
-        })
-
-        console.log("xmlLocalizaciones: "+xmlLocalizaciones);
-      });
     //console.log('////////////////////////////////////////////////////////'+xmlLocalizaciones);
-    console.log("/n////////////////////////////////////////////////xmlLocalizaciones: "+xmlLocalizaciones);
+    //console.log("/n////////////////////////////////////////////////xmlLocalizaciones: "+xmlLocalizaciones);
     xml += '</urlset>';
     //console.log(xmlLocalizaciones);
     return xml;
@@ -114,13 +95,6 @@ exports.show = function(req, res) {
 switch (req.params.id){
   case "1": //create xml file
   var sitemap = generate_xml_sitemap();
-    /*fs.writeFile(path.resolve(".")+"/client/pru.xml", sitemap, function(err) {
-    if(err) {
-        return console.log(err);
-    }
-
-    console.log("The file was saved!");
-}); */
 res.set('Content-Type', 'text/xml');
 res.send(sitemap);
     break;
