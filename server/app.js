@@ -19,7 +19,7 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Setup server
 var app = express();
-console.log('------------------- app.req.url: '+app);
+//console.log('------------------- path.join: '+path.join);
 var server = require('http').createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
