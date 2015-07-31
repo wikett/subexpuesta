@@ -5,9 +5,19 @@ var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var async = require('async');
+var _ = require('lodash');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
+
+var options = {
+    auth: {
+        api_user: 'wikett',
+        api_key: 'poiuasdf77'
+    }
+}
+
+
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -85,7 +95,7 @@ exports.destroy = function(req, res) {
 exports.changePassword = function(req, res, next) {
   var userId = req.user._id;
 
-console.log('urlFacebook: '+JSON.stringify(req.body.newUrlFacebook));
+
   var oldPass = String(req.body.passwordActual);
   var newPass = String(req.body.newPassword);
   var newName = String(req.body.newName);
@@ -96,8 +106,10 @@ console.log('urlFacebook: '+JSON.stringify(req.body.newUrlFacebook));
   var newNewsletter = Boolean(req.body.newNewsletter);
     var newUrlFacebook = String(req.body.newUrlFacebook);
   var newUrlTwitter= String(req.body.newUrlTwitter);
-
-
+ var newAvisoLat = Number(req.body.newAvisoLat);
+ var newAvisoLon = Number(req.body.newAvisoLon);
+ var newRadioAviso = Number(req.body.newRadioAviso);
+var newFrecuenciaAviso = Number(req.body.newFrecuenciaAviso);
 
   User.findById(userId, function (err, user) {
 
@@ -116,9 +128,14 @@ console.log('urlFacebook: '+JSON.stringify(req.body.newUrlFacebook));
         user.urlTwitter = newUrlTwitter;
       if(newAvatar!=='undefined' && newAvatar.length>0)
         user.avatar = newAvatar;
+      if(newRadioAviso>0)
+        user.radioAviso = newRadioAviso;
 
       user.participarConcursos = newSorteo;
       user.newsletter = newNewsletter;
+      user.coordenadasAvisoLatitud = newAvisoLat;
+      user.coordenadasAvisoLongitud = newAvisoLon;
+      user.frecuenciaAviso = newFrecuenciaAviso;
       user.save(function(err) {
         if (err) return validationError(res, err);
         
@@ -225,6 +242,103 @@ exports.resetPassword = function(req, res){
         });
 
       });
+};
+// add Aviso
+exports.addAviso = function(req, res) {
+
+  var query = {_id: req.params.id};
+  var update = req.body;
+  var options = {new: true};
+  console.log('query update sorteo: '+req.body);
+  
+  var item = {
+    titulo: 'Titulo de la localizacion',
+    autor: 'William',
+    distanciakm: '66km',
+    imagen: 'http://faceurl.com',
+    url: 'http://www.subexpuesta.com/localizacion/131312312312312312/titulo'
+  };
+  console.log('req.body: '+JSON.stringify(item));
+      User.findOneAndUpdate(
+      { _id: req.params.id }, 
+      { $push: {avisos: req.body }},
+      { safe: true, upsert: true },
+      function(err, usuario){
+      if(!err)
+      {
+        console.log('Aviso anyadido correctamente');
+        return res.json(200, usuario);
+      }
+      else
+      {
+        console.log('Error addAviso  '+err);
+        return handleError(res, err);
+      }
+      });
+
+};
+
+exports.enviarEmailAvisos = function(req, res) {
+
+  //console.log('enviarEmail!!!!!!!!!!!!!!!: '+req.body.direccion);
+
+  User.find({}, '-salt -hashedPassword', function (err, users) {
+    if(err) return res.send(500, err);
+    //res.json(200, users);
+    //_.forEach(users, function(n, key){
+      for(var i=0; i<users.length;i++){
+         console.log('username: '+users[i].username);
+        if(users[i].avisos.length>0)
+          console.log('AVISOS: '+users[i].username);
+      }
+  });
+
+  var mailer = nodemailer.createTransport(sgTransport(options));
+  var email = {
+      to: ['enrique.ac9@gmail.com'],
+      from: 'inventado@gmcil.com',
+      subject: 'Contacto www.subexpuesta.com :'+req.body.asunto+' ('+req.body.nombre+')',
+      text: 'Bienvendio a www.subexpuesta.com',
+      html: 'Que pasa tio'
+  };
+
+  mailer.sendMail(email, function(err, respuesta) {
+      if (err) { 
+          console.log(err);
+          return handleError(res, err);
+      }
+      return res.json(200, respuesta);
+
+  });
+
+
+};
+// remove all Avisos
+exports.removeAvisos = function(req, res) {
+
+  var query = {_id: req.params.id};
+  var options = {new: true};
+  //console.log('query update sorteo: '+req.body);
+  
+  
+  //console.log('req.body: '+JSON.stringify(item));
+      User.findOneAndUpdate(
+      { _id: req.params.id }, 
+      { $set: {avisos:[]}},
+      { safe: true, upsert: true },
+      function(err, usuario){
+      if(!err)
+      {
+        console.log('Avisos quitados correctamente');
+        return res.json(200, usuario);
+      }
+      else
+      {
+        console.log('Error removeAvisos  '+err);
+        return handleError(res, err);
+      }
+      });
+
 };
 
 /**

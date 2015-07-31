@@ -13,6 +13,7 @@ var LocalizacionesSchema = new Schema({
   tags: [String],
   latitud: Number,
   longitud: Number,
+  distanciakm: Number,
   lugarPublico: Boolean,
   acceso: String,
   facilidadAcceso: Number,
