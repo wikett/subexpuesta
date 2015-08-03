@@ -12,6 +12,7 @@ router.delete('/:id', auth.hasRole('admin'), controller.destroy);
 router.get('/me', auth.isAuthenticated(), controller.me);
 router.get('/removeavisos/:id', controller.removeAvisos);
 router.get('/enviaravisos/:id',controller.enviarEmailAvisos);
+router.get('/enviaravisossemana/:id',controller.enviarEmailAvisosSemanal);
 router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.put('/:id/datos', auth.isAuthenticated(), controller.actualizarDatos);
 router.put('/addaviso/:id', controller.addAviso);
