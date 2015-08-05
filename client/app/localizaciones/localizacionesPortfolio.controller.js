@@ -6,6 +6,10 @@ angular.module('subexpuestaV2App')
     $scope.listaLocalizaciones = {};
     $rootScope.title = 'Localizaciones de Fotografias Nocturnas por: '+$stateParams.autor;
     $rootScope.metaDescription = 'Porfolio con las localizaciones de fotografia nocturna compartidas por '+$stateParams.autor;
+
+    $rootScope.titleFB = 'Localizaciones de Fotografias Nocturnas por: '+$stateParams.autor;
+    $rootScope.descriptionFB = 'Porfolio con las localizaciones de fotografia nocturna compartidas por '+$stateParams.autor;
+    $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
    
     $scope.getCurrentUser = Auth.getCurrentUser();
 

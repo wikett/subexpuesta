@@ -1,4 +1,6 @@
-
+<style>
+  .angular-google-map-container { height: 400px; width: 600px;  }
+</style>
 
 <section class="page-top">
 	<div class="container">
@@ -22,9 +24,9 @@
 		<div class="col-md-7">
 		<div class="form-group" >
 					<label>Selecciona la localización exacta</label> <span ng-show="!marker.coords.latitude>0" style="color:red">*</span><small>(Haz click en el mapa para situar el punto sobre el mapa)</small>
-					<div class="row">
+					<div class="row" ng-if="showMap">
 						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
-							<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+							<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
 							 </ui-gmap-marker>
 
 						</ui-gmap-google-map>

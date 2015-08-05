@@ -7,10 +7,11 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 
 var options = {
     auth: {
-        api_user: 'asdf',
-        api_key: 'fdfdfdffd'
+        api_user: 'wikett',
+        api_key: 'poiuasdf77'
     }
 }
+
 
 
 exports.enviarEmail = function(req, res) {
@@ -36,6 +37,9 @@ exports.enviarEmail = function(req, res) {
 
 
 };
+
+
+
 
 exports.enviarEmailContacto = function(req, res) {
 

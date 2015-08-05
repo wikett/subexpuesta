@@ -5,17 +5,18 @@ angular.module('subexpuestaV2App')
     
 
     
-    $rootScope.title = 'Mapa con Localizaciones de Fotografias Nocturnas | subexpuesta.com';
-    $rootScope.titleFB = 'Mapa con Localizaciones de Fotografias Nocturnas | subexpuesta.com';
+    $rootScope.title = 'Mapa con Localizaciones de Fotografias Nocturnas';
     $rootScope.metaDescription = 'Descubre localizaciones de fotografias nocturnas cerca de tu zona, o de un nuevo sitio para poder hacer tu version. Juega con el mapa y explora.';
+    $rootScope.titleFB = 'Mapa con Localizaciones de Fotografias Nocturnas | subexpuesta.com';
     $rootScope.descriptionFB = 'Descubre localizaciones de fotografias nocturnas cerca de tu zona, o de un nuevo sitio para poder hacer tu version. Juega con el mapa y explora.';
-    //$log.debug('LocalizacionesMapaCtrl | title: '+$rootScope.title);
+    $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
     
     $scope.busqueda = '';
     $scope.listaLocalizaciones = {};
     $scope.misLocalizaciones = [];
     $scope.fotoActual = {};
-
+    $scope.showMap = false;
+    
     $scope.map = {
       center: {
       latitude: 40.399995,
@@ -36,9 +37,11 @@ angular.module('subexpuestaV2App')
     };
 
    uiGmapGoogleMapApi.then(function(maps) {
-
+       setTimeout(function () {
+             $scope.showMap = true;
+            $scope.$apply();
+        }, 100);
     });
-
 
 
 

@@ -12,6 +12,13 @@ angular.module('subexpuestaV2App')
 
     $scope.isCollapsed = true;
 
+        $scope.items = [
+     { id: 0, name: 'Cuando se publique una localizacion' },
+     { id: 1, name: 'Una vez al dia con el resumen' },
+     { id: 2, name: 'Una vez a la semana con el resumen' }
+   ];//0 -> Cuando se publique una localizacion, 1-> Al finalizar el dia, 2-> Al finalizar la semana
+
+   
     var handleFileSelect=function(evt) {
           var file=evt.currentTarget.files[0];
           var reader = new FileReader();
@@ -43,9 +50,9 @@ angular.module('subexpuestaV2App')
       else
       {
         if(form.$valid) {
-          $log.debug('urlFacebook: '+$scope.user.urlFacebook);
-          $log.debug('urlTwitter: '+$scope.user.urlTwitter);
-          Auth.changePassword( $scope.passwordActual, $scope.user.newPassword, $scope.user.name, $scope.user.location, $scope.user.web, $scope.myCroppedImage, $scope.user.participarConcursos, $scope.user.newsletter, $scope.user.urlFacebook, $scope.user.urlTwitter)
+          
+          $log.debug('frecuenciaAviso: '+$scope.user.frecuenciaAviso);
+          Auth.changePassword( $scope.passwordActual, $scope.user.newPassword, $scope.user.name, $scope.user.location, $scope.user.web, $scope.myCroppedImage, $scope.user.participarConcursos, $scope.user.newsletter, $scope.user.urlFacebook, $scope.user.urlTwitter, $scope.user.coordenadasAvisoLatitud, $scope.user.coordenadasAvisoLongitud, $scope.user.radioAviso, $scope.user.frecuenciaAviso)
           .then( function() {
             $scope.message = 'Usuario actualizado correctamente!';
           })

@@ -28,7 +28,12 @@ var UserSchema = new Schema({
   resetPasswordExpires: Date,
   facebook: {},
   google: {},
-  github: {}
+  github: {},
+  avisos:[{titulo: String, autor: String, distanciakm: Number, fechaAviso: {type: Date, default: Date.now}, imagen: String, url: String}],
+  radioAviso: {type:Number, default:0}, // Si es mayor de 0 es que ha activado el sistema de Avisos
+  frecuenciaAviso: {type: Number, default:0}, //0 -> Cuando se publique una localizacion, 1-> Al finalizar el dia, 2-> Al finalizar la semana
+  coordenadasAvisoLatitud: Number,
+  coordenadasAvisoLongitud: Number
 });
 
 /**

@@ -6,6 +6,10 @@ angular.module('subexpuestaV2App')
      $rootScope.title = 'Ponte en contacto con nosotros | subexpuesta.com';
      $rootScope.metaDescription = 'Cualquier problema, sugerencia o incidencia que encuentres con la web, ponte en contacto con nosotros. Lo resolveremos lo más rápido posible!';
 
+     $rootScope.titleFB = 'Ponte en contacto con nosotros | subexpuesta.com';
+     $rootScope.descriptionFB = 'Cualquier problema, sugerencia o incidencia que encuentres con la web, ponte en contacto con nosotros. Lo resolveremos lo más rápido posible!';
+     $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
+
     $scope.enviado = false;
     $scope.mostrarError = false;
     $scope.enviando = false;

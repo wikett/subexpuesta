@@ -6,10 +6,11 @@ angular.module('subexpuestaV2App')
 
 
 
-        $rootScope.title = 'Localizador de Fotografías Nocturnas | subexpuesta.com';
-        $rootScope.titleFB = 'Localizador de Fotografías Nocturnas | subexpuesta.com';
+        $rootScope.title = 'Localizaciones de Fotografías Nocturnas';
+        $rootScope.titleFB = 'Localizaciones de Fotografías Nocturnas';
         $rootScope.metaDescription = 'Localizaciones para Fotografías Nocturnas. Busca en el mapa nuevas localizaciones para hacer tus fotografías nocturnas, y comparte las que ya tengas hechas!';
         $rootScope.descriptionFB = 'Localizaciones para Fotografías Nocturnas. Busca en el mapa nuevas localizaciones para hacer tus fotografías nocturnas, y comparte las que ya tengas hechas!';
+        $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
 
         $scope.destinoModal = '';
         $scope.destinoTituloModal = '';

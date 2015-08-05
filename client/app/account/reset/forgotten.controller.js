@@ -20,7 +20,7 @@ angular.module('subexpuestaV2App')
                     //$log.debug('email: ' + $scope.correo);
 
                       $http({
-                          url: 'http://localhost:9000/api/users/forgotten',
+                          url: 'http://www.subexpuesta.com/api/users/forgotten',
                           method: "POST",
                           data: { 'email' : $scope.correo },
                           headers: 'application/json'

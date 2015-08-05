@@ -5,7 +5,9 @@ angular.module('subexpuestaV2App')
         $scope.listaArticulos = [];
         $rootScope.title = 'Nuestro Blog. Artículos sobre fotografía nocturna | subexpuesta.com';
         $rootScope.metaDescription = 'Tutoriales, cómo se hizo la fotografía, experiencias, unboxing, linternas, puesta en práctica, vamos... nuestro blog!';
-
+        $rootScope.titleFB = 'Nuestro Blog. Artículos sobre fotografía nocturna | subexpuesta.com';
+        $rootScope.descriptionFB = 'Tutoriales, cómo se hizo la fotografía, experiencias, unboxing, linternas, puesta en práctica, vamos... nuestro blog!';
+        $rootScope.imageFB = 'http://res.cloudinary.com/djhqderty/image/upload/v1431698600/subexpuesta-com-bienvenida_o8bobi.jpg';
 
 
         getArticulos();

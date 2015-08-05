@@ -81,6 +81,6 @@ angular.module('subexpuestaV2App', [
     $rootScope.metaDescription = '';
     $rootScope.titleFB = '';
     $rootScope.descriptionFB = '';
-    $rootScope.imageFB = 'http://subexpuesta.com/assets/images/subexpuesta-logo.png';
+    $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
 
   });

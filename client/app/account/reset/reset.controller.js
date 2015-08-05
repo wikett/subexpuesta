@@ -19,7 +19,7 @@ angular.module('subexpuestaV2App')
                 $scope.errorPassword = false;
 
                 $http({
-                    url: 'http://localhost:9000/api/users/reset/' + $stateParams.token,
+                    url: 'http://www.subexpuesta.com/api/users/reset/' + $stateParams.token,
                     method: "POST",
                     data: {
                         'password': $scope.password

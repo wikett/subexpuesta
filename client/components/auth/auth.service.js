@@ -80,7 +80,7 @@ angular.module('subexpuestaV2App')
        * @param  {Function} callback    - optional
        * @return {Promise}
        */
-      changePassword: function(passwordActual, newPassword, newName, newLocation, newWeb, newAvatar, newSorteo, newNewsletter, newUrlFacebook, newUrlTwitter, callback) {
+      changePassword: function(passwordActual, newPassword, newName, newLocation, newWeb, newAvatar, newSorteo, newNewsletter, newUrlFacebook, newUrlTwitter, newAvisoLat, newAvisoLon, newRadioAviso, newFrecuenciaAviso, callback) {
         var cb = callback || angular.noop;
 
         return User.changePassword({ id: currentUser._id }, {
@@ -93,7 +93,11 @@ angular.module('subexpuestaV2App')
           newSorteo: newSorteo,
           newNewsletter: newNewsletter,
           newUrlFacebook: newUrlFacebook,
-          newUrlTwitter: newUrlTwitter
+          newUrlTwitter: newUrlTwitter,
+          newAvisoLat: newAvisoLat,
+          newAvisoLon: newAvisoLon,
+          newRadioAviso: newRadioAviso,
+          newFrecuenciaAviso: newFrecuenciaAviso
         }, function(user) {
           return cb(user);
         }, function(err) {

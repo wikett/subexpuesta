@@ -36,8 +36,11 @@ angular.module('subexpuestaV2App')
         }, function(articulo) {
             $scope.singleArticulo = articulo;
             
-            $rootScope.title = articulo.title+' | subexpuesta.com';
-            $rootScope.metaDescription = articulo.contenido.substring(0,150);
+            $rootScope.title = articulo.titulo+' | subexpuesta.com';
+            $rootScope.metaDescription = articulo.contenido.substring(0,150)+ '...';
+            $rootScope.titleFB = articulo.titulo+' | subexpuesta.com';
+            $rootScope.descriptionFB = articulo.contenido.substring(0,150) + '...';
+            $rootScope.imageFB = articulo.imagen;
             
         });
 

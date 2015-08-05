@@ -1,181 +1,103 @@
-<style>
-	.angular-google-map-container {  width:340px; height: 320px;margin-left: 6px; }
-</style>
 <section class="page-top">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="breadcrumb">
-									<li><a href="#">Home</a></li>
-									<li class="active">Localizaciones</li>
-								</ul>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<h1>{{localizacion.titulo}}</h1>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<div class="container">
-
-					<!--<div class="portfolio-title">
-						<div class="row">
-							<div class="portfolio-nav-all col-md-1">
-								<a href="portfolio-single-project.html" data-tooltip data-original-title="Back to list"><i class="fa fa-th"></i></a>
-							</div>
-							<div class="col-md-10 center">
-								<h2 class="shorter">Lorem Ipsum Dolor</h2>
-							</div>
-							<div class="portfolio-nav col-md-1">
-								<a href="portfolio-single-project.html" class="portfolio-nav-prev" data-tooltip data-original-title="Previous"><i class="fa fa-chevron-left"></i></a>
-								<a href="portfolio-single-project.html" class="portfolio-nav-next" data-tooltip data-original-title="Next"><i class="fa fa-chevron-right"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<hr class="tall">-->
-
-					<div class="row">
-						<div class="col-md-4">
-							<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-2"><cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image></a>
-							<ui-gmap-google-map center='map.center' zoom='map.zoom' >
-							<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id">
-							 </ui-gmap-marker>
-
-						</ui-gmap-google-map>	
-
-						</div>
-
-						<div class="col-md-8">
-
-							<div class="portfolio-info">
-								<div class="row">
-									<div class="col-md-12 center">
-										<ul>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Localizaciones</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{localizacion.titulo}}</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-2"><cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image></a>
+			<div ng-if="showMap">
+				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+				<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+				</ui-gmap-marker>
+				</ui-gmap-google-map>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="portfolio-info">
+				<div class="row">
+					<div class="col-md-12 center">
+						<ul>
 							
-											<li>
-												<i class="fa fa-calendar"></i> {{localizacion.fechaToma | date:'dd MMMM yyyy'}}
-											</li>
-											<li>
-												<i class="fa fa-globe"></i> <strong>Latitud:</strong> {{localizacion.latitud}} <strong>Longuitud:</strong> {{localizacion.longitud}}
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<h4>Acceso</h4>
-							<p class="taller">{{localizacion.acceso}}</p>
-								
-
-							
-
-							<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-1"  class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a> 
-
-							<a href="/editar-localizaciones/{{localizacion._id}}/" class="btn btn-warning btn-icon" ng-if="mostrarEditar"><i class="fa fa-pencil"></i>Editar localizacion</a> 
-
-							<a href="#" class="btn btn-danger btn-icon" ng-click="delete(localizacion)" ng-if="mostrarEditar"><i class="fa fa-trash-o"></i>Eliminar localizacion</a> 
-
-							<ul class="portfolio-details">
-								<li>
-									<p><strong>Tags:</strong></p>
-
-									<ul class="list list-skills icons list-unstyled list-inline">
-										<li ng-repeat="etiqueta in localizacion.tags"><i class="fa fa-check-circle"></i> {{etiqueta}}</li>
-									</ul>
-								</li>
-								<li>
-									<p><strong>Coordenadas:</strong></p>
-									<p>Latitud: {{localizacion.latitud}} </p>
-									<p>Longuitud: {{localizacion.longitud}} </p>
-								</li>
-								<li>
-									<p><strong>Peligrosidad de la zona:</strong></p>
-									<p>{{localizacion.peligrosidad}}/10</p>
-								</li>
-								<li>
-									<p><strong>Contaminacion Luminica:</strong></p>
-									<p>{{localizacion.contaminacionLuminica}}/10</p>
-								</li>
-								<li>
-									<p><strong>Autor:</strong></p>
-									<p><a href="/tus-localizaciones/{{localizacion.autor}}">{{localizacion.autor}}</a></p>
-								</li>
-							</ul>
-
-						</div>
-					</div>
-
-					<!--<hr class="tall" />
-
-					<div class="row">
-
-						<div class="col-md-12">
-							<h3>Related <strong>Work</strong></h3>
-						</div>
-
-						<ul class="portfolio-list">
-							<li class="col-md-3 col-xs-6">
-								<div class="portfolio-item thumbnail">
-									<a href="portfolio-single-project.html" class="thumb-info">
-										<img alt="" class="img-responsive" src="img/projects/project.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">SEO</span>
-											<span class="thumb-info-type">Website</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-										</span>
-									</a>
-								</div>
+							<li>
+								<i class="fa fa-calendar"></i> {{localizacion.fechaToma | date:'dd MMMM yyyy'}}
 							</li>
-							<li class="col-md-3 col-xs-6">
-								<div class="portfolio-item thumbnail">
-									<a href="portfolio-single-project.html" class="thumb-info">
-										<img alt="" class="img-responsive" src="img/projects/project-1.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">Okler</span>
-											<span class="thumb-info-type">Brand</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-										</span>
-									</a>
-								</div>
-							</li>
-							<li class="col-md-3 col-xs-6">
-								<div class="portfolio-item thumbnail">
-									<a href="portfolio-single-project.html" class="thumb-info">
-										<img alt="" class="img-responsive" src="img/projects/project-2.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">The Fly</span>
-											<span class="thumb-info-type">Logo</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-										</span>
-									</a>
-								</div>
-							</li>
-							<li class="col-md-3 col-xs-6">
-								<div class="portfolio-item thumbnail">
-									<a href="portfolio-single-project.html" class="thumb-info">
-										<img alt="" class="img-responsive" src="img/projects/project-3.jpg">
-										<span class="thumb-info-title">
-											<span class="thumb-info-inner">The Code</span>
-											<span class="thumb-info-type">Website</span>
-										</span>
-										<span class="thumb-info-action">
-											<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-										</span>
-									</a>
-								</div>
+							<li>
+								<i class="fa fa-globe"></i> <strong>Latitud:</strong> {{localizacion.latitud}} <strong>Longuitud:</strong> {{localizacion.longitud}}
 							</li>
 						</ul>
-
-					</div>-->
-
+					</div>
 				</div>
+			</div>
+			<h4>Acceso</h4>
+			<p class="taller">{{localizacion.acceso}}</p>
+			
+			
+			<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-1"  class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a>
+			<a href="/editar-localizaciones/{{localizacion._id}}/" class="btn btn-warning btn-icon" ng-if="mostrarEditar"><i class="fa fa-pencil"></i>Editar localizacion</a>
+			<a href="#" class="btn btn-danger btn-icon" ng-click="delete(localizacion)" ng-if="mostrarEditar"><i class="fa fa-trash-o"></i>Eliminar localizacion</a>
+			<ul class="portfolio-details">
+				<li>
+					<p><strong>Tags:</strong></p>
+					<ul class="list list-skills icons list-unstyled list-inline">
+						<li ng-repeat="etiqueta in localizacion.tags"><i class="fa fa-check-circle"></i> {{etiqueta}}</li>
+					</ul>
+				</li>
+				<li>
+					<p><strong>Coordenadas:</strong></p>
+					<p>Latitud: {{localizacion.latitud}} </p>
+					<p>Longuitud: {{localizacion.longitud}} </p>
+				</li>
+				<li>
+					<p><strong>Peligrosidad de la zona:</strong></p>
+					<p>{{localizacion.peligrosidad}}/10</p>
+				</li>
+				<li>
+					<p><strong>Contaminacion Luminica:</strong></p>
+					<p>{{localizacion.contaminacionLuminica}}/10</p>
+				</li>
+				<li>
+					<p><strong>Autor:</strong></p>
+					<p><a href="/tus-localizaciones/{{localizacion.autor}}">{{localizacion.autor}}</a></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<h2 style="margin: 32px 0 0px 18px;">Localizaciones más cercanas</h2>
+		
+		<ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
+			<li ng-repeat="loca in localizacionesCercanas | filter:{estado:'!2'} |  orderBy:'distanciakm' | limitTo:4 " class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
+				<div class="portfolio-item img-thumbnail">
+					<a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
+						<img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">
+						<span class="thumb-info-title">
+							<span class="thumb-info-inner">{{loca.titulo}}</span>
+							<span style="margin-left: 12px;font-size: 15px;font-weight: 100;">A {{loca.distanciakm}} km</span>
+							<span class="thumb-info-type">Ver</span>
+							
+						</span>
+						<span class="thumb-info-action">
+							<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+		
+		
+	</div>
+</div>

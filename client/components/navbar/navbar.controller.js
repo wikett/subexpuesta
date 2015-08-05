@@ -15,12 +15,10 @@ angular.module('subexpuestaV2App')
     $scope.menuExpandido = false;
 
     $scope.cerrarMenu = function(){
-      $log.debug('Cerrar Menu');
       $scope.menuExpandido = false;      
     };
 
     $scope.abrirMenu = function(){
-      $log.debug('Abrir Menu');
       $scope.menuExpandido = true;      
     };
 

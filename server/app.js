@@ -7,6 +7,8 @@
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+var connect_s4a = require('connect-s4a');
+var token = "465f202dba210b5c276524463764b58d";
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
@@ -19,8 +21,10 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Setup server
 var app = express();
-console.log('------------------- app.req.url: '+app);
+app.use(connect_s4a(token));
+//console.log('------------------- path.join: '+path.join);
 var server = require('http').createServer(app);
+
 require('./config/express')(app);
 require('./routes')(app);
 
