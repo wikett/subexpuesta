@@ -496,4 +496,64 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c478244c33be030037389b/bellus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c479954c33be030037389c/wrong-choice</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47a394c33be030037389d/day-or-night</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47a704c33be030037389e/lines-unioner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47b624c33be030037389f/light-control</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47c224c33be03003738a0/mostesas-castle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47d0b4c33be03003738a1/el-saler</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47dbb4c33be03003738a2/la-creu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c47f404c33be03003738a3/the-other-side</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c480d14c33be03003738a4/el-senor-del-castillo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c4820b4c33be03003738a5/el-quinto-elemento</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c482e74c33be03003738a6/balls-house</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
 </urlset>

@@ -7,12 +7,13 @@ var auth = require('../../auth/auth.service');
 
 var router = express.Router();
 
-router.get('/', auth.hasRole('admin'), controller.index);
+router.get('/', controller.index);
 router.delete('/:id', auth.hasRole('admin'), controller.destroy);
 router.get('/me', auth.isAuthenticated(), controller.me);
 router.get('/removeavisos/:id', controller.removeAvisos);
 router.get('/enviaravisos/:id',controller.enviarEmailAvisos);
 router.get('/enviaravisossemana/:id',controller.enviarEmailAvisosSemanal);
+router.get('/enviaravisosmensual/:id',controller.enviarEmailAvisosMensual);
 router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.put('/:id/datos', auth.isAuthenticated(), controller.actualizarDatos);
 router.put('/addaviso/:id', controller.addAviso);
