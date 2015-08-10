@@ -22,5 +22,6 @@ router.post('/', controller.create);
 router.post('/forgotten', controller.forgottenPassword);
 router.post('/reset/:token', controller.resetPassword);
 router.get('/usuario/:username', controller.getusuario);
+router.get('/actualizar/:id', controller.actualizarUsuario);
 
 module.exports = router;

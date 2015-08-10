@@ -619,6 +619,12 @@ exports.removeAvisos = function(req, res) {
 
 };
 
+
+exports.actualizarUsuario = function(req, res){
+    var userId = req.user._id;
+    console.log('ACTUALIZAR USUARIO: '+userId);
+    return res.send(200);    
+};
 /**
  * Change a users password
  */
