@@ -846,4 +846,49 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c4bbd9b8be46030086beb1/el-arbol-misterioso</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c4c05b6010b803005ef3ce/arbol-misterioso</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55c639911e63a50300586f13/torre-cabrafic</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55cfde892ccf34030098247d/soul-seeker</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55cfe1322ccf340300982480/preventorio-de-busot</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55d0a3212ccf340300982483/estacion-de-corral-de-almaguer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55d1c04b3e28f303007f5d54/castillo-de-bayren</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55d1c2633e28f303007f5d58/telegrafo-optico-de-perales-de-tajuna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55d217706991b50300464df6/salinas-de-cabo-de-gata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
 </urlset>
