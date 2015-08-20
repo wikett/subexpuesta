@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, User, $window) {
+    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window) {
         $scope.isLoggedIn = Auth.isLoggedIn;
 
 

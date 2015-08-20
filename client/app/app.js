@@ -11,7 +11,8 @@ angular.module('subexpuestaV2App', [
   'cloudinary',
   'angularFileUpload',
   'uiGmapgoogle-maps',
-  'ngTagsInput'
+  'ngTagsInput',
+  'ui-rangeSlider'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, uiGmapGoogleMapApiProvider) {
     $urlRouterProvider

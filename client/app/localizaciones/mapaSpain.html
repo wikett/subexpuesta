@@ -1,0 +1,58 @@
+<style>
+  .angular-google-map-container { height: 600px; width: 100%; position: absolute; top: 500; left: 0;  }
+</style>
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Localizaciones</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Localizaciones fotografía nocturna en España</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div ng-if="showMap">
+				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+				<!--<ui-gmap-layer type="KmlLayer" options="kmlLayerOptions1" show="true"></ui-gmap-layer>
+				-->
+				<ui-gmap-layer namespace="visualization" type="HeatmapLayer" show="map.showHeat" onCreated="map.heatLayerCallback"></ui-gmap-layer>
+				</ui-gmap-google-map>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<h3>Listado por provincias</h3>
+			<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<thead>
+					<tr>
+						<th>Provincia</th>
+						<th>Localizaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="provincia in provincias" class="gradeX">
+						<td>{{provincia.nombre}}</td>
+						<td >{{provincia.localizaciones}}</td>
+					</tr>
+				</tbody>
+			</table>	
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		<p>La eterna pregunta ¿Y dónde podemos ir a hacer fotografía nocturna?</p>
+		<p>Pues aquí os mostrarmos un buen conjunto de localizaciones de fotografía nocturna agrupadas por provincias</p>
+		</div>
+	</div>
+
+</div>

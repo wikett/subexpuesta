@@ -6,6 +6,7 @@ var path = require('path');
 //var xml = require('xml');
 var Tool = require('./tool.model');
 var Localizaciones = require('../localizaciones/localizaciones.model');
+var User = require('../user/user.model');
 
 
 
@@ -94,6 +95,7 @@ exports.show = function(req, res) {
 //console.log("__dirname = %s", path.resolve(__dirname));
 switch (req.params.id){
   case "1": //create xml file
+  console.log('Case 1');
   var sitemap = generate_xml_sitemap();
 res.set('Content-Type', 'text/xml');
 res.send(sitemap);
@@ -123,6 +125,33 @@ var root_path = 'http://www.subexpuesta.com/';
       });
 
     break;
+  case "3":
+var root_path = 'http://www.subexpuesta.com/';
+    // XML sitemap generation starts here
+    var priority = 0.5;
+    var freq = 'monthly';
+    var xml = '';
+    
+  User.find(function (err, usuarios) {
+      if(err) { return handleError(res, err); }
+      //console.log('localizaciones: '+localizaciones.length);
+        _.forEach(usuarios,function(n,key){
+          
+         // xmlLocalizaciones += '<url><loc>'+ root_path + 'localizaciones/' + n._id + '/' +  seoTitulo(n.titulo) + '</loc>' + '<changefreq>'+ freq +'</changefreq>' + '<priority>'+ priority +'</priority>' + '</url>';
+
+          xml += '<url>';
+          xml += '<loc>'+ root_path + 'tus-localizaciones/' + n.username + '</loc>';
+          xml += '<changefreq>'+ freq +'</changefreq>';
+          xml += '<priority>'+ priority +'</priority>';
+          xml += '</url>';
+        })
+        res.set('Content-Type', 'text/xml');
+        res.send(xml);
+        
+      });
+
+    break;
+
   default: res.send('Otro');
 }
 };

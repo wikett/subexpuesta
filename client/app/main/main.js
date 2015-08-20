@@ -16,7 +16,11 @@ angular.module('subexpuestaV2App')
        .state('cookies', {
         url: '/cookies',
         templateUrl: 'app/main/cookies.html'
-      })       
+      })  
+      .state('donaciones', {
+        url: '/donaciones',
+        templateUrl: 'app/main/donaciones.html'
+      })      
       .state('sitemap', {
         url: '/sitemap',
         templateUrl: 'app/main/sitemap.html',

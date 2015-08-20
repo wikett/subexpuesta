@@ -11,19 +11,26 @@ angular.module('subexpuestaV2App')
     $rootScope.descriptionFB = 'Porfolio con las localizaciones de fotografia nocturna compartidas por '+$stateParams.autor;
     $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
    
-    $scope.getCurrentUser = Auth.getCurrentUser();
+    //$scope.getCurrentUser = Auth.getCurrentUser();
 
     $scope.sitioweb = '';
     $scope.sitioFB = '';
     $scope.sitioTwitter = '';
     $scope.usuarioSub = '';
 
-getUsuario();
+
+
+//getUsuario();
 getLocalizaciones();
+
 
 function getUsuario(){
 
-     Usuario.getportitulo({
+    /*$log.debug('user: '+JSON.stringify($scope.getCurrentUser, null, 4));
+    $log.debug('user.username: '+$scope.getCurrentUser.username);
+    if(!_.isUndefined($scope.getCurrentUser.username))
+    {
+        Usuario.getportitulo({
                 username: $stateParams.autor
             }, function(usuario) {
                 if(!_.isNull(usuario))
@@ -63,6 +70,8 @@ function getUsuario(){
                         }
                 }
             });
+    }    */
+     
 };
       
 function getLocalizaciones() {

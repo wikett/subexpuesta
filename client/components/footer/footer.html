@@ -13,7 +13,7 @@
 			
 								
 			
-									<div class="input-group">
+									<div class="input-group" style="width:90%;">
 										<input class="form-control" placeholder="Tu Email" ng-model="correo" type="email">
 										<span class="input-group-btn">
 											<button class="btn btn-default" ng-click="guardarEmail()" ng-disabled="!correo.length>0">Go!</button>
@@ -26,10 +26,9 @@
 							</div>
 						</div>
 						<div class="col-md-3">
-							<h4>Últimos tweets</h4>
-							<div id="tweet" class="twitter" data-plugin-tweets data-plugin-options='{"username": "", "count": 2}'>
-								<p>Cargando....</p>
-							</div>
+							<h4>Localización Random</h4>
+							<a href="/localizaciones/{{localizacionRandom._id}}/{{localizacionRandom.titulo | seo}}"><p><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,w_80/v1438939574/{{localizacionRandom.cloudinaryId}}"  alt="{{localizacionRandom.titulo | seo}}" width="80" height="80" style="margin-right:10px;"><strong>{{localizacionRandom.titulo}}</strong></p>
+							<p><strong>Acceso: </strong>{{localizacionRandom.acceso}}</p></a>
 						</div>
 						<div class="col-md-4">
 							<div class="contact-details">
@@ -72,6 +71,7 @@
 										<li><a href="/terminos-de-uso">Términos de Uso</a></li>
 										<li><a href="/sitemap">Sitemap</a></li>
 										<li><a href="/contacto">Contacto</a></li>
+										<li><a href="/donaciones"><img src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif" width="80px" /></a></li>
 									</ul>
 								</nav>
 							</div>

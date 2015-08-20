@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $upload, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter) {
+    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $upload, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso) {
 
         $scope.getCurrentUser = Auth.getCurrentUser();
-        
+
         $rootScope.title = 'Mapa con localizaciones de Fotografías Nocturnas';
         $rootScope.metaDescription = 'Mapa de todo el mundo con las mejores localizaciones de fotografía nocturna que te puedas encontrar!';
         $rootScope.titleFB = 'Mapa con localizaciones de Fotografías Nocturnas';
         $rootScope.descriptionFB = 'Mapa de todo el mundo con las mejores localizaciones de fotografía nocturna que te puedas encontrar!';
         $rootScope.imageFB = 'http://www.subexpuesta.com/assets/images/subexpuesta-logo.png';
-        
+
         $scope.localizacion = {};
         $scope.localizacionCreada = false;
         $scope.files = {};
@@ -22,6 +22,7 @@ angular.module('subexpuestaV2App')
         $scope.max = 10;
         $scope.isReadonly = false;
         $scope.showMap = false;
+
 
         $scope.hoveringOver = function(value) {
             $scope.overStar = value;
@@ -59,6 +60,7 @@ angular.module('subexpuestaV2App')
 
         $scope.tags = [];
 
+        
 
         $scope.open = function($event) {
             $event.preventDefault();
@@ -120,15 +122,20 @@ angular.module('subexpuestaV2App')
             }
         };
 
-           uiGmapGoogleMapApi.then(function(maps) {
-       setTimeout(function () {
-             $scope.showMap = true;
-            $scope.$apply();
-        }, 100);
-    });
-        
+        uiGmapGoogleMapApi.then(function(maps) {
+            setTimeout(function() {
+                $scope.showMap = true;
+                $scope.$apply();
+            }, 100);
+        });
+
+
+
+
+
+
         $scope.crearLocalizacion = function() {
-            
+
             if ($scope.marker.coords.latitude === 0) {
                 $scope.mensajeError = "Por favor, indique la localización de la fotografía en el mapa.";
                 return;
@@ -170,7 +177,7 @@ angular.module('subexpuestaV2App')
                         $scope.listaEtiquetas.push(etiqueta.text);
                     })
 
-                $log.debug('$scope.rateCL: '+$scope.rateCL);
+                $log.debug('$scope.rateCL: ' + $scope.rateCL);
                 $scope.nuevaLocalizacion.tags = $scope.listaEtiquetas;
                 $scope.nuevaLocalizacion.autor = $scope.getCurrentUser.username;
                 $scope.nuevaLocalizacion.cloudinaryId = $scope.localizacion.cloudinaryId;
@@ -182,44 +189,75 @@ angular.module('subexpuestaV2App')
                 $scope.nuevaLocalizacion.latitud = $scope.marker.coords.latitude;
                 $scope.nuevaLocalizacion.longitud = $scope.marker.coords.longitude;
 
+
+
+
                 //$log.debug('$scope.nuevaLocalizacion: '+JSON.stringify($scope.nuevaLocalizacion));
 
                 //$http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452')
                 //$http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.nuevaLocalizacion.latitud+','+$scope.nuevaLocalizacion.longitud)
                 $http({
                     method: 'GET',
-                    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.nuevaLocalizacion.latitud+','+$scope.nuevaLocalizacion.longitud,
-                    transformRequest: function (data, headersGetter) {
-                      var headers = headersGetter();
-                      delete headers['Authorization'];
-                      return headers;
+                    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.nuevaLocalizacion.latitud + ',' + $scope.nuevaLocalizacion.longitud,
+                    transformRequest: function(data, headersGetter) {
+                        var headers = headersGetter();
+                        delete headers['Authorization'];
+                        return headers;
                     }
-                  })
-                    .success(function(result){
-                        if(result.results.length>0)
-                        {
-                            $log.debug('La llamada termindo exitosa: '+result.results[0].formatted_address);  
+                })
+                    .success(function(result) {
+                        if (result.results.length > 0) {
+                            $log.debug('La llamada termindo exitosa: ' + result.results[0].formatted_address);
                             $scope.nuevaLocalizacion.direccion = result.results[0].formatted_address;
-                        }                      
+                        }
 
                     })
-                    .finally(function(){
-                        $log.debug('FINALLY');
+                    .finally(function() {
                         $scope.nuevaLocalizacion.$save().then(function(response) {
                             $scope.localizacionCreada = true;
-                            $location.path('/localizacion-creada/'+response._id+'/'+$filter('seo')(response.titulo));                    
+                            //Agregar aviso
+                            User.query({}, function(usuarios) {
+                                _.each(usuarios, function(usuario) {
+                                    $log.debug('usuario.username: ' + usuario.username + ' $scope.getCurrentUser.username: ' + $scope.getCurrentUser.username);
+                                    if (usuario.radioAviso > 0 && usuario.username != $scope.getCurrentUser.username) {
+                                        var loc1 = new google.maps.LatLng($scope.marker.coords.latitude, $scope.marker.coords.longitude);
+                                        var loc2 = new google.maps.LatLng(usuario.coordenadasAvisoLatitud, usuario.coordenadasAvisoLongitud);
+                                        var distaciaKM = Math.round(google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2) / 1000);
+                                        var nuevoAviso = {
+                                            titulo: $scope.localizacion.titulo,
+                                            autor: $scope.getCurrentUser.username,
+                                            distanciakm: distaciaKM,
+                                            imagen: 'http://res.cloudinary.com/djhqderty/image/upload/c_fit,w_340/v1/' + $scope.localizacion.cloudinaryId + '.jpg',
+                                            url: 'http://www.subexpuesta.com/localizaciones/' + response._id + '/' + $filter('seo')(response.titulo)
+                                        }
+                                        if (distaciaKM < usuario.radioAviso) {
+                                            UsuarioAviso.update({
+                                                id: usuario._id
+                                            }, nuevoAviso);
+
+                                        }
+                                    }
+                                });
+                            });
+
+
+
+
+
+
+                            $location.path('/localizacion-creada/' + response._id + '/' + $filter('seo')(response.titulo));
                         });
                     });
 
-                
+
 
             }
         };
 
         $scope.modalCreada = Modal.confirm.localizacionCreada(function(response) {
-                        $log.debug('Dentro modal: ');
-                        $location.path('/localizacion-creada');
-                    });
+            $log.debug('Dentro modal: ');
+            $location.path('/localizacion-creada');
+        });
 
         $scope.updateTitle = function() {
             var uploadParams = $scope.widget.fileupload('option', 'formData');

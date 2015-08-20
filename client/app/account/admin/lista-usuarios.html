@@ -6,9 +6,10 @@
 				<thead>
 					<tr>
 						<th>name</th>
-						<th >Username</th>
+						<th>Username</th>
 						<th>Avisos</th>
 						<th>Frecuencia</th>
+						<th>Radio</th>
 						<th>Email</th>
 						
 						<th>Con</th>
@@ -20,8 +21,9 @@
 					<tr ng-repeat="usuario in listaUsuarios" class="gradeX">
 						<td>{{usuario.name | date:'dd/MM/yyyy'}}</td>
 						<td >{{usuario.username}}</td>
-						<td><ul><li ng-repeat="a in usuario.avisos">{{a.titulo}}</li></ul></td>
+						<td><ul><li ng-repeat="a in usuario.avisos">{{a.titulo}} (por {{a.autor}})</li></ul></td>
 						<td >{{usuario.frecuenciaAviso}}</td>
+						<td >{{usuario.radioAviso}}km</td>
 						<td >{{usuario.email}}</td>						
 						<td ><i ng-class="usuario.participarConcursos ? 'fa-check-square-o' : 'fa fa-square-o'"></i></td>
 						<td ><i ng-class="usuario.newsletter ? 'fa fa-check-square-o' : 'fa fa-square-o'"></i></td>

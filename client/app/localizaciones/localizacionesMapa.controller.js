@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('LocalizacionesMapaCtrl', function ($scope, $rootScope, $log, Localizacion, uiGmapGoogleMapApi) {
+  .controller('LocalizacionesMapaCtrl', function ($scope, $rootScope, $log, Localizacion, uiGmapGoogleMapApi, $filter) {
     
 
     
@@ -14,6 +14,7 @@ angular.module('subexpuestaV2App')
     $scope.busqueda = '';
     $scope.listaLocalizaciones = {};
     $scope.misLocalizaciones = [];
+    $scope.misLocalizacionesFiltradas = [];
     $scope.fotoActual = {};
     $scope.showMap = false;
     
@@ -43,6 +44,14 @@ angular.module('subexpuestaV2App')
         }, 100);
     });
 
+   $scope.$watch("busqueda", function(breweryFilter){
+      //$log.debug('Actualizo busqueda: '+breweryFilter);
+      //$scope.filteredMarkers = $filter("filter")($scope.listaLocalizaciones, breweryFilter);
+      $scope.misLocalizacionesFiltradas = $filter("filter")($scope.misLocalizaciones, breweryFilter);
+      if (!$scope.misLocalizacionesFiltradas){
+        return;
+      }
+   });
 
 
 
@@ -60,16 +69,20 @@ angular.module('subexpuestaV2App')
             })
           }
           $log.debug('etiqueta: '+loca.tags);*/
+          //$log.debug('cloudinaryId: '+loca.cloudinaryId);
+          var str = loca.cloudinaryId;
           var ret = {
-            id: loca.cloudinaryId,
             _id: loca._id,
+            id: loca.cloudinaryId,
             autor: loca.autor,
             tags: loca.tags,
             latitude: loca.latitud,
             longitude: loca.longitud,
             titulo: loca.titulo,
-            idFoto: loca.cloudinaryId,
+            //idFoto: str.replace('subexpuesta/',''),
+            idFoto: str,
             fechaToma: loca.fechaToma,
+            fechaSubida: loca.fechaSubida,
             acceso: loca.acceso,
             peligrosidad: loca.peligrosidad,
             contaminacion: loca.contaminacionLuminica,
@@ -87,6 +100,7 @@ angular.module('subexpuestaV2App')
                        $scope.fotoActual.autor = handlerArgs.autor;
                        $scope.fotoActual.titulo = handlerArgs.titulo;
                        $scope.fotoActual.fechaToma = handlerArgs.fechaToma;
+                       $scope.fotoActual.fechaSubida = handlerArgs.fechaSubida;
                        $scope.fotoActual.acceso = handlerArgs.acceso;
                        $scope.fotoActual.peligrosidad = handlerArgs.peligrosidad;
                        $scope.fotoActual.contaminacion = handlerArgs.contaminacion;
@@ -106,7 +120,7 @@ angular.module('subexpuestaV2App')
              $scope.misLocalizaciones.push(ret);
           });
 
-
+          $scope.misLocalizacionesFiltradas = $scope.misLocalizaciones;
 
       })
     };

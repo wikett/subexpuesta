@@ -348,6 +348,7 @@ module.exports = function (grunt) {
             'assets/css/**/*',
             'assets/js/**/*',
             'assets/snapshot/**/*',
+            'assets/plugin/*',
             'index.html',
             'google774170f3a8d668b8.html',
             'sitemap.xml'

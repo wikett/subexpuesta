@@ -25,6 +25,7 @@
 										<th>Fecha</th>
 										<th>Titulo</th>
 										<th>Autor</th>
+										<th>Direccion</th>
 										<th>Estado</th>
 										<th></th>
 									</tr>
@@ -34,6 +35,7 @@
 										<td data-title="Fecha">{{localizacion.fechaSubida | date:'dd-MM-yyyy'}}</td>
 										<td>{{localizacion.titulo}}</td>
 										<td data-title="Votos">{{localizacion.autor}}</td>
+										<td>{{localizacion.direccion}}</td>
 										<td>
 											<select  ng-model="localizacion.estado" ng-options="item.id as item.name for item in items"></select>									
 										</td>

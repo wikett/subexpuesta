@@ -35,7 +35,12 @@ angular.module('subexpuestaV2App')
         templateUrl: 'app/localizaciones/localizacion-creada.html',
         controller: 'LocalizacionCreadaCtrl',
         authenticate: true
-      })      
+      })
+      .state('mapaspain', {
+        url: '/localizaciones/españa',
+        templateUrl: 'app/localizaciones/mapaSpain.html',
+        controller: 'MapaSpainCtrl',
+        })      
       .state('crearlocalizaciones', {
         url: '/crear-localizaciones',
         templateUrl: 'app/localizaciones/crear-localizaciones.html',
