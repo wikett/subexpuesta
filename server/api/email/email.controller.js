@@ -43,12 +43,22 @@ exports.enviarEmail = function(req, res) {
 
 exports.enviarEmailContacto = function(req, res) {
 
-  console.log('enviarEmail!!!!!!!!!!!!!!!: '+req.body.direccion);
+  //console.log('enviarEmail!!!!!!!!!!!!!!!: '+JSON.stringify(req.body, null, 4));
+  //console.log('enviarEmail!!!!!!!!!!!!!!!: '+req.body.organizador);
+  var direccionesMail;
+  if(!_.isUndefined(req.body.organizador))
+  {
+    direccionesMail = ['subexpuestaweb@gmail.com', req.body.organizador];
+  }
+  else
+  {
+    direccionesMail = ['subexpuestaweb@gmail.com'];
+  }
   var mailer = nodemailer.createTransport(sgTransport(options));
   var email = {
-      to: ['enrique.ac9@gmail.com'],
+      to: direccionesMail,
       from: req.body.direccion,
-      subject: 'Contacto www.subexpuesta.com :'+req.body.asunto+' ('+req.body.nombre+')',
+      subject: req.body.asunto+' ('+req.body.nombre+')',
       text: 'Bienvendio a www.subexpuesta.com',
       html: req.body.mensaje
   };
