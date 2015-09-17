@@ -7,6 +7,7 @@ var path = require('path');
 var Tool = require('./tool.model');
 var Localizaciones = require('../localizaciones/localizaciones.model');
 var User = require('../user/user.model');
+var Evento = require('../evento/evento.model');
 
 
 
@@ -45,7 +46,7 @@ function seoTitulo (text){
 
 function generate_xml_sitemap() {
     // this is the source of the URLs on your site, in this case we use a simple array, actually it could come from the database
-    var urls = ['recomendaciones', 'blog', 'contacto', 'mejora', 'sobrenosotros'];
+    var urls = ['cursos-sobre-fotografia-nocturna-y-paisaje', 'blog', 'contacto', 'mejora', 'sobrenosotros'];
 
     // the root of your website - the protocol and the domain name with a trailing slash
     var root_path = 'http://www.subexpuesta.com/';
@@ -141,6 +142,32 @@ var root_path = 'http://www.subexpuesta.com/';
 
           xml += '<url>';
           xml += '<loc>'+ root_path + 'tus-localizaciones/' + n.username + '</loc>';
+          xml += '<changefreq>'+ freq +'</changefreq>';
+          xml += '<priority>'+ priority +'</priority>';
+          xml += '</url>';
+        })
+        res.set('Content-Type', 'text/xml');
+        res.send(xml);
+        
+      });
+
+    break;
+    case "4":
+var root_path = 'http://www.subexpuesta.com/';
+    // XML sitemap generation starts here
+    var priority = 0.5;
+    var freq = 'weekly';
+    var xml = '';
+    
+  Evento.find(function (err, eventos) {
+      if(err) { return handleError(res, err); }
+      //console.log('localizaciones: '+localizaciones.length);
+        _.forEach(eventos,function(n,key){
+          
+         // xmlLocalizaciones += '<url><loc>'+ root_path + 'localizaciones/' + n._id + '/' +  seoTitulo(n.titulo) + '</loc>' + '<changefreq>'+ freq +'</changefreq>' + '<priority>'+ priority +'</priority>' + '</url>';
+
+          xml += '<url>';
+          xml += '<loc>'+ root_path + 'tus-localizaciones/' + seoTitulo(n.titulo) + '</loc>';
           xml += '<changefreq>'+ freq +'</changefreq>';
           xml += '<priority>'+ priority +'</priority>';
           xml += '</url>';
