@@ -167,7 +167,7 @@ var root_path = 'http://www.subexpuesta.com/';
          // xmlLocalizaciones += '<url><loc>'+ root_path + 'localizaciones/' + n._id + '/' +  seoTitulo(n.titulo) + '</loc>' + '<changefreq>'+ freq +'</changefreq>' + '<priority>'+ priority +'</priority>' + '</url>';
 
           xml += '<url>';
-          xml += '<loc>'+ root_path + 'tus-localizaciones/' + seoTitulo(n.titulo) + '</loc>';
+          xml += '<loc>'+ root_path + 'cursos/' + n._id + '/' + seoTitulo(n.titulo) + '</loc>';
           xml += '<changefreq>'+ freq +'</changefreq>';
           xml += '<priority>'+ priority +'</priority>';
           xml += '</url>';
