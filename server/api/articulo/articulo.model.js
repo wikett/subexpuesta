@@ -8,6 +8,7 @@ var ArticuloSchema = new Schema({
   contenido: String,
   contenidoHTML: String,
   autor: String,
+  urlAutor: String,
   fechaCreacion: {type: Date, default: Date.now},
   imagen: String,
   tags: [String],
