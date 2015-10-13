@@ -1,0 +1,80 @@
+<script type="application/ld+json" id="json-ld-content"></script>
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li class="active">Cursos sobre fotografía nocturna y paisaje</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Cursos sobre fotografía nocturna y paisaje</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-right" style="margin-right:20px;">
+			<img src="/assets/images/evento-general.png" width="20px" title="General" style="margin:0px 10px; 0px 10px" /><span>General</span>
+			<img src="/assets/images/evento-nocturna.png" width="20px"  title="Nocturna/Lightpainting" style="margin:0px 10px; 0px 10px"  /><span>Nocturna/Lightpainting</span>
+			<img src="/assets/images/evento-edicion.png" width="20px"  title="Edicion" style="margin:0px 10px; 0px 10px"  /><span>Edición</span>
+			<img src="/assets/images/evento-online.png" width="20px"  title="Online" style="margin:0px 10px; 0px 10px"  /><span>Online</span>
+			<img src="/assets/images/evento-astrofotografia.png" width="20px"  title="Astrofotografía" style="margin:0px 10px; 0px 10px"  /><span>Astrofotografía</span>
+			<img src="/assets/images/evento-paisaje.png" width="20px"  title="Paisaje" style="margin:0px 10px; 0px 10px"  /><span>Paisaje</span>
+		</div>
+		<div class="row" style="margin-top:40px;margin-right:15px;">
+		<div class="col-md-5">
+
+		</div>
+		<div  class="col-md-7 input-group" >
+
+		      <input type="text" class="form-control" ng-model='busqueda' placeholder="Busca por ciudad, por organizador, por descripcion...">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+		      </span>
+		    </div>
+		    </div>
+		<div class="col-md-12">
+			<accordion ng-repeat="(key, value) in eventosAgrupados | filter:busqueda">
+				<h3 ng-show="(value | filter:busqueda).length > 0" style="color:#10066B">{{key | fechaEvento | filter:busqueda}}</h3>
+				<p ng-show="(value | filter:busqueda).length === 0 && $index===0">No se encontró ningún curso con tu búsqueda.</p>
+				<accordion-group is-open="evento.open" ng-repeat="evento in value | filter:busqueda  |  orderBy:'fecha'">
+					<accordion-heading>
+						<img src="/assets/images/{{tipoEventos[evento.categoria]}}" style="margin-right:10px;" />{{evento.titulo}} por <strong>{{evento.organizador}}</strong><img ng-show="evento.estado==1" src="/assets/images/completo.png" width="75px" style="float:inherit;" /><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': evento.open, 'glyphicon-chevron-right': !evento.open}"></i>
+					</accordion-heading>
+					<div class="row">
+						<img style="border: 0pt none; float:left; padding:0px 20px 10px 10px" src="http://res.cloudinary.com/djhqderty/image/upload/c_scale,q_29,w_250/v1429114149/{{evento.cloudinaryId}}.jpg" width="250px" title="{{evento.titulo}}" />
+						<p><strong>Día:</strong> {{evento.fecha | date:'d/MM/yyyy'}}</p>
+						<p style="margin:0px;"><strong>Precio:</strong> {{evento.precio + "€"}}</p>
+						<p style="margin:0px;"><strong>Capacidad:</strong> {{evento.capacidad + " personas"}}</p>
+						<p style="margin:0px;"><strong>Lugar:</strong> {{evento.direccion}}, {{evento.localidad}}</p>
+						<p style="margin-left:11px;"><strong>Descripción:</strong> {{evento.descripcion}}</p>
+						<p style="margin-right:20px;" align="right"><a class="btn btn-info" href="/cursos/{{evento._id}}/{{evento.titulo | seo}}">Más info</a></p>
+					</div>
+				</accordion-group>
+			</accordion>
+
+		</div>
+
+		<div class="col-md-offset-8 col-md-4">
+			<label>Recibe los nuevos cursos a tu email</label>
+			
+			<div class="input-group">
+				<input class="form-control" placeholder="Tu Email" ng-model="correo" type="email">
+				<span class="input-group-btn">
+					<button class="btn btn-default" ng-click="guardarEmail()" ng-disabled="!correo.length>0">Enviar</button>
+				</span>
+			</div>
+			<div class="alert alert-success" style="margin-top:10px;" ng-show="boletinCreado">
+				<strong>Guardado correctamente!</strong> Te avisaremos con los próximos cursos.
+			</div>
+		</div>
+		<div class="col-md-12">
+			<a href="/cursos/agregar-nuevo-curso">[+] Añade tu curso a la lista</a>
+		</div>
+	</div>
+</div>

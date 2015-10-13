@@ -61,6 +61,10 @@
 					<p>Latitud: {{localizacion.latitud}} </p>
 					<p>Longuitud: {{localizacion.longitud}} </p>
 				</li>
+				<li ng-if="localizacion.notasAdicionales.length>0">
+					<p><strong>Notas adicionales:</strong></p>
+					<p>{{localizacion.notasAdicionales}} </p>
+				</li>
 				<li>
 					<p><strong>Peligrosidad de la zona:</strong></p>
 					<p>{{localizacion.peligrosidad}}/10</p>

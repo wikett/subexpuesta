@@ -10,9 +10,9 @@
 <priority>0.9</priority>
 </url>
 <url>
-<loc>http://www.subexpuesta.com/recomendaciones</loc>
+<loc>http://www.subexpuesta.com/cursos-sobre-fotografia-nocturna-y-paisaje</loc>
 <changefreq>weekly</changefreq>
-<priority>0.4</priority>
+<priority>0.8</priority>
 </url>
 <url>
 <loc>http://www.subexpuesta.com/blog</loc>
@@ -29,11 +29,6 @@
 <url>
 <loc>http://www.subexpuesta.com/sobrenosotros</loc>
 <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/tus-localizaciones/joaquinain</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
 </url>
 <url>
     <loc>http://www.subexpuesta.com/tus-localizaciones/Marco</loc>
@@ -101,7 +96,12 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/tus-localizaciones/alexg</loc>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/fedemoreno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/imikeltxo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -117,11 +117,6 @@
 </url>
 <url>
     <loc>http://www.subexpuesta.com/tus-localizaciones/RIANDE</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/tus-localizaciones/AntonioAliaga</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -231,11 +226,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/tus-localizaciones/quique_aparicio</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>http://www.subexpuesta.com/tus-localizaciones/Gondyc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -306,6 +296,56 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/joaquinain</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/AntonioAliaga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Tocho1973</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/alexg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/nono</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Buli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/gomez_sound</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Tayko</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Jampy5000</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Evildeaz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>http://www.subexpuesta.com/tus-localizaciones/manuelgzavala</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -317,6 +357,31 @@
 </url>
 <url>
     <loc>http://www.subexpuesta.com/tus-localizaciones/objetivoiluminar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/jcfvalero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/quique_aparicio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/Fotik</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/ignakismo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/tus-localizaciones/alefergan</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -889,6 +954,81 @@
 <url>
     <loc>http://www.subexpuesta.com/localizaciones/55d217706991b50300464df6/salinas-de-cabo-de-gata</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55dd55dd77393003004ba19c/reconco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55f7395eaa7147030096667b/canto-del-pico</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f98cc18c9ec0030013efa1/night-route-isla-de-tabarca</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f98dfa8c9ec0030013efa2/revelado-y-procesado-avanzado-en-fotografia-de-paisaje</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f98f328c9ec0030013efa3/masterclass-sobre-fotografia-nocturna-y-light-painting</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f98ff98c9ec0030013efa4/curso-vuelta-a-la-isla-de-tenerife</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f990d48c9ec0030013efa5/curso-de-fotografia-nocturna-en-zumaia</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f991918c9ec0030013efa6/curso-de-fotografia-nocturna-en-sevilla</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f9946e8c9ec0030013efa7/curso-fotografia-nocturna-en-sevilla</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f996548c9ec0030013efa8/taller-especial-pirineos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f997868c9ec0030013efa9/viaje-especial-islandia-la-isla-de-los-suenos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55f998668c9ec0030013efaa/taller-practico-de-iniciacion-a-la-fotografia-en-murcia</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55fadd42489c52030096b0a0/la-composicion-en-fotografia-asturias</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55fade37489c52030096b0a1/photoleon-2015</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/cursos/55fadf85489c52030096b0a2/taller-fotografico-nocturno-en-gijon</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 </urlset>

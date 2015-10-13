@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window) {
+    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window, Evento) {
         $scope.isLoggedIn = Auth.isLoggedIn;
 
 
@@ -19,6 +19,20 @@ angular.module('subexpuestaV2App')
         $scope.listaLocalizaciones = {};
         $scope.misLocalizaciones = [];
         $scope.fotoActual = {};
+        $scope.fechaHoy = new Date();
+        $scope.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+        $scope.listaEventos = [];
+
+            function getEventos() {
+                Evento.query({}, function(eventos) {
+                    $scope.listaEventos = eventos;
+                });
+
+
+            };
+
+        
 
         $scope.map = {
             center: {
@@ -107,18 +121,39 @@ angular.module('subexpuestaV2App')
 
                 var uniqueAutor = _.countBy($scope.misLocalizaciones, "autor");
 
-                var maximo = _.map(uniqueAutor, function(value, key) {
+                
+                var fechaEsteMes = new Date($scope.fechaHoy.getFullYear(),$scope.fechaHoy.getMonth(), 1);
+                //$log.debug('fechaEsteMes: ' + fechaEsteMes);
+
+                
+                $scope.topUsuariosMensual = _.filter($scope.misLocalizaciones, function(v){
+                    var aux = new Date(v.fechaCreacion);
+                    return aux > fechaEsteMes
+                });
+
+                $scope.topUsuariosMensual = _.countBy($scope.topUsuariosMensual, "autor");
+                $scope.topUsuariosMensual = _.map($scope.topUsuariosMensual, function(value, key) {
                     return {
                         autor: key,
                         total: value
                     };
                 });
-                $scope.usuarioMaximo = _.max(maximo, "total");
+
+                //$log.debug('$scope.topUsuariosMensual:'+JSON.stringify($scope.topUsuariosMensual, null, 4));
+
+                $scope.maximo = _.map(uniqueAutor, function(value, key) {
+                    return {
+                        autor: key,
+                        total: value
+                    };
+                });
+                
+                $scope.usuarioMaximo = _.max($scope.maximo, "total");
 
             })
         };
         getLocalizaciones();
-
+        getEventos();
 
         $scope.status = {
             isFirstOpen: true,

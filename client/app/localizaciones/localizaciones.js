@@ -4,7 +4,7 @@ angular.module('subexpuestaV2App')
   .config(function ($stateProvider) {
     $stateProvider
       .state('localizaciones', {
-        url: '/localizaciones',
+        url: '/localizaciones-fotografia-nocturna',
         templateUrl: 'app/localizaciones/localizaciones.html',
         controller: 'LocalizacionesMapaCtrl'
       })

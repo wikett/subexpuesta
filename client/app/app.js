@@ -20,8 +20,8 @@ angular.module('subexpuestaV2App', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-    //$httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $.cloudinary.config().cloud_name = 'djhqderty';
     $.cloudinary.config().upload_preset = 'jtzexgjp';

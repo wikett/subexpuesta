@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row">
+		<a class="btn btn-success" href="/admin/crear-evento">Añade nuevo evento</a>
+</div>
+	<div class="row" style="margin-top:20px;">
+		<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th width="200px">Titulo</th>
+						<th>Contenido</th>
+						<th width="200px">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="evento in listaEventos" class="gradeX">
+						<td>{{evento.fecha | date:'dd/MM/yyyy'}}</td>
+						<td width="200px">{{evento.titulo}}</td>
+						<td >{{evento.descripcion}}</td>
+						<td width="200px"><a href="#">Ver</a> |<a href="/admin/modificar-evento/{{evento._id}}/">Modificar</a> | <a href="#">Borrar</a></td>
+					</tr>
+				</tbody>
+		</table>
+		
+	</div>
+</div>

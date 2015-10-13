@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('ListaArticulosCtrl', function($scope, $rootScope, $log, Articulo) {
+    .controller('ListaArticulosCtrl', function($scope, $rootScope, $log, Articulo, $stateParams) {
         $scope.listaArticulos = [];
         $rootScope.title = 'Nuestro Blog. Artículos sobre fotografía nocturna | subexpuesta.com';
         $rootScope.metaDescription = 'Tutoriales, cómo se hizo la fotografía, experiencias, unboxing, linternas, puesta en práctica, vamos... nuestro blog!';
@@ -14,11 +14,30 @@ angular.module('subexpuestaV2App')
 
 
         function getArticulos() {
-            //console.log('findByTitle(): ' + $stateParams.apunteTitulo);
+            //$log.debug('categoria: ' + $stateParams.categoria);
+
+            var idCategoria = 0;
+
+            switch($stateParams.categoria){
+                case "general":
+                idCategoria = 0
+                break;
+                case "afondo":
+                idCategoria = 1;
+                break;
+            }
+
             Articulo.query({}, function(articulos) {
-                $scope.listaArticulos = articulos;
-                $log.debug('listaArticulos[0]: ' + JSON.stringify($scope.listaArticulos[0].fechaCreacion));
-                $log.debug('listaArticulos[0]: ' + JSON.stringify($scope.listaArticulos[1].fechaCreacion));
+                $log.debug(JSON.stringify(articulos, null, 4));
+                if(_.isUndefined($stateParams.categoria))
+                {
+                    $scope.listaArticulos = articulos;    
+                }
+                else
+                {
+                    $scope.listaArticulos = _.where(articulos, {categoria: idCategoria});
+                }
+                
             });
 
 

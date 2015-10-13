@@ -1,0 +1,125 @@
+<style>
+.angular-google-map-container { height: 400px; width: 700px;  }
+.angular-google-map-container input[type=text]{
+	width:400px;
+	color:navy;
+}
+</style>
+<div class="container">
+	<div class="row">
+		<form>
+			<div class="col-md-8 form-group">
+				<label>Titulo</label>
+				<input type="text" class="form-control" id="titulo"  ng-model="evento.titulo">
+			</div>
+			<div class="col-md-4 form-group">
+				<label>Fecha</label>
+				<p class="input-group">
+					<input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="dateOptions"  ng-required="true" close-text="Cerrar" />
+					<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+			</div>
+			<div class="col-md-8 form-group">
+				<label>Organizador</label>
+				<input class="form-control" id="organizador" ng-model="evento.organizador"></input>
+			</div>
+			<div class="col-md-4 form-group">
+				<label>Capacidad</label>
+				<input class="form-control" id="capacidad"  ng-model="evento.capacidad"></input>
+			</div>
+			
+			<div class="col-md-8 form-group">
+				<label>Localidad</label>
+				<input class="form-control" id="localidad" ng-model="evento.localidad"></input>
+			</div>
+			<div class="col-md-4 form-group">
+				<label>Direccion</label>
+				<input class="form-control" id="direccion" ng-model="evento.direccion"></input>
+			</div>
+			<div class="row">
+				<div class="col-md-9 form-group">
+					<label>Donde se realizara el evento?</label>
+					<div ng-if="showMap">
+						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+						<!--<ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+						events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>-->
+						<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+						</ui-gmap-marker>
+						</ui-gmap-google-map>
+					</div>
+				</div>
+				<div class="col-md-3 form-group">
+					<label>Imagen</label>
+					<input type="file" name="file" class="cloudinary_fileupload" multiple ng-model="$parent.files">
+					<div class="file" ng-repeat="file in files">
+						<div class="status"  ng-show="!finalizado">{{file.status}}</div>
+						
+						<div class="progress-bar" ng-show="!finalizado">
+							<div class="progress"style="width: {{file.progress}}%" ng-init="progress=0"></div>
+						</div>
+						<h4 class="success" ng-show="finalizado">Carga completada</h4>
+						<div class="file" ng-repeat="file in files">
+							<cl-image public-id="{{file.result.public_id}}" width="200" crop="fill" class="thumbnail inline" format="jpg"/>
+							</cl-image>
+						</div>
+
+					</div>
+					
+						<cl-image ng-show="!finalizado" public-id="{{evento.cloudinaryId}}"  width="200" crop="fill" class="thumbnail inline" format="jpg"/>
+							</cl-image>
+				</div>
+				</div>
+			</div>
+			<br />
+			<div class="col-md-12 form-group">
+				<label>Categoria</label>
+				<select ng-model="evento.categoria" convert-to-number>
+					  <option value="0">General</option>
+					  <option value="1">Nocturna/Lightpainting</option>
+					  <option value="2">Edicion</option>
+					  <option value="3">Online</option>
+					  <option value="4">Astrofotografia</option>
+					  <option value="5">Paisaje</option>
+				</select>
+			</div>
+			<div class="col-md-8 form-group">
+				<label>Descripcion</label>
+				<textarea class="form-control" id="descripcion" ng-model="evento.descripcion"></textarea>
+			</div>
+			
+			<div class="col-md-4 form-group">
+				<label>Precio (euros)</label>
+				<input class="form-control" id="precio" ng-model="evento.precio"></input>
+			</div>
+			<div class="col-md-12 form-group">
+				<label>Mas informacion</label>
+				<input class="form-control" id="web" ng-model="evento.web" placeholder="pagina web"></input>
+			</div>
+			<div class="col-md-12 form-group">
+				<label>Email contacto</label>
+				<input class="form-control" id="emailContacto" ng-model="evento.emailContacto"></input>
+			</div>
+			<div class="col-md-12 form-group">
+				<label>Estado</label>
+				<select ng-model="evento.estado" convert-to-number>
+					<option value="0">Activo</option>
+					<option value="1">Completo</option>
+					<option value="2">Cancelado</option>
+					<option value="3">Eliminado</option>
+				</select>
+				<label>
+                    <input type="checkbox" id="destacado" ng-model="evento.destacado">
+                    Es Destacado
+                  </label>
+			</div>
+			<div class="col-md-12">
+				
+				<button class="btn btn-lg btn-success pull-right" type="button" ng-click="modificarEvento()">Modificar Evento</button>
+			</div>
+		</form>
+		<p ng-show="eventoModificado">Evento modificado correctamente</p>
+		
+	</div>
+</div>

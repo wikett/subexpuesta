@@ -12,6 +12,7 @@ $scope.titulo = '';
 $scope.contenido = '';
 $scope.contenidoHTML = '';
 $scope.autor = '';
+$scope.urlAutor = '';
 $scope.imagen = '';
 $scope.articuloCreado = false;
 
@@ -23,6 +24,7 @@ $scope.articuloCreado = false;
         $scope.nuevoArticulo.contenido = $scope.contenido;
         $scope.nuevoArticulo.contenidoHTML = $scope.contenidoHTML;
         $scope.nuevoArticulo.autor = $scope.autor;
+        $scope.nuevoArticulo.urlAutor = $scope.urlAutor;
         $scope.nuevoArticulo.imagen = $scope.imagen;
         $scope.nuevoArticulo.categoria = $scope.model.id;
 

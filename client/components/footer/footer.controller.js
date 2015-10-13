@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('FooterCtrl', function($scope, $log, Boletin, $timeout, Localizacion) {
+    .controller('FooterCtrl', function($scope, $log, Boletin, $timeout, Articulo) {
         $scope.correo = '';
         $scope.boletinCreado = false;
         $scope.listaLocalizaciones = {};
@@ -14,28 +14,29 @@ angular.module('subexpuestaV2App')
         $scope.guardarEmail = function() {
             $scope.nuevo = new Boletin();
             $scope.nuevo.email = $scope.correo;
+            $scope.nuevo.origen = "footer";
 
             $scope.nuevo.$save().then(function(response) {
                 $scope.boletinCreado = true;
                 $timeout(callAtTimeout, 4000);
             });
         };
+            //$log.debug('Se ejecuta footer');
+
+            getArticulos();
 
 
-        function getListaLocalizciones() {
-
-            Localizacion.LocalizacionAPI.query().$promise.then(function(result){
-              $scope.listaLocalizaciones = result;
-              
-              var numRandom = Math.floor(Math.random()*$scope.listaLocalizaciones.length);
-               $scope.localizacionRandom = $scope.listaLocalizaciones[numRandom];
-               //$log.debug('Total: ' + JSON.stringify($scope.localizacionRandom, null, 4));
+        function getArticulos() {
+            //$log.debug('categoria: ' + $stateParams.categoria);
+            Articulo.query({}, function(articulos) {
+                //$log.debug(JSON.stringify(articulos, null, 4));
+                    $scope.listaArticulos = articulos;    
             });
 
 
         };
 
-        getListaLocalizciones();
+
 
 
     });

@@ -1,0 +1,49 @@
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li class="active">Añade tu curso</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Añade tu curso</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>Añade tu curso al listado de www.subexpuesta.com, tanto de fotografía nocturna, lightpainting, edición en photoshop o lightroom, o paisajístico. Podrás tener más difusión, poder llegar a más personas y completar tu aforo más fácilmente.</p>
+		</div>
+		
+	</div>
+	<div class="row">
+			<div class="col-md-6 form-group">
+				<label>Nombre</label><span ng-show="!peticion.nombre.length>0" style="color:red">*</span>
+				<input type="text" class="form-control" id="nombre"  ng-model="peticion.nombre" />
+			</div>
+			<div class="col-md-6 form-group">
+				<label>Email</label><span ng-show="!peticion.email.length>0" style="color:red">*</span>
+				<input type="text" class="form-control" id="email"  ng-model="peticion.email" />
+			</div>
+			<div class="col-md-12 form-group">
+				<label>Web del curso</label><span ng-show="!peticion.web.length>0" style="color:red">*</span>
+				<input type="text" class="form-control" rows="6" id="web"  ng-model="peticion.web"></input>
+			</div>
+			<div class="col-md-12">
+				<alert type="danger"  close="closeAlert($index)" ng-show="mensajeError.length>0"> {{ mensajeError }}</alert>
+				<alert type="success"  close="closeMensaje($index)" ng-show="mensajeExito.length>0"> {{ mensajeExito }}</alert>
+			</div>
+			<div class=" col-md-12 alert alert-danger" id="contactError" ng-show="mostrarError">
+								<strong>Error!</strong> Ha habido un problema en el envio. Por favor intentelo pasado unos minutos.
+							</div>
+			<div class="col-md-12 form-group">
+			<p  align="right"><strong ng-show="enviando" style="font-size:24px;margin-top:5px;"><i class="fa fa-spinner fa-pulse"></i></strong>  <a class="btn btn-success" href="#" ng-click="enviarMensaje()">Enviar</a></p>
+			</div>
+	</div>
+</div>

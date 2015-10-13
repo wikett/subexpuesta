@@ -1,0 +1,66 @@
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="#">Inicio</a></li>
+					<li class="active">{{eventoActual.titulo}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{eventoActual.titulo}}</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+
+		 <a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{eventoActual.cloudinaryId}}.jpg" target="_blank"><img style="border: 0pt none; float:left; padding:0px 20px 10px 10px" src="http://res.cloudinary.com/djhqderty/image/upload/c_scale,q_29,w_350/v1429114149/{{eventoActual.cloudinaryId}}.jpg" width="350px" title="{{eventoActual.titulo}}" /></a>
+		</div>
+		<div class="col-md-8">
+
+			<p><strong>Día:</strong> {{eventoActual.fecha | date:'d/MM/yyyy'}}</p>
+			<p><strong>Titulo:</strong> {{eventoActual.titulo}}</p>
+			<p><strong>Organizador:</strong> {{eventoActual.organizador}}</p>
+			<p><strong>Direccion:</strong> {{eventoActual.direccion}}, {{eventoActual.localidad}}</p>
+			<p><strong>Precio:</strong> {{eventoActual.precio + "€"}}</p>
+			<p ng-show="eventoActual.capacidad>0"><strong>Capacidad:</strong> {{eventoActual.capacidad}} personas</p>
+			<p><strong>Descripcion:</strong> {{eventoActual.descripcion}}</p>
+			<p><strong>Web:</strong> <a href="{{eventoActual.web}}" target="_blank"> {{eventoActual.web}}</a></p>
+			</div>
+		
+	</div>
+	<div class="row" style="margin-top:30px;">
+		
+		<h3 style="margin-left:20px;">Apúntate, pregunta alguna duda o reserva plaza!</h3>
+			<div class="col-md-6 form-group">
+				<label>Nombre</label><span ng-show="!alumno.nombre.length>0" style="color:red">*</span>
+				<input type="text" class="form-control" id="nombre"  ng-model="alumno.nombre" />
+			</div>
+			<div class="col-md-6 form-group">
+				<label>Email</label><span ng-show="!alumno.email.length>0" style="color:red">*</span>
+				<input type="text" class="form-control" id="email"  ng-model="alumno.email" />
+			</div>
+			<div class="col-md-12 form-group">
+				<label>Mensaje</label><span ng-show="!alumno.mensaje.length>0" style="color:red">*</span>
+				<textarea type="text" class="form-control" rows="6" id="mensaje"  ng-model="alumno.mensaje"></textarea>
+			</div>
+			<div class="col-md-12">
+				<alert type="danger"  close="closeAlert($index)" ng-show="mensajeError.length>0"> {{ mensajeError }}</alert>
+				<alert type="success"  close="closeMensaje($index)" ng-show="mensajeExito.length>0"> {{ mensajeExito }}</alert>
+			</div>
+			<div class=" col-md-12 alert alert-danger" id="contactError" ng-show="mostrarError">
+								<strong>Error!</strong> Ha habido un problema en el envio. Por favor intentelo pasado unos minutos.
+							</div>
+			<div class="col-md-12 form-group">
+			<p  align="right"><strong ng-show="enviando" style="font-size:24px;margin-top:5px;"><i class="fa fa-spinner fa-pulse"></i></strong>  <a class="btn btn-success" href="#" ng-click="enviarMensaje()">Enviar</a></p>
+			</div>
+	</div>
+	
+</div>

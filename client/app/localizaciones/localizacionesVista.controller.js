@@ -47,7 +47,7 @@ angular.module('subexpuestaV2App')
             $scope.editarLocalizacion = Localizacion.LocalizacionAPI.get({
                 id: $stateParams.id
             }, function() {
-                $scope.editarLocalizacion.estado = 5;
+                $scope.editarLocalizacion.estado = 2;
 
                 $scope.editarLocalizacion.$update().then(function(response) {
                     //$log.debug('Localizacion borrada');

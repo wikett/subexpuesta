@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('ContactoCtrl', function ($scope, $rootScope, Email, $log) {
+  .controller('ContactoCtrl', function ($scope, $rootScope, Email, $log, $http) {
     
      $rootScope.title = 'Ponte en contacto con nosotros | subexpuesta.com';
      $rootScope.metaDescription = 'Cualquier problema, sugerencia o incidencia que encuentres con la web, ponte en contacto con nosotros. Lo resolveremos lo más rápido posible!';
@@ -18,6 +18,18 @@ angular.module('subexpuestaV2App')
     $scope.nombre = '';
     $scope.asunto = '';
     $scope.mensaje = '';
+
+    $scope.miembros = [];
+
+    //$httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+    $http.get('https://us10.api.mailchimp.com/3.0/lists/3f4454e9b8/members', {
+        headers: {'Authorization': 'Basic d2lrZXR0OjY0NTk5ZTQwNTEzMTY4MzVmYTdlNmQxYTRlMWU5MmM0LXVzMTA='}
+        }).then(function(data){
+            $scope.miembros= data;
+        });
+
 
      $scope.enviarCorreo = function () {
   	

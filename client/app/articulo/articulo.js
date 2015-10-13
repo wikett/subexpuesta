@@ -13,6 +13,11 @@ angular.module('subexpuestaV2App')
         templateUrl: 'app/articulo/lista-articulos.html',
         controller: 'ListaArticulosCtrl'
       })
+      .state('blogcategoria', {
+        url: '/blog/:categoria',
+        templateUrl: 'app/articulo/lista-articulos.html',
+        controller: 'ListaArticulosCtrl'
+      })
       .state('creararticulo', {
         url: '/admin/crear-articulo',
         templateUrl: 'app/articulo/admin/crear-articulo.html',
