@@ -9,7 +9,7 @@ var BoletinSchema = new Schema({
   localidad: String,
   origen: String,
   fechaCreacion: {type: Date, default: Date.now},
-  estado: Number
+  estado: {type:Number, default: 0} //0 activo 1 borrado
 });
 
 module.exports = mongoose.model('Boletin', BoletinSchema);

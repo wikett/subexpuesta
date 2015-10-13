@@ -21,6 +21,7 @@ var EventoSchema = new Schema({
   precio: Number,
   web: String,
   emailContacto: String,
+  destacado: Boolean,
   participantes: [{nombre: String, email: String, fecha: {type: Date, default: Date.now}, estado: {type: Number, default: 0}}]
 });
 
