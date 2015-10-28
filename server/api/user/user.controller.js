@@ -620,10 +620,44 @@ exports.removeAvisos = function(req, res) {
 };
 
 
-exports.actualizarUsuario = function(req, res){
-    var userId = req.user._id;
-    console.log('ACTUALIZAR USUARIO: '+userId);
-    return res.send(200);    
+exports.actualizarUsuarioVip = function(req, res){
+        User.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $set: {
+                vip: true
+            }
+        }, {
+            safe: true,
+            upsert: true
+        },
+        function(err, usuario) {
+            if (!err) {
+                return res.json(200, usuario);
+            } else {
+                return handleError(res, err);
+            }
+        });
+};
+
+exports.actualizarUsuarioNoVip = function(req, res){
+        User.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $set: {
+                vip: false
+            }
+        }, {
+            safe: true,
+            upsert: true
+        },
+        function(err, usuario) {
+            if (!err) {
+                return res.json(200, usuario);
+            } else {
+                return handleError(res, err);
+            }
+        });
 };
 /**
  * Change a users password
