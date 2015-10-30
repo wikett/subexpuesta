@@ -7,6 +7,12 @@ angular.module('subexpuestaV2App')
       update:{
         method: 'PUT'
       },
+       get: {
+        method: 'GET',
+        params: {
+          id:'me'
+        }
+      },
       getportitulo: {
                     method: 'GET',
                     params: {

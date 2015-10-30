@@ -16,7 +16,7 @@ angular.module('subexpuestaV2App')
     
     $scope.estadosMejoras = ['Pendiente de hacer', 'En proceso...', 'Realizado', 'Rechazado', 'Borrado'];
 
-  	
+  	console.log(primepalindrome());
 
     function getListaMejoras(){
     	$scope.listaMejoras = Mejora.query(function(){
@@ -49,6 +49,48 @@ angular.module('subexpuestaV2App')
     	});
      		
     };
+
+    function isPrime(n) {
+
+   // If n is less than 2 or not an integer then by definition cannot be prime.
+   if (n < 2) {return false}
+   if (n != Math.round(n)) {return false}
+
+   // Now assume that n is prime, we will try to prove that it is not.
+   var isPrime = true;
+
+   // Now check every whole number from 2 to the square root of n. If any of these divides n exactly, n cannot be prime.
+   for (var i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i == 0) {isPrime = false}
+   }
+
+   // Finally return whether n is prime or not.
+   return isPrime;
+
+}
+
+function palindrome(str) {
+    var len = str.length;
+    for ( var i = 0; i < Math.floor(len/2); i++ ) {
+        if (str[i] !== str[len - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+    function primepalindrome(){
+      var i=1000;
+      var result;
+      while(i>921){
+
+        if(isPrime(i))
+          if(palindrome(i))
+            result = i;
+        i--;
+      }
+      return result;
+    }
 
      $scope.borrarMejora = function (idMejora) {
      	console.log('MejoraCtrl borrarMejora: '+idMejora);

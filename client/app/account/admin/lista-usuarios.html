@@ -14,7 +14,9 @@
 						
 						<th>Con</th>
 						<th>News</th>
+						<th>VIP</th>
 						<th >Acciones</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -27,6 +29,7 @@
 						<td >{{usuario.email}}</td>						
 						<td ><i ng-class="usuario.participarConcursos ? 'fa-check-square-o' : 'fa fa-square-o'"></i></td>
 						<td ><i ng-class="usuario.newsletter ? 'fa fa-check-square-o' : 'fa fa-square-o'"></i></td>
+						<td><input type="checkbox" ng-model="usuario.vip" ng-click="actualizarVIP(usuario.vip, usuario._id)">
 						<td ><a href="#">Ver</a> |<a href="#">Modificar</a> | <a href="#">Borrar</a></td>
 					</tr>
 				</tbody>

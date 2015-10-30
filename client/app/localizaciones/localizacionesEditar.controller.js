@@ -157,6 +157,8 @@ $scope.editarLocalizacion = function(){
           $scope.editarLocalizacion.notasAdicionales = $scope.localizacion.notasAdicionales;
           $scope.editarLocalizacion.latitud = $scope.marker.coords.latitude;
           $scope.editarLocalizacion.longitud = $scope.marker.coords.longitude;
+           $scope.editarLocalizacion.categoria = $scope.localizacion.categoria;
+
 
           $scope.editarLocalizacion.$update().then(function(response){
             $scope.localizacionEditada = true;

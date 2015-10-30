@@ -8,7 +8,8 @@
 					<tr>
 						<th>Fecha</th>
 						<th width="200px">Titulo</th>
-						<th>Contenido</th>
+						<th>Organizador</th>
+						<th>Lugar</th>
 						<th width="200px">Acciones</th>
 					</tr>
 				</thead>
@@ -16,7 +17,8 @@
 					<tr ng-repeat="evento in listaEventos" class="gradeX">
 						<td>{{evento.fecha | date:'dd/MM/yyyy'}}</td>
 						<td width="200px">{{evento.titulo}}</td>
-						<td >{{evento.descripcion}}</td>
+						<td >{{evento.organizador}}</td>
+						<td >{{evento.localidad}}</td>
 						<td width="200px"><a href="#">Ver</a> |<a href="/admin/modificar-evento/{{evento._id}}/">Modificar</a> | <a href="#">Borrar</a></td>
 					</tr>
 				</tbody>

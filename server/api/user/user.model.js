@@ -26,6 +26,7 @@ var UserSchema = new Schema({
   salt: String,
   resetPasswordToken: String,
   resetPasswordExpires: Date,
+  vip:{type: Boolean, default: false},
   facebook: {},
   google: {},
   github: {},

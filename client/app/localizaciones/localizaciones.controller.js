@@ -160,10 +160,17 @@ angular.module('subexpuestaV2App')
                 $scope.mensajeError = "Por favor, valore peligrosidad de la zona de acceso al lugar de la fotografia.";
                 return;
             }
+            
+            if(_.isUndefined($scope.localizacion.categoria))
+            {
+              $scope.mensajeError = "Por favor, indique la categoria de la fotografia.";      
+              return;
+            } 
+            if($scope.localizacion.categoria<8)
             if ($scope.rateCL === 0) {
                 $scope.mensajeError = "Por favor, valore la contaminacion luminica del lugar de la fotografia.";
                 return;
-            } else {
+            }   else {
 
                 $scope.nuevaLocalizacion = new Localizacion.LocalizacionAPI();
                 $scope.nuevaLocalizacion.titulo = $scope.localizacion.titulo;
@@ -177,7 +184,7 @@ angular.module('subexpuestaV2App')
                         $scope.listaEtiquetas.push(etiqueta.text);
                     })
 
-                $log.debug('$scope.rateCL: ' + $scope.rateCL);
+                //$log.debug('$scope.rateCL: ' + $scope.rateCL);
                 $scope.nuevaLocalizacion.tags = $scope.listaEtiquetas;
                 $scope.nuevaLocalizacion.autor = $scope.getCurrentUser.username;
                 $scope.nuevaLocalizacion.cloudinaryId = $scope.localizacion.cloudinaryId;
@@ -188,6 +195,7 @@ angular.module('subexpuestaV2App')
                 $scope.nuevaLocalizacion.notasAdicionales = $scope.localizacion.notasAdicionales;
                 $scope.nuevaLocalizacion.latitud = $scope.marker.coords.latitude;
                 $scope.nuevaLocalizacion.longitud = $scope.marker.coords.longitude;
+                $scope.nuevaLocalizacion.categoria = $scope.localizacion.categoria;
 
 
 
@@ -198,16 +206,29 @@ angular.module('subexpuestaV2App')
                 //$http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.nuevaLocalizacion.latitud+','+$scope.nuevaLocalizacion.longitud)
                 $http({
                     method: 'GET',
-                    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.nuevaLocalizacion.latitud + ',' + $scope.nuevaLocalizacion.longitud,
+                    //url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.nuevaLocalizacion.latitud + ',' + $scope.nuevaLocalizacion.longitud,
+                    url: 'http://ws.spotify.com/search/1/artist.json?q=mecano',
+                    
                     transformRequest: function(data, headersGetter) {
                         var headers = headersGetter();
+                        $log.debug('header: '+JSON.stringify(headers));
                         delete headers['Authorization'];
+                        //delete headers['X-Requested-With'];
+                        //res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+    //res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+                        //headers['Accept']='text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*';
+                        //headers['Access-Control-Allow-Origin']='*';
+                        //headers['Access-Control-Allow-Headers']='*';
+                        //headers['Access-Control-Allow-Methods']='GET, PUT, POST';
+    //$log.debug('header AFTER: '+JSON.stringify(headers));
+                        $log.debug('header AFTER: '+JSON.stringify(headers));
                         return headers;
                     }
                 })
                     .success(function(result) {
                         if (result.results.length > 0) {
-                            $log.debug('La llamada termindo exitosa: ' + result.results[0].formatted_address);
+                            //$log.debug('La llamada termindo exitosa: ' + result.results[0].formatted_address);
                             $scope.nuevaLocalizacion.direccion = result.results[0].formatted_address;
                         }
 
@@ -218,7 +239,7 @@ angular.module('subexpuestaV2App')
                             //Agregar aviso
                             User.query({}, function(usuarios) {
                                 _.each(usuarios, function(usuario) {
-                                    $log.debug('usuario.username: ' + usuario.username + ' $scope.getCurrentUser.username: ' + $scope.getCurrentUser.username);
+                                    //$log.debug('usuario.username: ' + usuario.username + ' $scope.getCurrentUser.username: ' + $scope.getCurrentUser.username);
                                     if (usuario.radioAviso > 0 && usuario.username != $scope.getCurrentUser.username) {
                                         var loc1 = new google.maps.LatLng($scope.marker.coords.latitude, $scope.marker.coords.longitude);
                                         var loc2 = new google.maps.LatLng(usuario.coordenadasAvisoLatitud, usuario.coordenadasAvisoLongitud);

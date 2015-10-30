@@ -21,18 +21,36 @@
     </div>
   </div>
   <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <h3>Sorteo de Postales con tu fotografía</h3>
+          <p><strong>¿Os acordais cuando llegaba Navidad y teníais lleno el buzón de postales?</strong></p>
+          <p>Puede que seamos unos nostálgicos, unos retros, o unos pasados de moda, pero el hecho de recibir una postal con un mensaje de un ser querido es algo que tiene una magia especial.</p>
+          <p><strong>¿Y por qué no que esa postal tenga una fotografía tuya?</strong></p>
+          <p>Pues en <a href="/" >Subpexpuesta.com</a> todas las localizaciones creadas durante el mes de Noviembre, entrarán en el sorteo para convertir tu fotografía en postal!</p>
+          <p><strong style="color:green; font-size:17px;">20 ganadores</strong>, <strong style="color:#D934CB; font-size:16px;">4 postales por ganador</strong>, sólo por crear una localización nueva.</p>
+          <a href="/sorteo-postales-navidad" class="btn btn-lg btn-warning pull-right">Más información</a>
+ 
+      </div>
+      <div class="col-md-4">
+        <a href="/sorteo-postales-navidad" alt="sorteo postales navidad"><img src="/assets/images/sorteo.jpg"  width="500px" style="margin-top:20px;" alt="Sorteo subexpuesta.com" /></a>
+      </div>
+    </div>
+  </div>
+  <hr style="margin-top:40px;margin-bottom:40px;" />
+  <!--<div class="container">
     <div class="row center">
       
       <div class="col-md-12">
         <h2 class="short word-rotator-title">
-        <a href="/localizaciones-fotografia-nocturna" > Descrubre las mejores fotografías</a> <strong>nocturnas</strong> cerca de ti
+        <a href="/localizaciones-fotografia-nocturna" > Descubre las mejores fotografías</a> <strong>nocturnas</strong> cerca de ti
         </h2>
         <p class="lead">
           Conoce de cada localización cómo acceder, peligrosidad de la zona y la contaminación lumínica.<br /><a href="/localizaciones-fotografia-nocturna" >Descúbrelas!</a>
         </p>
       </div>
     </div>
-  </div>
+  </div>-->
   <div class="container">
     <div class="row center">
       <div class="col-md-12" style="height:400px;">
@@ -119,7 +137,7 @@
           </div>
           <div class="col-md-4">
             <h4 style="color:#F79A09;">Cursos destacados de este mes</h4>
-            <p ng-repeat="evento in listaEventos | filter:{destacado:true} | limitTo:2"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_scale,q_29,w_350/v1429114149/{{evento.cloudinaryId}}.jpg" alt="Smiley face" width="50" height="50" style="float:left;margin-right:20px;"><a href="/cursos/{{evento._id}}/{{evento.titulo | seo}}">{{evento.titulo}}</a> por <strong>{{evento.organizador}}</strong> ({{evento.fecha | date:'dd/MM/yyyy'}})</p>
+            <p ng-repeat="evento in listaEventos | filter:{destacado:true} | limitTo:3"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_scale,q_29,w_350/v1429114149/{{evento.cloudinaryId}}.jpg" alt="Smiley face" width="50" height="50" style="float:left;margin-right:20px;"><a href="/cursos/{{evento._id}}/{{evento.titulo | seo}}">{{evento.titulo}}</a> por <strong>{{evento.organizador}}</strong> ({{evento.fecha | date:'dd/MM/yyyy'}})</p>
           </div>
         </div>
       </div>

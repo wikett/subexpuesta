@@ -65,7 +65,29 @@
 					</div>
 				</div>
 			</div>
-			
+			<div class="row">
+				<div class="form-group">
+					<label>Categoria</label> <span ng-show="!(localizacion.categoria>=0)" style="color:red">*</span>
+					<select style="width: 100%;" ng-model="localizacion.categoria" convert-to-number>
+					 <optgroup label="Nocturnas">
+						  <option value="0">Nocturna Paisaje</option>
+						  <option value="1">Nocturna Urbana</option>
+						  <option value="2">Lightpainting</option>
+						  <option value="3">Atardecer-Amanecer</option>
+						  <option value="4">Monumentos</option>
+						  <option value="5">Ruinas</option>
+						  <option value="6">Vehículos-Maquinaria</option>
+						  <option value="7">Minería</option>					  
+				    </optgroup>
+				    <optgroup ng-show="false" label="No sólo Nocturnas">
+						  <option value="8">Paisaje</option>
+						  <option value="9">Larga Exposición Diurna</option>
+						  <option value="10">Urbana</option>
+						  <option value="11">Costa</option>
+				    </optgroup>
+				</select>
+				</div>
+			</div>
 			<div class="row">
 				<div class="form-group" >
 					<label>Etiquetas</label>

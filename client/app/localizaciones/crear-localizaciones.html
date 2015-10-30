@@ -92,8 +92,31 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="form-group">
+					<label>Categoria</label> <span ng-show="!(localizacion.categoria>=0)" style="color:red">*</span>
+					<select style="width: 100%;" ng-model="localizacion.categoria" convert-to-number>
+					 <optgroup label="Nocturnas">
+						  <option value="0">Nocturna Paisaje</option>
+						  <option value="1">Nocturna Urbana</option>
+						  <option value="2">Lightpainting</option>
+						  <option value="3">Atardecer-Amanecer</option>
+						  <option value="4">Monumentos</option>
+						  <option value="5">Ruinas</option>
+						  <option value="6">Vehículos-Maquinaria</option>
+						  <option value="7">Minería</option>					  
+				    </optgroup>
+				    <optgroup ng-show="getCurrentUser.vip" label="No sólo Nocturnas">
+						  <option value="8">Paisaje</option>
+						  <option value="9">Larga Exposición Diurna</option>
+						  <option value="10">Urbana</option>
+						  <option value="11">Costa</option>
+				    </optgroup>
+				</select>
+				</div>
+			</div>
+			<div class="row">
 				<div class="form-group" >
-					<label>Etiquetas</label> <small>Utiliza palabras clave para que tu localización sea más fácil de encontrar.
+					<label>Etiquetas</label> <small>Utiliza palabras clave para que tu localización sea más fácil de encontrar.</small>
 					<tags-input ng-model="tags" placeholder="Ejemplo: canon, mar, startrail, alicante">
 				    </tags-input>
 				</div>
@@ -102,8 +125,6 @@
 				<div class="form-group" >
 					<label>Acceso</label> <span ng-show="!localizacion.acceso.length>0" style="color:red">*</span><small>(Se puede llegar con coche? solo a pie? el terreno es peligroso?)</small> <i data-toggle="tooltip" data-placement="top" title="Explica cómo está el acceso: si se puede llegar con coche, o hay que ir andando tantos minutos, si hay cerca zonas peligrosas, etc, etc..." class="fa fa-info-circle"></i>
 					<textarea class="form-control" ng-model="localizacion.acceso" rows="3" id="acceso" ng-model="localizacion.acceso" ></textarea>
-					
-					
 				</div>
 			</div>
 			<div class="row">
@@ -113,7 +134,7 @@
 					<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly" >{{percent}}%</span>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" ng-hide="localizacion.categoria>7">
 				<div class="form-group" >
 					<p style="margin:0px;"><label>Contaminación lumínica</label> <span ng-show="!rateCL>0" style="color:red">*</span></p>
 					<rating ng-model="rateCL" max="max" readonly="isReadonly" on-hover="hoveringOverCL(value)" on-leave="overStarCL = null" style="font-size: 20px;"></rating>
@@ -124,8 +145,6 @@
 				<div class="form-group" >
 					<label>Algo más que destacar</label>
 					<textarea class="form-control" ng-model="localizacion.notasAdicionales" rows="3" id="acceso" ng-model="localizacion.notasAdicionales" ></textarea>
-					
-					
 				</div>
 			</div>
 			<alert type="danger"  close="closeAlert($index)" ng-show="mensajeError.length>0"> {{ mensajeError }}</alert>

@@ -5,6 +5,8 @@ angular.module('subexpuestaV2App')
 
         $scope.showMap = false;
 
+        $scope.arrayCategorias = ['Nocturna Paisaje','Nocturna Urbana', 'LightPainting', 'Atardecer-Amanecer','Monumentos', 'Ruinas', 'Vehiculos-Maquinarias', 'Mineria','Paisaje','Larga Exposicion Diurna','Urbana', 'Costa'];
+
 
         $scope.localizacion = {};
         $scope.listaLocalizaciones = {};
@@ -96,7 +98,7 @@ angular.module('subexpuestaV2App')
                     $scope.listaLocalizaciones = result;
 
                     _.each($scope.listaLocalizaciones, function(loca) {
-                        $log.debug('votos: ' + loca.distanciakm);
+                        //$log.debug('votos: ' + loca.distanciakm);
                         var loc2 = new google.maps.LatLng(loca.latitud, loca.longitud);
                         var distaciaKM = Math.round(google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2) / 1000);
                         //$log.debug('Distancia: '+ distaciaKM);
