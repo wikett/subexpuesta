@@ -39,7 +39,7 @@ For a complete list of image manipulation options see [this reference](http://cl
 
 These directives transform the given URI to a cloudinary URL. For example:
 
-    <link rel="shortcut icon" cl-href="{publicly_available_image}" type="fetch" effect="sepia" width="16" heigh="16" crop="fit"/>
+    <link rel="shortcut icon" cl-href="{publicly_available_image}" type="fetch" effect="sepia" width="16" height="16" crop="fit"/>
 
 Will be transformed to:
 
@@ -49,7 +49,7 @@ Will be transformed to:
 
 ### Uploading images
 
-You can upload images directly from the browser using Cloudinary's jQuery plugin from you AngularJS app. See the sample [photo album app](https://github.com/cloudinary/cloudinary_angular/tree/master/samples/photo_album) for a usage example.
+You can upload images directly from the browser using Cloudinary's jQuery plugin from your AngularJS app. See the sample [photo album app](https://github.com/cloudinary/cloudinary_angular/tree/master/samples/photo_album) for a usage example.
 
 
 ## Samples

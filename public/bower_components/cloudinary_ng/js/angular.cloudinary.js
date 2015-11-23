@@ -23,7 +23,7 @@
   ['Src', 'Srcset', 'Href'].forEach(function(attrName) {
     var normalized = 'cl' + attrName;
     attrName = attrName.toLowerCase();
-    angularModule.directive(normalized, function($sniffer) {
+    angularModule.directive(normalized, ['$sniffer', function($sniffer) {
       return {
         priority: 99, // it needs to run after the attributes are interpolated
         link: function(scope, element, attr) {
@@ -54,10 +54,10 @@
           });
         }
       };
-    });
+    }]);
   });
 
-  angularModule.directive('clTransformation', function() {
+  angularModule.directive('clTransformation', [function() {
     return {
       restrict : 'E',
       transclude : false,
@@ -72,9 +72,9 @@
         clImageCtrl.addTransformation(attributes);
       }
     }
-  });
+  }]);
 
-  angularModule.directive('clImage', function() {
+  angularModule.directive('clImage', [function() {
     var Controller = function($scope) {
       this.addTransformation = function(ts) {
         $scope.transformations = $scope.transformations || [];
@@ -93,16 +93,26 @@
       // The linking function will add behavior to the template
       link : function(scope, element, attrs) {
         var attributes = {};
+        var publicId = null;
+
         $.each(attrs, function(name, value){attributes[cloudinaryAttr(name)] = value});
 
         if (scope.transformations) {
           attributes.transformation = scope.transformations;
         }
 
-        attrs.$observe('publicId', function(publicId){
-          if (!publicId) return;
-          var url = $.cloudinary.url(publicId, attributes);
-          element.attr('src', url);
+        // store public id and load image
+        attrs.$observe('publicId', function(value){
+          if (!value) return;
+          publicId = value;
+          loadImage();
+        });
+
+        // observe and update version attribute
+        attrs.$observe('version', function(value){
+          if (!value) return;
+          attributes['version'] = value;
+          loadImage();
         });
 
         if (attrs.htmlWidth) {
@@ -116,7 +126,12 @@
           element.removeAttr("height");
         }
 
+        var loadImage = function() {
+          var url = $.cloudinary.url(publicId, attributes);
+          element.attr('src', url);
+        }
+
       }
     };
-  });
+  }]);
 }));
