@@ -35,7 +35,7 @@ exports.index = function(req, res) {
 };
 
 exports.getusuario = function(req, res) {
-    console.log('REQ.Apuntes.params: ' + req.params.username);
+    //console.log('REQ.Apuntes.params: ' + req.params.username);
 
     User.findOne({
         'username': req.params.username
