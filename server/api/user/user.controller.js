@@ -659,6 +659,28 @@ exports.actualizarUsuarioNoVip = function(req, res){
             }
         });
 };
+
+exports.actualizarConcurso = function(req, res){
+    console.log('query update ganador: '+req.params.id);
+        User.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $set: {
+                ganadorPostales: true
+            }
+        }, {
+            safe: true,
+            upsert: true
+        },
+        function(err, usuario) {
+            if (!err) {
+                return res.json(200, usuario);
+            } else {
+                return handleError(res, err);
+            }
+        });
+};
+
 /**
  * Change a users password
  */

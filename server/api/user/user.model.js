@@ -35,7 +35,8 @@ var UserSchema = new Schema({
   frecuenciaAviso: {type: Number, default:0}, //0 -> Cuando se publique una localizacion, 1-> Al finalizar el dia, 2-> Al finalizar la semana
   coordenadasAvisoLatitud: {type: Number, default:0},
   coordenadasAvisoLongitud: {type: Number, default:0},
-  origen: String
+  origen: String,
+  ganadorPostales:{type: Boolean, default:false}
 });
 
 /**
