@@ -661,7 +661,7 @@ exports.actualizarUsuarioNoVip = function(req, res){
 };
 
 exports.actualizarConcurso = function(req, res){
-    console.log('query update ganador: '+req.params.id);
+    //console.log('query update ganador: '+req.params.id);
         User.findOneAndUpdate({
             _id: req.params.id
         }, {
