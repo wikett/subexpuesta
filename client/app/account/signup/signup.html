@@ -28,7 +28,7 @@
               <div class="row">
                   <div class="form-group" ng-class="{ 'has-success': form.username.$valid && submitted,
                     'has-error': form.username.$invalid && submitted }">
-                    <label>Usuario</label>
+                    <label>Usuario</label> <label ng-hide="user.username.length>0" style="color:red;">*</label>
                     <input type="text" name="username" class="form-control" ng-model="user.username" required mongoose-error/>
                     <p class="help-block" ng-show="form.username.$error.required && submitted">
                       Olvidaste poner tu nombre de usuario
@@ -41,7 +41,7 @@
                 <div class="row">
                   <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                     'has-error': form.email.$invalid && submitted }">
-                    <label>Email</label>
+                    <label>Email</label> <label ng-hide="user.email.length>0" style="color:red;">*</label>
                     <input type="email" name="email" class="form-control" ng-model="user.email" required mongoose-error/>
                     <p class="help-block" ng-show="form.email.$error.email && submitted">
                       No parece un email correcto
@@ -58,7 +58,7 @@
                 <div class="row">
                   <div class="form-group"  ng-class="{ 'has-success': form.password.$valid && submitted,
                     'has-error': form.password.$invalid && submitted }">
-                    <label>Contraseña</label>
+                    <label>Contraseña</label> <label ng-hide="user.password.length>0" style="color:red;">*</label>
                     <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6"required mongoose-error>
                     <p class="help-block"
                       ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
@@ -73,14 +73,37 @@
                 <div class="row">
                   <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                     'has-error': form.password.$invalid && submitted }">
-                    <label>Repetir Contraseña</label>
+                    <label>Repetir Contraseña</label> <label ng-hide="user.passwordagain.length>0" style="color:red;">*</label>
                     <input type="password" name="passwordagain" class="form-control" ng-model="user.passwordagain" required>
                     <p class="help-block"
                       ng-show="(user.password != user.passwordagain) && submitted">
                       No coinciden las contraseñas
                     </p>
                   </div>
+                  
                 </div>
+                <div class="row">
+                <div class="form-group">
+                  <label>¿Cómo nos conocistes?</label>  
+                  <select  class="form-control" ng-model="user.origen">
+                  <option value=""></option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="Twitter">Twitter</option>
+                      <option value="Foros de fotografia">Foros de fotografía</option>
+                      <option value="Google">Google</option>
+                      <option value="Un amigo de hablo">Un amigo me habló de la web</option>
+                      <option value="Otros">Otros</option>
+                  </select>               
+                </div>
+                </div>
+                <div ng-if="user.origen==='Otros'" class="row">
+                  <div class="form-group">
+                    <label>¿Nos lo puedes indicar?</label>
+                    <input type="text" name="origenTexto" class="form-control" ng-model="user.origenTexto">
+                  </div>
+                </div>
+                <p style="text-align:right;"> <label style="color:red;">*</label> Campos obligatorios</p>
+                
                 <div class="row">
                   <div class="col-md-6">
                     <a href="/login" >¿Tienes ya cuenta? Inicia Sesión</a>

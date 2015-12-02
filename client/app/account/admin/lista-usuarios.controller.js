@@ -31,6 +31,17 @@ angular.module('subexpuestaV2App')
                 modificarUsuarioNoVIP(idUsuario);
 
         }
+
+
+        $scope.establecerGanador = function(idUsuario) {
+                $log.debug('Call ganador');
+
+            $http.get('/api/users/actualizarconcurso/' + idUsuario).success(function(result) {
+                        $log.debug('Ganador establecido correctamente');
+                    })
+
+        };
+
         function modificarUsuarioVIP(idUsuario) {
 
             $http.get('/api/users/actualizarvip/' + idUsuario).success(function(result) {

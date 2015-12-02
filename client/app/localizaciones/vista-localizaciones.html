@@ -25,6 +25,20 @@
 				</ui-gmap-marker>
 				</ui-gmap-google-map>
 			</div>
+			<p> <a href="#" ng-click="isCollapsed=!isCollapsed">Reportar ubicacion <span style="font-size: 10px;" ng-class="isCollapsed ? 'glyphicon glyphicon-menu-right' : 'glyphicon glyphicon-menu-up'" aria-hidden="true"></span></a></p>
+			<div collapse="isCollapsed">
+			<div class="form-group" style="margin-top:20px; padding: 0px 130px 0px 20px;font-size: 11px;">
+					<p>Si crees que hay una errata en la ubicación o conoces bien la zona y la localización no está exactamente en el lugar indicado, indícanos el problema. Gracias!</p>
+					<textarea cols="50" ng-model="textoReporte"></textarea> 	
+						<div class="text-right" style=" margin-right: -16px;">
+						<p style="color:green" ng-show="enviado">Reporte guardado correctamente. Gracias por avisar. </p>
+						<p style="color:red" ng-show="mostrarError">Hubo un problema inesperado. Por favor, intentelo pasados unos minutos. Gracias </p>
+						<strong  ng-show="enviando" style="font-size:20px;"><i class="fa fa-spinner fa-pulse"></i></strong>
+						<button class="btn btn-warning" type="button" ng-disabled="textoReporte.length===0" ng-click="guardarReporte()">Reportar</button>
+						</div>
+						
+					</div>
+		</div>
 		</div>
 		<div class="col-md-7">
 			<div class="portfolio-info">

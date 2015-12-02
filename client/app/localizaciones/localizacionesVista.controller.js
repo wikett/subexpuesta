@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location) {
+    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location, Email) {
 
         $scope.showMap = false;
 
@@ -11,6 +11,12 @@ angular.module('subexpuestaV2App')
         $scope.localizacion = {};
         $scope.listaLocalizaciones = {};
         $scope.localizacionesCercanas = [];
+
+            $scope.isCollapsed = true;
+    $scope.mejoraCreada = false;
+    $scope.textoReporte = '';
+
+
         $scope.miObjeto = {
             localizaciones: {},
             distancia: {}
@@ -58,6 +64,30 @@ angular.module('subexpuestaV2App')
             });
 
         });
+
+        $scope.guardarReporte = function(){
+            
+            $scope.enviando = true;
+            Email.EmailEnviarContacto.enviarMailContacto({
+                direccion: 'subexpuestaweb@gmail.com',
+                nombre: 'Wikett',
+                asunto: 'Reporte Localizacion',
+                mensaje: JSON.stringify($scope.localizacion, null, 4)+"Comentario: "+ $scope.textoReporte
+            },function(mensaje) {
+
+                if(mensaje.message==='success'){
+                $scope.enviado = true;  
+                }
+                else
+                {
+                    $scope.mostrarError = true;
+                }
+                $scope.enviando = false;
+                
+                
+
+            });
+        }
 
         function localizacionesMasCercanas(localizacion) {
             if ($scope.localizacionesCercanas.length == 0) {

@@ -30,16 +30,16 @@
 		<div class="col-md-5">
 
 		</div>
-		<div  class="col-md-7 input-group" >
+		<!--<div  class="col-md-7 input-group" >
 
 		      <input type="text" class="form-control" ng-model='busqueda' placeholder="Busca por ciudad, por organizador, por descripcion...">
 		      <span class="input-group-btn">
 		        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
 		      </span>
-		    </div>
+		    </div>-->
 		    </div>
 		<div class="col-md-12">
-			<accordion ng-repeat="(key, value) in eventosAgrupados | filter:busqueda">
+			<accordion ng-repeat="(key, value) in eventosAgrupados">
 				<h3 ng-show="(value | filter:busqueda).length > 0" style="color:#10066B">{{key | fechaEvento | filter:busqueda}}</h3>
 				<p ng-show="(value | filter:busqueda).length === 0 && $index===0">No se encontró ningún curso con tu búsqueda.</p>
 				<accordion-group is-open="evento.open" ng-repeat="evento in value | filter:busqueda  |  orderBy:'fecha'">
@@ -57,6 +57,7 @@
 					</div>
 				</accordion-group>
 			</accordion>
+			
 
 		</div>
 

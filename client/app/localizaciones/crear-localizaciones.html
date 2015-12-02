@@ -25,13 +25,50 @@
 		<div class="form-group" >
 					<label>Selecciona la localización exacta</label> <span ng-show="!marker.coords.latitude>0" style="color:red">*</span><small>(Haz click en el mapa para situar el punto sobre el mapa)</small>
 					<div class="row" ng-if="showMap">
-						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events" bounds="map.bounds">
+
+							<!--<ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+				                            events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>-->
+							
 							<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
 							 </ui-gmap-marker>
 
 						</ui-gmap-google-map>
 					</div>
+					<!--<div id="searchBoxParent"></div>
+				    <div>
+				        <ui-gmap-google-map
+				                center="map.center"
+				                zoom="map.zoom"
+				                dragging="map.dragging"
+				                bounds="map.bounds"
+				                events="map.events"
+				                options="map.options"
+				                pan="true"
+				                control="map.control"
+				                >
+
+				            <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+				                            events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
+
+
+
+				            <ui-gmap-markers idkey="map.idkey" models="map.markers" coords="'self'" icon="'icon'"
+				                             click="'onClicked'"></ui-gmap-markers>
+				            <ui-gmap-window coords="selected" idkey="selected.place_id" templateurl="selected.templateurl"
+				                            templateparameter="selected.templateparameter" options="selected.options"
+				                            closeClick='selected.closeClick()' ng-cloak>
+
+				            </ui-gmap-window>
+
+
+				        </ui-gmap-google-map>
+				        <button type="button" ng-click="toggleMap()">Toggle Visibility</button>
+				        <span ng-bind="searchbox.options.visible"></span>
+				    </div>-->
 					<span style="color:red">*</span> Campos obligatorios
+					<p>Latitud Marker: {{marker.coords.latitude}}</p>
+					<p>Longitud Marker: {{marker.coords.longitude}}</p>
 				</div>
 			
 		</div>

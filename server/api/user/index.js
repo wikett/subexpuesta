@@ -24,5 +24,6 @@ router.post('/reset/:token', controller.resetPassword);
 router.get('/usuario/:username', controller.getusuario);
 router.get('/actualizarvip/:id', controller.actualizarUsuarioVip);
 router.get('/actualizarnovip/:id', controller.actualizarUsuarioNoVip);
+router.get('/actualizarconcurso/:id', controller.actualizarConcurso);
 
 module.exports = router;

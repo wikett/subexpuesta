@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window, Evento) {
+    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window, Evento, User) {
         $scope.isLoggedIn = Auth.isLoggedIn;
 
 
@@ -15,9 +15,9 @@ angular.module('subexpuestaV2App')
         $scope.destinoModal = '';
         $scope.destinoTituloModal = '';
         $scope.usuarioMaximo = '';
-        $scope.listaUsuarios = {};
         $scope.listaLocalizaciones = {};
         $scope.misLocalizaciones = [];
+        $scope.listaUsuarios = [];
         $scope.fotoActual = {};
         $scope.fechaHoy = new Date();
         $scope.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -27,6 +27,7 @@ angular.module('subexpuestaV2App')
             function getEventos() {
                 Evento.query({}, function(eventos) {
                     $scope.listaEventos = eventos;
+                   
                 });
 
 
@@ -67,6 +68,18 @@ angular.module('subexpuestaV2App')
 
         });
 
+
+
+        function getUsuarios() {
+            User.query({}, function(usuarios) {
+                $scope.listaUsuarios = usuarios;
+                $scope.listadoGanadores = $filter('filter')($scope.listaUsuarios, function(o){
+                    return o.ganadorPostales===true;
+                });
+        });
+
+
+        };
 
         function getLocalizaciones() {
             $scope.listaLocalizaciones = Localizacion.LocalizacionAPI.query(function() {
@@ -154,6 +167,7 @@ angular.module('subexpuestaV2App')
         };
         getLocalizaciones();
         getEventos();
+        getUsuarios();
 
         $scope.status = {
             isFirstOpen: true,

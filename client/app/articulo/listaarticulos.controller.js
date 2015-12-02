@@ -28,7 +28,7 @@ angular.module('subexpuestaV2App')
             }
 
             Articulo.query({}, function(articulos) {
-                $log.debug(JSON.stringify(articulos, null, 4));
+                //$log.debug(JSON.stringify(articulos, null, 4));
                 if(_.isUndefined($stateParams.categoria))
                 {
                     $scope.listaArticulos = articulos;    

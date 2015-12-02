@@ -4,7 +4,6 @@ angular.module('subexpuestaV2App', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngAnimate',
   'ui.router',
   'ui.bootstrap',
   'ngImgCrop',

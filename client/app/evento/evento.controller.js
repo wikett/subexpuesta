@@ -34,19 +34,25 @@ angular.module('subexpuestaV2App')
 
         function getEventos() {
             var fechaHoy = new Date();
-            $log.debug('fechaHoy: ' + fechaHoy);
+            //$log.debug('fechaHoy: ' + fechaHoy);
             Evento.query({}, function(eventos) {
-
-                $scope.listaEventos = _.filter(eventos, function(v){
+                
+               
+            $scope.listaEventos = _.filter(eventos, function(v){
                     var aux = new Date(v.fecha);
                     return aux > fechaHoy
                 });
+
 
                 var groupedByMonth = _.groupBy($scope.listaEventos, function(item) {
                     return item.fecha.substring(0, 7);
                 });
 
+                //$log.debug('Tengo todos los eventos: '+JSON.stringify(groupedByMonth));
+
                 $scope.eventosAgrupados = groupedByMonth;
+
+
                 //$log.debug('groupedByMonth: ' + JSON.stringify($scope.eventosAgrupados, null, 4));
 
                 _.each(eventos, function(evento) {

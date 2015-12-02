@@ -13,6 +13,7 @@ angular.module('subexpuestaV2App')
 
   	$scope.isCollapsed = true;
   	$scope.mejoraCreada = false;
+    $scope.textoReporte = '';
     
     $scope.estadosMejoras = ['Pendiente de hacer', 'En proceso...', 'Realizado', 'Rechazado', 'Borrado'];
 

@@ -23,7 +23,7 @@ angular.module('subexpuestaV2App')
         //console.log('findByTitle(): ' + $stateParams.apunteTitulo);
         Articulo.query({}, function(articulos) {
             $scope.listaArticulos = articulos;
-            $log.debug('listaArticulos[0]: ' + JSON.stringify($scope.listaArticulos[0]));
+            //$log.debug('listaArticulos[0]: ' + JSON.stringify($scope.listaArticulos[0]));
         });
 
 

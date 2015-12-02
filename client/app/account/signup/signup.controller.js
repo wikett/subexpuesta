@@ -1,20 +1,31 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window, Email) {
+  .controller('SignupCtrl', function ($scope, Auth, $location, $window, Email, $log) {
     $scope.user = {};
     $scope.errors = {};
+
 
     $scope.register = function(form) {
       $scope.submitted = true;
 
       if(form.$valid) {
         var usernameLimpio = ($scope.user.username.toString()).replace(/[&\/\\#,+()$~%.='!":*?<>{}]/g,'-');
-        console.log('usernameLimpio: '+usernameLimpio);
+        var origenUsuario = $scope.user.origen;
+        //$log.debug('$scope.codigoOtros: '+$scope.user.origen);
+        //$log.debug('$scope.user.origenTexto: '+$scope.user.origenTexto);
+
+        if(!_.isUndefined($scope.user.origenTexto))
+        {
+          origenUsuario = $scope.user.origenTexto;
+        }
+
+        //$log.debug('origen: '+origenUsuario);
         Auth.createUser({
           name: $scope.user.name,
           username: usernameLimpio,
           email: $scope.user.email,
+          origen: origenUsuario,
           password: $scope.user.password
         })
         .then( function() {
@@ -24,15 +35,12 @@ angular.module('subexpuestaV2App')
 
             });
 
-          // Account created, redirect to home
           $location.path('/');
 
         })
         .catch( function(err) {
           err = err.data;
           $scope.errors = {};
-
-          // Update validity of form fields that match the mongoose errors
           angular.forEach(err.errors, function(error, field) {
             console.log('error: '+error.message+' field: '+field);
             form[field].$setValidity('mongoose', false);

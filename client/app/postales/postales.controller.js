@@ -1,12 +1,26 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('PostalesCtrl', function($scope, Localizacion, $log) {
+    .controller('PostalesCtrl', function($scope, Localizacion, $log, User, $filter) {
 
-        $scope.misLocalizaciones = [];
-        $scope.fechaHoy = new Date();
+            $scope.misLocalizaciones = [];
+            $scope.fechaHoy = new Date();
+            $scope.listadoGanadores = [];
 
-        function getLocalizaciones() {
+
+            $scope.monthMatch = function(month) {
+                return function(item) {
+                    
+                    return moment(item.fechaSubida).format('M') == month;
+                };
+            };
+
+
+            function getLocalizaciones() {
+                $scope.listaLocalizaciones = Localizacion.LocalizacionAPI.query(function() {})
+            };
+
+            function getLocalizacionesNoviembre() {
             $scope.listaLocalizaciones = Localizacion.LocalizacionAPI.query(function() {
 
 
@@ -53,21 +67,26 @@ angular.module('subexpuestaV2App')
                         }
 
                     };
-                    if (loca.estado != 2)
+                    if(loca.estado!=2)
                         $scope.misLocalizaciones.push(ret);
                 });
 
                 var uniqueAutor = _.countBy($scope.misLocalizaciones, "autor");
 
-                //$log.debug('$scope.fechaHoy.getMonth(): '+$scope.fechaHoy.getMonth());
-                var fechaEsteMes = new Date($scope.fechaHoy.getFullYear(), 10, 1);
-                //$log.debug('fechaEsteMes: ' + fechaEsteMes);
+                
+                var fechaEsteMes = new Date($scope.fechaHoy.getFullYear(),10, 1);
+                var fechaFinMes = new Date($scope.fechaHoy.getFullYear(),10, 30);
+               // $log.debug('fechaEsteMes: ' + fechaEsteMes);
 
-
-                $scope.topUsuariosMensual = _.filter($scope.misLocalizaciones, function(v) {
+                
+                $scope.topUsuariosMensual = _.filter($scope.misLocalizaciones, function(v){
                     var aux = new Date(v.fechaCreacion);
-                    //$log.debug(aux);
                     return aux > fechaEsteMes
+                });
+
+                $scope.topUsuariosMensual = _.filter($scope.topUsuariosMensual, function(v){
+                    var aux = new Date(v.fechaCreacion);
+                    return aux < fechaFinMes
                 });
 
                 $scope.topUsuariosMensual = _.countBy($scope.topUsuariosMensual, "autor");
@@ -78,11 +97,33 @@ angular.module('subexpuestaV2App')
                     };
                 });
 
+                //$log.debug('$scope.topUsuariosMensual:'+JSON.stringify($scope.topUsuariosMensual, null, 4));
+
+                $scope.maximo = _.map(uniqueAutor, function(value, key) {
+                    return {
+                        autor: key,
+                        total: value
+                    };
+                });
+                
+                $scope.usuarioMaximo = _.max($scope.maximo, "total");
+
             })
         };
 
 
-        getLocalizaciones();
+            function getUsuarios() {
+                User.query({}, function(usuarios) {
+                    $scope.listaUsuarios = usuarios;
+                    $scope.listadoGanadores = $filter('filter')($scope.listaUsuarios, function(o) {
+                        return o.ganadorPostales === true;
+                    });
+                });
+            };
+
+                getLocalizaciones();
+                getUsuarios();
+                getLocalizacionesNoviembre();
 
 
-    });
+            });

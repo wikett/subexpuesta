@@ -1,0 +1,87 @@
+<div role="main" class="main">
+	<section class="page-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="breadcrumb">
+						<li><a href="/">Inicio</a></li>
+						<li class="active">Sorteo de Postales para Navidad</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Sorteo de Postales para Navidad</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<div class="row">
+		<h3 style="margin-left:10px;">Ganadores del Sorteo de 4 postales con tu fotografía</h3>
+			<div class="col-md-9">
+				
+				<p><strong style="color:green;">Enhorabuena a todos los galardonados!!</strong></p>
+				<p>Y <strong>mil gracias</strong> a todos los que participaren en el sorteo.</p>				
+				<p>Nos estamos poniendo en contacto con todos los ganadores <strong>vía email</strong> para saber que fotografía quieren en su postal y a qué dirección debemos inviarlas. Estar atentos al correo para poder agilizar este proceso y poder enviar las postales cuanto antes, ya que como todos sabemos, en el mes de Diciembre el correo ordinario se satura bastante y mejor hacerlo cuanto antes.</p>
+				<p>Con cualquier duda o problema no dudeis en poneros en contacto con nosotros: subexpuestaweb@gmail.com</p>
+				<br />
+				<p>En caso de no obtener respuesta de los ganadores procederemos a comunicarnos con los reservas.</p>
+				<p><a href="/sorteo-postales-navidad">Ver todos los participantes</a></p>
+
+					<div class="row" style="margin-top:5px;">
+
+		
+	
+			<h5>Localizaciones participantes en el sorteo</h5>
+			<div ng-repeat="localizacion in listaLocalizaciones | filter:monthMatch(11) | filter:{estado:'!2'}| orderBy: fechaSubida" style="width:80px; float:left;">
+				
+				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,w_80/v1438939574/{{localizacion.cloudinaryId}}" title="{{localizacion.titulo | seo}}"  /></a>
+				
+			</div>
+		</div>
+
+
+
+
+				
+			</div>
+			<div class="col-md-3">
+			<h4 style="color:green;">Ganadores</h4>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Usuario</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="usu in listadoGanadores | limitTo:20">
+							<th scope="row">{{$index+1}}</th>
+							<td><a href="/tus-localizaciones/{{usu.username}}">{{usu.username}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<h4 style="color:green;">Reservas</h4>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Usuario</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="usu in listadoGanadores.slice(listadoGanadores.lenght-5,listadoGanadores.lenght)">
+							<th scope="row">{{$index+1}}</th>
+							<td><a href="/tus-localizaciones/{{usu.username}}">{{usu.username}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		
+			
+			
+		</div>
+	</div>
+</div>

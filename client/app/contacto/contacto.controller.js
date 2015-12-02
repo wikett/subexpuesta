@@ -21,19 +21,32 @@ angular.module('subexpuestaV2App')
 
     $scope.miembros = [];
 
-    //$httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
+/*
     $http.get('https://us10.api.mailchimp.com/3.0/lists/3f4454e9b8/members', {
         headers: {'Authorization': 'Basic d2lrZXR0OjY0NTk5ZTQwNTEzMTY4MzVmYTdlNmQxYTRlMWU5MmM0LXVzMTA='}
         }).then(function(data){
             $scope.miembros= data;
-        });
+        });*/
+
+                /*$http({
+                    method: 'GET',
+                    url: 'https://us10.api.mailchimp.com/3.0/lists/3f4454e9b8/members',
+                    transformRequest: function(data, headersGetter) {
+                        var headers = headersGetter();
+                        delete headers['Authorization'];
+                        headers['Authorization']='Basic d2lrZXR0OjY0NTk5ZTQwNTEzMTY4MzVmYTdlNmQxYTRlMWU5MmM0LXVzMTA=';
+                        return headers;
+                    }
+                })
+                    .success(function(response) {
+                        $log.debug('response: ' + JSON.stringify(response));
+                    })
+*/
 
 
      $scope.enviarCorreo = function () {
   	
-           $log.debug('Enviando correo...');
+           //$log.debug('Enviando correo...');
            $scope.enviando = true;
             Email.EmailEnviarContacto.enviarMailContacto({
                 direccion: $scope.direccion,
@@ -42,7 +55,7 @@ angular.module('subexpuestaV2App')
                 mensaje: $scope.mensaje
             },function(mensaje) {
 
-                $log.debug('mensaje: '+JSON.stringify(mensaje));
+                //$log.debug('mensaje: '+JSON.stringify(mensaje));
                 if(mensaje.message==='success'){
                 $scope.enviado = true;	
                 }
@@ -58,4 +71,6 @@ angular.module('subexpuestaV2App')
 
 
         };
+
+
   });
