@@ -387,32 +387,7 @@
 </url>
 
 <url>
-    <loc>http://www.subexpuesta.com/localizaciones/55313d2660c6660300066d06/desda-la-mancha-profunda</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>http://www.subexpuesta.com/localizaciones/55313e8560c6660300066d07/fanan-head</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/localizaciones/5531538660c6660300066d09/playa-de-cocedores</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/localizaciones/5534215fe40b3d03005f63b2/entre-las-torres</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/localizaciones/55435bdce8f78703004b4f51/belfast-city-hall</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>http://www.subexpuesta.com/localizaciones/55436ffae8f78703004b4f54/bateria-de-castillitos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -433,6 +408,31 @@
 </url>
 <url>
     <loc>http://www.subexpuesta.com/localizaciones/5572b69b91a10903005b612a/silla-de-felipe-segundo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561e97b32976190300562d0f/ermita-de-san-juan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b2fb268aaf3030062fef5/caballos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba73d087c9f0300785ab0/as-burgas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba7b3087c9f0300785ab2/puente-del-milenio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba8df087c9f0300785ab5/cap-ses-salines</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -967,68 +967,1848 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f98cc18c9ec0030013efa1/night-route-isla-de-tabarca</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/55fd6b766e4da903008af118/soul-light</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f98dfa8c9ec0030013efa2/revelado-y-procesado-avanzado-en-fotografia-de-paisaje</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/55ffd366f98edb0300a0d39e/xii-rosas</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f98f328c9ec0030013efa3/masterclass-sobre-fotografia-nocturna-y-light-painting</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/56052249d0ff10030029b155/el-monje-en-llamas</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f98ff98c9ec0030013efa4/curso-vuelta-a-la-isla-de-tenerife</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/560db7ecfbee9d0300f4a25b/ruinas-de-la-salceda</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f990d48c9ec0030013efa5/curso-de-fotografia-nocturna-en-zumaia</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/560db7f2fbee9d0300f4a25c/ruinas-de-la-salceda</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f991918c9ec0030013efa6/curso-de-fotografia-nocturna-en-sevilla</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/56119e7a331f500300128acd/luna-sangrante-sobre-el-dolmen</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f9946e8c9ec0030013efa7/curso-fotografia-nocturna-en-sevilla</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/5611a25b331f500300128ad0/cromlech-de-mendiluze</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f996548c9ec0030013efa8/taller-especial-pirineos</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/5611aa09161a8b0300100e30/estrellas</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f997868c9ec0030013efa9/viaje-especial-islandia-la-isla-de-los-suenos</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/5611aaf3161a8b0300100e32/trafico</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55f998668c9ec0030013efaa/taller-practico-de-iniciacion-a-la-fotografia-en-murcia</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/56129c5f161a8b0300100e35/refujio-de-los-mikeletes</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55fadd42489c52030096b0a0/la-composicion-en-fotografia-asturias</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/56129d88161a8b0300100e38/estacion-en-abandono</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55fade37489c52030096b0a1/photoleon-2015</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/56129ed7161a8b0300100e3a/villanueva-de-la-torre</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>http://www.subexpuesta.com/cursos/55fadf85489c52030096b0a2/taller-fotografico-nocturno-en-gijon</loc>
-    <changefreq>weekly</changefreq>
+    <loc>http://www.subexpuesta.com/localizaciones/561405a53c675603008ff968/estacion-internacional-de-canfranc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5614082d3c675603008ff96b/ermita-n-sra-de-la-alegria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5614412f9b593203003c6af9/iglesia-de-san-jorge-las-fraguas-cantabria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5614a8fd9b593203003c6afb/casa-del-administrador</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5614d0d09b593203003c6aff/cortijo-del-silencio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561556bc9b593203003c6b01/molino-de-mareas-de-jado</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561558229b593203003c6b04/iglesia-san-felices-de-mies-cobreces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5615598d9b593203003c6b06/isla-de-pedrosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56155bb89b593203003c6b09/ermita-rupestre-san-vicente</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56155d4e9b593203003c6b0b/la-catedral-de-los-peces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56155e6f9b593203003c6b0f/mortera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56155fb29b593203003c6b11/ermita-santa-maria-de-tina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5615608f9b593203003c6b13/monasterio-santa-maria-de-rioseco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5615612d9b593203003c6b16/monasterio-santa-maria-de-rioseco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561562e99b593203003c6b19/cuevas-de-los-portugueses</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561563399b593203003c6b1c/empire-sunset</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561564759b593203003c6b1d/marismas-de-santona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56156b289b593203003c6b21/panoramica-ermita-de-la-pertusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56156d249b593203003c6b23/panoramica-ermita-de-la-pertusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56156e149b593203003c6b25/panoramica-ermita-de-la-pertusa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5617880657931f0300c84409/carrasca-milenaria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5617a05d57931f0300c8440b/fuerte-de-san-carlos-santona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5617a10157931f0300c8440e/la-virgen-del-mar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5617a1af57931f0300c84411/viana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5617a54f57931f0300c84414/laredo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561b426e3c4b7603008cf971/philadelphia-skyline</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561b748a3c4b7603008cf972/calzada-de-noche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561cc3a18fea650300dee459/ermita-y-muralla-valeria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561d439f0dcc11030097acd4/ermita-nuestra-senora-del-espino</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561d53c00dcc11030097acd7/emerald-demon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561d5d9e0dcc11030097acd9/castillo-del-rio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561d5f480dcc11030097acdc/moli-de-dalt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561e09f60dcc11030097acdf/faro-del-caballo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561e57cb0dcc11030097ace3/ermita-nuestra-senora-del-espino</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561e9d322976190300562d12/saltacaballos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561e9efe2976190300562d15/cabarceno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/561ebcf72976190300562d18/el-salto-de-bierge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5624b9fedc152e0300bda940/el-arco-de-san-miguel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5626eb05928d680300af1975/downtown</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56290a3d0d74e60300e0cb92/la-arnia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56290b610d74e60300e0cb94/portio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56290bcb0d74e60300e0cb96/valdearenas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56290d480d74e60300e0cb98/el-sardinero-1</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56290da00d74e60300e0cb9b/el-sardinero-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5629f9ba137e560300a91042/puente-de-maliano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/562f59a8b79b270300786498/piramide-de-los-italianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5630e4bacce12f03004bc00f/la-casella</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56322b06ea6f6c0300368230/casas-colgadas-cuenca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56322e94ea6f6c0300368233/casas-colgadascuenca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5632417dea6f6c0300368236/ciudad-de-las-artes-y-las-cienciasreflejos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563255b2ea6f6c030036823f/rakero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563258c7ea6f6c0300368242/somocuevas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56325c0eea6f6c0300368244/pena-del-fraile</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56325cb2ea6f6c0300368247/playa-el-camello-la-pena-vieja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56368ee56cfe6c0300894d46/castillo-de-galve-de-sorbe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563692df6cfe6c0300894d50/salinas-de-santa-pola</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a7c4e68aaf3030062fef0/cap-blanc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a7d0c68aaf3030062fef1/sindicat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b2bc068aaf3030062fef2/talaia-d-albercutx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56368fd46cfe6c0300894d49/molino-de-guerinda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5636919d6cfe6c0300894d4c/vergalijo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5636938c6cfe6c0300894d54/telegrafo-de-beratxa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563696df6cfe6c0300894d57/star-gate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56369a886cfe6c0300894d5a/sierra-morena</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56374fe46cfe6c0300894d62/la-pasiega</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563779c14ae79a0300ba4919/gibaja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5637fbcf4ae79a0300ba491c/almadraba-skyline</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638944e4ae79a0300ba4925/nightmare-iv</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56389f674ae79a0300ba492b/santa-maria-de-eunate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638a0584ae79a0300ba492e/death-lurks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638ae124ae79a0300ba4935/los-colores-del-puente</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638affb4ae79a0300ba4937/sin-titulo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638b35c4ae79a0300ba4939/sombra-en-la-estacion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638d091d4975c030053f499/santander</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638d24ad4975c030053f49e/cerrias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638e464d4975c030053f4a1/entre-piedras-anda-la-via</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638e708d4975c030053f4a3/expreso-nocturno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5534215fe40b3d03005f63b2/entre-las-torres</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55313d2660c6660300066d06/desda-la-mancha-profunda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5531538660c6660300066d09/playa-de-cocedores</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55435bdce8f78703004b4f51/belfast-city-hall</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/55436ffae8f78703004b4f54/bateria-de-castillitos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5631456acce12f03004bc015/reflejos-ciudad-de-las-artes-y-las-ciencias-valencia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56324516ea6f6c030036823b/alicante-vistas-desde-el-castillo-de-santa-barbara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563727696cfe6c0300894d5c/catedral-de-la-almudena</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5637291e6cfe6c0300894d5f/fuga-de-estrellas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56375a936cfe6c0300894d65/pedrosa-de-valdeporres</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5637fdb84ae79a0300ba491f/extrano-triangulo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563893434ae79a0300ba4921/the-tree-of-bad-dreams</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563896bc4ae79a0300ba4928/solo-en-la-noche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638d197d4975c030053f49c/abra-del-pas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5638aa6b4ae79a0300ba4933/pano-malaga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563943697fff9703004e30ef/iglesia-de-san-pedro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563951de7fff9703004e30f2/portal-infernal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56395bf37fff9703004e30f5/ovillo-de-paja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a18ee7fff9703004e3100/canon-penya-rotja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a1a087fff9703004e3101/torre-de-enfilamiento-de-son-real</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a1afa7fff9703004e3102/chimenea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a34f57fff9703004e3103/alcudia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a36777fff9703004e3105/llueven-estrellas-en-cabopino</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a733268aaf3030062fee9/tajistars</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a745f68aaf3030062feea/illa-pancha</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a758c68aaf3030062feec/el-almendro-y-la-luna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a770768aaf3030062feed/sito-8b</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a7b9268aaf3030062feef/crist-rei</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b310968aaf3030062fef6/casa-de-indianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5639e7297fff9703004e30f8/castillo-de-alhaurin</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5639e8587fff9703004e30fa/la-maquina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b320368aaf3030062fef9/casa-de-indianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b2f3668aaf3030062fef4/es-pontas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b2c4e68aaf3030062fef3/aucanada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a35ab7fff9703004e3104/mirador-de-sa-moneda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563a7adf68aaf3030062feee/torre-cap-blanc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b6d2a68aaf3030062fefc/catedral-de-palma</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563b9da968aaf3030062feff/flotando-entre-las-nubes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba68b087c9f0300785aae/ibiza</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba865087c9f0300785ab4/mirador-de-na-burguesa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ba949087c9f0300785ab6/cala-deia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563bda22087c9f0300785ab7/san-juan-de-la-canal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563c7b2f087c9f0300785ab9/argonos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ca44e087c9f0300785abc/argonos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563cd71b087c9f0300785abf/pena-vieja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563cda93087c9f0300785ac2/muelle-de-hinojedo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563cdbee087c9f0300785ac4/la-maruca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563cf2d1087c9f0300785ac8/telamon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563d1c3bf0e1f3030069fda3/malin-head</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563d2211f0e1f3030069fda4/puerto-de-el-musel-y-vista-de-gijon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563d248ff0e1f3030069fda6/ayuntamiento-de-pamplona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ea94a0647530300462f94/frias-lavadero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563ea9b20647530300462f97/ermita-santa-maria-de-la-hoz-tobera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563f23a10647530300462f9a/la-casita-del-arbol</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563f31a30647530300462f9e/frias-lavadero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563f92750647530300462fa1/frias-puente-medieval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563fa638346bb20300f94b5d/frias-puente-medieval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/563fc557346bb20300f94b61/a-night-in-blue</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5641b5e49c53ee03002b4604/amanecer-en-bilbo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5641dbe49c53ee03002b4607/amanece-en-bilbo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5641dcd49c53ee03002b460a/iglesia-castro-urdiales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5641dd6c9c53ee03002b460d/castillo-butron</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56420bfd9c53ee03002b4610/eternidad</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56423b9c9c53ee03002b4613/camion-en-la-noche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56423e1a9c53ee03002b4616/hornos-de-calcinacion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564242e49c53ee03002b4619/luces-en-la-noche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564245009c53ee03002b461c/duerme-pero-a-un-late-la-antigua-base-militar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564245ba9c53ee03002b461f/dormita-el-gigante</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564246829c53ee03002b4622/laredo-duerme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56424fe79c53ee03002b4625/la-vieja-locomotora</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642509c9dd4a303008383c2/puente-inmaculado</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564251cd9dd4a303008383c5/monasterio-de-rio-seco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642545a9dd4a303008383c8/la-balconada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564254e09dd4a303008383cb/el-eclipse-lunar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564255e29dd4a303008383ce/disfrutando</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564259a79dd4a303008383cf/espectaculares-chispas-en-la-noche</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56425c299dd4a303008383d2/luna-sobre-iglesia-de-sant-jordi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56425d559dd4a303008383d3/via-lactea-sobre-faro-de-cabo-blanco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56425d559dd4a303008383d5/via-lactea-sobre-faro-de-cabo-blanco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56425d559dd4a303008383d4/via-lactea-sobre-faro-de-cabo-blanco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564261449dd4a303008383d6/frio-amanecer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564261ec9dd4a303008383d9/horno-m-angles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642626e9dd4a303008383dc/paisaje-con-fuegos-artificiales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642640a9dd4a303008383df/nocturna-de-bilbao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642646f9dd4a303008383e2/el-abra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5642653a9dd4a303008383e5/hayedo-otzarreta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56430d589dd4a303008383e8/portmuck</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56430ea09dd4a303008383e9/estacion-abandonada-de-la-melgosa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56430f479dd4a303008383ec/amanecer-nocturno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5643104c9dd4a303008383ef/acantilado-de-el-bolao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56432c309dd4a303008383f1/ermita-de-san-roque</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564360ed9dd4a303008383f4/el-madero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564362599dd4a303008383f6/el-penuco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564364209dd4a303008383f8/hayedo-de-otzarreta-isabel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5643682e9dd4a303008383fb/the-castle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564368769dd4a303008383fe/laredo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564368fa9dd4a30300838401/santander-embarcadero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56436a1b9dd4a30300838404/santander-palacio-de-festivales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56436c1d9dd4a30300838407/dique-de-gamazo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56436c9e9dd4a3030083840a/santillana-del-mar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5643c42fbf59e40300940cb6/dolmen-de-sorginetxe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5644a4a3bf59e40300940cba/iglesia-monasterio-santa-maria-de-rioseco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5645d4313b70fb0300c42a98/azote-real</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5646f1ea74b092030034b77f/mirando-al-cielo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5646f2ce74b092030034b782/castro-descansa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5647174474b092030034b786/puente-del-petroleo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564717d074b092030034b788/skyline-de-badalonabarcelona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5647597b74b092030034b78a/santa-maria-de-rioseco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56478fad74b092030034b791/barraca-cruces-quemadas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56490eb3e219ad030064ead9/ermita-de-sant-serni-de-clar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5649ac9c266d950300129c27/el-manzano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5649bfbf266d950300129c29/estrellas-de-almenara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5649e07b266d950300129c2d/milky-way-in-ercina-lake</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564a0482266d950300129c2f/alto-campoo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564a1134266d950300129c32/nacimos-mirando-al-cielo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564a138e266d950300129c33/tatacoa-estelar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564a14b9266d950300129c34/yours-ways</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564a15db266d950300129c35/july-night</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564ad231c5eb6d030089f63d/isabel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b239ac5eb6d030089f640/seminario-abandonado-de-argomilla-de-cayon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b24f5c5eb6d030089f643/barra-de-san-vicente-de-la-barquera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b2613c5eb6d030089f645/torre-de-san-telmo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b27f9c5eb6d030089f647/playa-de-usgo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b295dc5eb6d030089f649/la-ojerada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b2d8dc5eb6d030089f64c/circumpolar-en-el-tercer-lago-de-covadonga--el-lago-del-bricial</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b2e91c5eb6d030089f64e/la-catedral-de-los-peces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b2fdbc5eb6d030089f651/santa-maria-de-tina-asturias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b30edc5eb6d030089f653/monumento-a-los-italianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b3282c5eb6d030089f656/puentedey</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b3397c5eb6d030089f659/trazas-en-el-puerto-de-alisas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b3594c5eb6d030089f65c/circumpolar-monasterio-de-rioseco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b3d8bc5eb6d030089f65f/villacreces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b3ecdc5eb6d030089f662/embalse-de-alsa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b4260c5eb6d030089f668/el-pozon-de-la-yesera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b655fc5eb6d030089f66b/sola-en-la-oscuridad</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b6718c5eb6d030089f66e/todo-gira</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b692ac5eb6d030089f671/entre-piedras-anda-la-via</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b6a57c5eb6d030089f674/en-silencio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b7490c5eb6d030089f676/puentedey</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b7526c5eb6d030089f679/puentedey</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564bad10c5eb6d030089f67d/startrails</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c4068af75e50300c0a3a7/ermita-de-san-bernabe-y-san-tirso</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c4627af75e50300c0a3aa/panteon-del-ingles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c481baf75e50300c0a3ad/santa-justa-ubiarco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c4853af75e50300c0a3af/lluvia-de-acero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c4fc6af75e50300c0a3b5/pinares</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c5236af75e50300c0a3b8/bunker</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c53b6af75e50300c0a3bb/venecia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c547faf75e50300c0a3bc/nueva-york</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c5549af75e50300c0a3bd/pozna</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c562daf75e50300c0a3be/el-lago-sagrado-de-pushkar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c5810af75e50300c0a3bf/volcan-de-stromboli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c5cd4af75e50300c0a3c0/panoramica-de-alquezar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c6043af75e50300c0a3c3/tunel-de-la-engana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c66c8af75e50300c0a3c6/san-vicente-de-la-barquera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c6895af75e50300c0a3c8/juliobriga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564b40e9c5eb6d030089f665/los-pozos-de-noja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c6e75af75e50300c0a3ca/cabana-de-pastores</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c7062af75e50300c0a3cc/eremitorio-rupestre-de-san-vicente</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c73c3af75e50300c0a3ce/menhir-el-penuco</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c76ceaf75e50300c0a3d0/la-capilla-del-buen-pastor-en-la-vega-de-enol</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c7a79af75e50300c0a3d2/atardecer-en-la-puerta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c7be1af75e50300c0a3d5/la-triste-espera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c7db5af75e50300c0a3d9/ghostly-lighthouse-entrance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c7edcaf75e50300c0a3dd/playa-de-prellezo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564ce0a3af75e50300c0a3e0/ermita-san-esteban-monte-corona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564cff88af75e50300c0a3e2/ermita-san-esteban-monte-corona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564d8dd65921370300e620f5/aeropuerto</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564db4b45921370300e620f9/la-engana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564db6b55921370300e620fc/caudilla-starry-night</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564dc2855921370300e620ff/costa-quebrada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564dde7b5921370300e62101/santa-justa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564df55b5921370300e62103/piquio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564df5bd5921370300e62106/rakeros</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564eec668df627030080314f/ultima-pedrenera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564eefe08df6270300803152/el-monolito-de-alisas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564ef5c88df6270300803155/playa-de-cerrias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564ef81b8df6270300803157/mirador-fuente-del-chivo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564f1b898df6270300803159/faro-e-isla-de-mouro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5650487254c1f80300e34780/convento-de-san-cristobal-alpartir</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5650489454c1f80300e34784/embarcadero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56504b2554c1f80300e34788/villanueva-de-jalon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56504d6e54c1f80300e3478c/huerta-de-garay</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5650e2b654c1f80300e34790/el-pozon-de-la-yesera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56531bb1cc649103001198e5/el-pozon-de-la-yesera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565399833b996b03004ad620/iglesia-de-cue</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56539a8e3b996b03004ad622/4-torres</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56542dbb3b996b03004ad625/panteon-del-ingles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5654326b3b996b03004ad628/la-iglesia-de-san-jorge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565435913b996b03004ad62a/el-parque-natural-de-las-dunas-de-liencres</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56549cdc3b996b03004ad62c/altamira</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/564c4e85af75e50300c0a3b2/villacreces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5655f47f9955ff03002c5a0b/portio-costa-quebrada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56560fca9955ff03002c5a0e/gasolinera-abandonada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56563f7f9955ff03002c5a12/faro-de-punta-nariga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56576a8e65590e03008b55f9/santander-centro-botin</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565772f265590e03008b55fc/centro-botin-santander</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56577c4165590e03008b55ff/soldado-ryan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56577ee265590e03008b5603/tabarca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5657808d65590e03008b5607/fireworks</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5658402765590e03008b560f/refugio-zabala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565843c565590e03008b5612/portico-de-las-agujas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565844a765590e03008b5615/castillo-de-saelices</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56584a0b65590e03008b5618/bodega-abandonada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56584ae865590e03008b561b/mirador-paracuellos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5658c986fa269d0300f5ca95/ermita-san-antonio-monte-corona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56596618fa269d0300f5ca97/ermita-de-san-antonio-monte-corona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565a1ee6888f5803003a1d42/juliobriga-ciudad-romana</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565b6b494010aa0300b63e2a/el-hombre-pez</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565c1d2c4010aa0300b63e2e/el-hombre-pez</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565c507c4010aa0300b63e32/cumpleanos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565c83394010aa0300b63e35/luces-bajo-el-puente</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565cd3d6b7629f03005c2d3e/tunel-del-tiempo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565cd9b8b7629f03005c2d41/el-molino-del-quijote-moderno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565cdc8ab7629f03005c2d43/ventilando</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565cddcfb7629f03005c2d45/museo-guggenheim</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ce017b7629f03005c2d48/bec-feria-muestras-de-bilbao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ce216b7629f03005c2d4b/ermita-de-abrisketa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ce51cb7629f03005c2d4e/fuegos-artificiales-mirando-hacia-barakaldo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ce6dcb7629f03005c2d51/noche-de-estrellas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ce7f6b7629f03005c2d54/vista-de-erandio-desde-el-cargadero-de-barakaldo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d72bfb7629f03005c2d59/el-rincon-del-aguila</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d7427b7629f03005c2d5a/salida-luna-sobre-sant-jordi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d74f2b7629f03005c2d5b/via-lactea-punta-del-toro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d7577b7629f03005c2d5c/luna-faro-colonia-de-sant-jordi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d763db7629f03005c2d5d/luna-faro-portocolom</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565d78d1b7629f03005c2d5e/el-hombre-pez</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565dc46967ed7d030015ff74/la-luna-roja-nos-vigila</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565df4db67ed7d030015ff77/atalaya</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565e023367ed7d030015ff7d/samurai-de-luz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565e19ee67ed7d030015ff80/barraca-de-navarcles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565e25ec67ed7d030015ff83/puente-romano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565eafe967ed7d030015ff86/rock--roll</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ebe9b67ed7d030015ff8a/pantano-del-quebrajano</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f230598195203005967ee/cantabria--euskadi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f249098195203005967f1/playa-de-valdarenas-costa-quebrada</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f264798195203005967f3/yera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f95db98195203005967f8/ponton-de-la-oliva</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f985798195203005967fb/cumpleanos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565f9a4898195203005967fe/torres</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/565ffcf09819520300596801/cumpleanos2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566014b19819520300596804/el-chivo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56603ea67385b7030058f399/ermita-del-pilar-castillo-de-palma-sastago</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5660c8627385b7030058f39c/2-cumpleanos-objetivoiluminar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5660cf407385b7030058f39f/ermita-san-roque</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566168d27385b7030058f3a3/lavadero-del-frances</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5661e66e6a7b130300367743/ermita-san-roque</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5662d8cc6a7b130300367746/embarcadero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5662da5b6a7b130300367749/la-magdalena</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56632fd7ef5f810300a66843/puente-enrique-esteban</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5663350aef5f810300a66846/plaza-de-espana-sevilla</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566408baef5f810300a66849/amargo-retorno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566458bb2781eb03009e8b42/la-vaca</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5664a1962781eb03009e8b45/200-cruces</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5664ab362781eb03009e8b48/fuente-del-frances</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56653bce2781eb03009e8b4b/fuente-del-frances</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5666e8bbc97da50300785407/ermita-del-espino</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5666ea62c97da5030078540a/el-atazar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5666ec9dc97da5030078540d/torres-madrid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5666ed43c97da50300785410/el-atazar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5666ee4dc97da50300785413/el-atazar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56674ee7c97da50300785416/gruta-del-diablo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56674f59c97da50300785419/cueva-del-frances</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5667ed1aa730f403003b8e1d/cueva-del-frances</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5668049aa730f403003b8e20/faro-santander</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/5668116ba730f403003b8e23/la-casa-de-las-estrellas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566823aaa730f403003b8e26/atardecer-nocturno</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/56683c2ba730f403003b8e29/horreo-de-la-ermita</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b220c85d71e030034989d/mosteiro-da-serra-do-pilar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b2de585d71e030034989f/ermita-de-lo-pareja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b2e9585d71e03003498a4/casas-de-lo-pareja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b2f9d85d71e03003498a9/bunker-de-la-guerra-civil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b310d85d71e03003498ae/apeadero-de-las-canadas-del-romero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566b5b8085d71e03003498b3/molino-de-mareas-santa-olaja</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566c97ad60a0e2030027d402/casa-baliza-de-punta-caballo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566d58d1b5d35a0300c6a4ac/casa-baliza-de-punta-caballo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566e85bdf03d000300f9d667/tanque-de-san-torcuato</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566e89e1f03d000300f9d66a/replicas-dinosaurios</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566e8c90f03d000300f9d66e/santa-fe-de-palazuelos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>http://www.subexpuesta.com/localizaciones/566e8f26f03d000300f9d671/santa-maria-de-la-piscina</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 </urlset>
