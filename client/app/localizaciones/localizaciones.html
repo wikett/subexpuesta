@@ -1,6 +1,14 @@
 <div role="main" class="main">
 <style>
 	.angular-google-map-container {  width:100%; height: 400px; }
+	.categoriaActiva{
+		opacity: 1;
+		margin-right: 13px;
+	}
+	.categoriaNoActiva{
+		opacity: 0.25;
+		margin-right: 13px;
+	}
 </style>
 <section class="page-top">
 	<div class="container">
@@ -39,50 +47,37 @@
 			Haz click en un punto para ver los detalles de la localización
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div ng-show="fotoActual.idClodinary.length>0">
-				<h3 style="margin-bottom: 8px;">{{fotoActual.titulo}}</h3>
-				<cl-image public-id="{{fotoActual.idClodinary}}" class="thumbnail inline"  crop="fit" width="380" format="jpg" title="Fotografia por: {{fotoActual.autor}}"></cl-image>
-				<p><strong>Acceso:</strong> {{fotoActual.acceso}}</p>
-				<p><strong>Peligrosidad de la zona:</strong> {{fotoActual.peligrosidad}}/10</p>
-				<p><strong>Contaminacion Luminica: </strong>{{fotoActual.contaminacionLuminica}}/10</p>
+		<div class="col-md-4 text-right">
+			
+			<h3 class="center" style="margin-top:40px;">Filtra a tu gusto</h3>
+			<p><label> Categorías </label></p>
+			<a href="#" ng-click="filtrarCategoria('paisaje')"><img src="/assets/images/picture64.png" ng-class="filtroPaisaje ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Nocturna paisaje" alt="Nocturna paisaje"></a>
+			<a href="#" ng-click="filtrarCategoria('urbana')"><img src="/assets/images/city33.png" ng-class="filtroUrbana ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Nocturna Urbana" alt="Nocturna Urbana"></a>
+			<a href="#" ng-click="filtrarCategoria('lightpainting')"><img src="/assets/images/light4.png" ng-class="filtroLightpainting ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Lightpainting" alt="Lightpainting"></a>
+			<a href="#" ng-click="filtrarCategoria('atardecer')"><img src="/assets/images/foggy4.png" ng-class="filtroAtardecer ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Atardecer-Amanecer" alt="Atardecer-Amanecer"></a>
+			<a href="#" ng-click="filtrarCategoria('monumento')"><img src="/assets/images/museum34.png" ng-class="filtroMonumento ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Monumentos" alt="Monumentos"></a>
+			<a href="#" ng-click="filtrarCategoria('ruinas')"><img src="/assets/images/columns2.png" ng-class="filtroRuinas ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Ruinas" alt="Ruinas"></a>
+			<a href="#" ng-click="filtrarCategoria('vehiculo')"><img src="/assets/images/car189.png" ng-class="filtroVehiculo ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" title="Vehículos-Maquinaria" alt="Vehículos-Maquinaria"></a>
+			<a href="#" ng-click="filtrarCategoria('mineria')"><img src="/assets/images/mine1.png" ng-class="filtroMineria ? 'categoriaActiva' : 'categoriaNoActiva'" width="20px" style="margin:0px;" title="Minería" alt="Minería"></a>
+			<!--<p style="margin-top:40px;margin-bottom:0px"><label> Peligrosidad de la Zona </label> [{{filtroPmin}} - {{filtroPmax}}]<div range-slider class="col-md-8 text-right" min="0" max="10" model-min="filtroPmin" model-max="filtroPmax"  style="margin-bottom:0px;"></div></p>-->
+			<div class="text-right" ng-show="fotoActual.idClodinary.length>0">
+				
+
+				<cl-image public-id="{{fotoActual.idClodinary}}" class="thumbnail inline"  crop="fit" width="380" format="jpg" title="Fotografia por: {{fotoActual.autor}}" style="margin-bottom:0px;margin-top:18px;"></cl-image>
 				<p class="text-right"><a href="/localizaciones/{{fotoActual._id}}/{{fotoActual.titulo | seo}}">Ver detalle</a></p>
 			</div>
+			 
 		</div>
 	</div>
 	
-	<div class="row" style="margin-top:5px;">
+	<div ng-if="busqueda.length>0 || filtroPaisaje || filtroUrbana || filtroLightpainting || filtroAtardecer || filtroMonumento || filtroRuinas || filtroVehiculo || filtroMineria"  class="row" style="margin-top:5px;">
 
 		<div class="col-md-12">
-		
-	
-			<h5>{{misLocalizacionesFiltradas.length | filter:busqueda}} localizaciones</h5>
-			<div ng-repeat="localizacion in misLocalizaciones | filter:{estado:'!2'}| filter:busqueda | orderBy: fechaSubida" style="width:80px; float:left;">
-				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,w_80/v1438939574/{{localizacion.idFoto}}" title="{{localizacion.titulo | seo}}"  /></a>
+			<h5>{{misLocalizacionesFiltradas.length}} localizaciones</h5>
+			<div ng-repeat="localizacion in misLocalizacionesFiltradas | filter:busqueda  | filter:{estado:'!2'}| orderBy: fechaSubida" style="width:80px; float:left;">
+				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,q_44,w_80/v1438939574/{{localizacion.idFoto}}" title="{{localizacion.titulo | seo}}"  /></a>
+				
 			</div>
-			<!--<table class="table table-bordered table-striped mb-none" id="datatable-default">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th style="width:20%">Imagen</th>
-						<th style="width:20%">Titulo</th>
-						<th>Autor</th>
-						<th class="hidden-phone">Peligrosidad</th>
-						<th class="hidden-phone">Contaminacion</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="localizacion in misLocalizaciones | filter:{estado:'!2'}| filter:busqueda | orderBy: fechaSubida" class="gradeX">
-						<td>{{localizacion.fechaSubida | date:'dd/MM/yyyy'}}</td>
-						<td style="width:20%"><img class="thumbnail inline"  src="http://res.cloudinary.com/djhqderty/image/upload/c_scale,q_29,w_200/v1429114149/{{localizacion.cloudinaryId}}.jpg" width="200px" title="{{localizacion.titulo}}" /></td>
-						<td style="width:20%"><a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}">{{localizacion.titulo}}</a></td>
-						<td><a href="/tus-localizaciones/{{localizacion.autor}}">{{localizacion.autor}}</a></td>
-						<td class="center hidden-phone">{{localizacion.peligrosidad}}/10</td>
-						<td class="center hidden-phone">{{localizacion.contaminacionLuminica}}/10</td>
-					</tr>
-				</tbody>
-			</table>-->
-
 		</div>
 
 

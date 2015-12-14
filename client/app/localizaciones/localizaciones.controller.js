@@ -33,6 +33,8 @@ angular.module('subexpuestaV2App')
             $scope.percentCL = 100 * (value / $scope.max);
         };
 
+
+
         $scope.ratingStates = [{
             stateOn: 'glyphicon-ok-sign',
             stateOff: 'glyphicon-ok-circle'
