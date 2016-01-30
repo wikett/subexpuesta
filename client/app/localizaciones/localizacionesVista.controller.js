@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location, Email) {
+    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location, Email, Lightbox) {
 
         $scope.showMap = false;
 
         $scope.arrayCategorias = ['Nocturna Paisaje','Nocturna Urbana', 'LightPainting', 'Atardecer-Amanecer','Monumentos', 'Ruinas', 'Vehiculos-Maquinarias', 'Mineria','Paisaje','Larga Exposicion Diurna','Urbana', 'Costa'];
-
+       // $scope.imageLocalizacion = [];
 
         $scope.localizacion = {};
         $scope.listaLocalizaciones = {};
@@ -15,6 +15,8 @@ angular.module('subexpuestaV2App')
             $scope.isCollapsed = true;
     $scope.mejoraCreada = false;
     $scope.textoReporte = '';
+
+    $scope.images = [];
 
 
         $scope.miObjeto = {
@@ -65,6 +67,10 @@ angular.module('subexpuestaV2App')
 
         });
 
+        
+
+
+
         $scope.guardarReporte = function(){
             
             $scope.enviando = true;
@@ -89,6 +95,10 @@ angular.module('subexpuestaV2App')
             });
         }
 
+        $scope.abrirImagen = function(){
+            Lightbox.openModal($scope.images, 0);
+        }
+
         function localizacionesMasCercanas(localizacion) {
             if ($scope.localizacionesCercanas.length == 0) {
                 $scope.localizacionesCercanas.push(localizacion);
@@ -98,7 +108,7 @@ angular.module('subexpuestaV2App')
         }
 
         function getLocalizacion() {
-
+            $log.debug('getLocalizacion ENTRO');
             Localizacion.LocalizacionAPI.get({
                 id: $stateParams.id
             }, function(localizacionData) {
@@ -114,6 +124,15 @@ angular.module('subexpuestaV2App')
                     if ($scope.getCurrentUser.username === localizacionData.autor) {
                         $scope.mostrarEditar = true;
                     }
+
+                    //lightbox
+                    var imageLightbox = {};
+                    imageLightbox.url = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
+                    imageLightbox.thumbUrl = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
+                    $scope.images.push(imageLightbox);
+ 
+                     
+                   // $scope.imageLocalizacion.push(image);
 
                     // title & meta tags
                     $rootScope.title = localizacionData.titulo + ' por: ' + localizacionData.autor;

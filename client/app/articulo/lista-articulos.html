@@ -81,8 +81,7 @@
 								<h4>Be <strong>Social</strong></h4>
 							<a href="https://www.facebook.com/subexpuesta" target="_blank"><i class="fa  fa-facebook-square" style="font-size: 40px;"></i></a>
 							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-twitter-square" style="font-size: 40px;"></i></a>
-							<a href="https://twitter.com/subexpuesta_com" target="_blank"><i class="fa fa-instagram" style="font-size: 40px;"></i></a>
-							<a href="https://plus.google.com/u/0/b/106789030605644022112/dashboard/overview" target="_blank"><i class="fa fa-google-plus-square" style="font-size: 40px;"></i></a>
+							<a href="https://www.instagram.com/subexpuesta_com/" target="_blank"><i class="fa fa-instagram" style="font-size: 40px;"></i></a>
 
 								<div class="tabs" style="margin-top:20px;">
 									<ul class="nav nav-tabs">
@@ -92,11 +91,11 @@
 									<div class="tab-content">
 										<div class="tab-pane active" id="popularPosts">
 											<ul class="simple-post-list">
-												<li ng-repeat="articulo in listaArticulos">
+												<li ng-repeat="articulo in listaArticulos | orderBy: '-fechaCreacion' | limitTo:4">
 													<div class="post-image">
 														<div class="img-thumbnail">
 															<a href="blog-post.html">
-																<img src="{{articulo.imagen}}" width="50px" height="50px;" alt="{{articulo.titulo}}">
+																<img src="{{articulo.imagen}}" width="90px" alt="{{articulo.titulo}}">
 															</a>
 														</div>
 													</div>

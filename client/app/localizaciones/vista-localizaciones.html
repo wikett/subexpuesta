@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb">
-					<li><a href="#">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li class="active">Localizaciones</li>
 				</ul>
 			</div>
@@ -18,7 +18,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-2"><cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image></a>
+			<a ng-click="abrirImagen()"  href="#" ><cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image></a>
 			<div ng-if="showMap">
 				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
 				<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
@@ -60,7 +60,7 @@
 			<p class="taller">{{localizacion.acceso}}</p>
 			
 			
-			<a href="http://res.cloudinary.com/djhqderty/image/upload/v1429114149/{{localizacion.cloudinaryId}}.jpg" data-lightbox="image-1"  class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a>
+			<a ng-click="abrirImagen()" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a>
 			<a href="/editar-localizaciones/{{localizacion._id}}/" class="btn btn-warning btn-icon" ng-if="mostrarEditar"><i class="fa fa-pencil"></i>Editar localizacion</a>
 			<a href="#" class="btn btn-danger btn-icon" ng-click="delete(localizacion)" ng-if="mostrarEditar"><i class="fa fa-trash-o"></i>Eliminar localizacion</a>
 			<ul class="portfolio-details">

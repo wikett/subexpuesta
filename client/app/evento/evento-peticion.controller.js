@@ -46,7 +46,7 @@ angular.module('subexpuestaV2App')
                 mensaje: $scope.peticion.web
             },function(mensaje) {
 
-                $log.debug('mensaje: '+JSON.stringify(mensaje));
+                //$log.debug('mensaje: '+JSON.stringify(mensaje));
                 if(mensaje.message==='success'){
                 $scope.enviado = true;  
                 $scope.mensajeExito = "Su mensaje ha sido enviado correctamente, en la mayor brevedad posible nos pondremos en contacto contigo.";

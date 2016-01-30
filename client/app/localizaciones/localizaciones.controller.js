@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $upload, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso) {
+    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso) {
 
         $scope.getCurrentUser = Auth.getCurrentUser();
 
@@ -134,7 +134,7 @@ angular.module('subexpuestaV2App')
 
                     var places = searchBox.getPlaces();
                     //$log.debug('places total: ' + JSON.stringify(places, null, 4));
-                    $log.debug('places total: ' + places.length);
+                    //$log.debug('places total: ' + places.length);
                     if (places.length == 0) {
                         return;
                     }
@@ -176,13 +176,13 @@ angular.module('subexpuestaV2App')
                         marker.closeClick = function() {
                             $scope.selected.options.visible = false;
                             marker.options.visble = false;
-                            $log.debug('click closeClick');
+                            //$log.debug('click closeClick');
                             return $scope.$apply();
                         };
                         marker.onClicked = function() {
                             $scope.selected.options.visible = false;
                             $scope.selected = marker;
-                            $log.debug('click onClicked');
+                            //$log.debug('click onClicked');
                             $scope.selected.options.visible = true;
                         };
                     });
@@ -471,7 +471,7 @@ angular.module('subexpuestaV2App')
         };
 
         $scope.modalCreada = Modal.confirm.localizacionCreada(function(response) {
-            $log.debug('Dentro modal: ');
+            //$log.debug('Dentro modal: ');
             $location.path('/localizacion-creada');
         });
 

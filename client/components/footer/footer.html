@@ -28,7 +28,7 @@
 						<div class="col-md-3">
 							<h4>Últimos artículos</h4>
 							<div class="row" ng-repeat="arti in listaArticulos | orderBy:'-fechaCreacion' | limitTo:2" style="margin-top:20px;">
-							<p ><img src="{{arti.imagen}}" width="50" height="50" style="float:left;margin-right:20px;"><a href="/articulo/{{arti._id}}/{{arti.titulo | seo}}">{{arti.titulo}}</a></p>
+							<p ><img src="{{arti.imagen}}" width="100" style="float:left;margin-right:20px;"><a href="/articulo/{{arti._id}}/{{arti.titulo | seo}}">{{arti.titulo}}</a></p>
 							</div>
 						</div>
 						<div class="col-md-4">

@@ -5,6 +5,7 @@ var Mejora = require('./mejora.model');
 
 // Get list of mejoras
 exports.index = function(req, res) {
+  console.log('peticion de todas las mejoras');
   Mejora.find(function (err, mejoras) {
     if(err) { return handleError(res, err); }
     return res.json(200, mejoras);

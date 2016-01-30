@@ -67,7 +67,7 @@ angular.module('subexpuestaV2App')
             });
 
             $scope.filtrarCategoria = function(tipo) {
-                $log.debug(tipo);
+                //$log.debug(tipo);
                 switch (tipo) {
                     case 'paisaje':
                         {
@@ -240,7 +240,7 @@ angular.module('subexpuestaV2App')
 
                 _.each($scope.listaLocalizaciones, function(loca) {
 
-                  $log.debug(loca.categoria);
+                  //$log.debug(loca.categoria);
 
                     /*if(loca.tags.length>0)
           {

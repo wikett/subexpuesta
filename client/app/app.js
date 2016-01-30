@@ -8,7 +8,7 @@ angular.module('subexpuestaV2App', [
   'ui.bootstrap',
   'ngImgCrop',
   'cloudinary',
-  'angularFileUpload',
+  'bootstrapLightbox',
   'uiGmapgoogle-maps',
   'ngTagsInput',
   'ui-rangeSlider'
