@@ -7,11 +7,7 @@ angular.module('subexpuestaV2App', [
   'ui.router',
   'ui.bootstrap',
   'ngImgCrop',
-  'cloudinary',
-  'bootstrapLightbox',
-  'uiGmapgoogle-maps',
-  'ngTagsInput',
-  'ui-rangeSlider'
+  'uiGmapgoogle-maps'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, uiGmapGoogleMapApiProvider) {
     $urlRouterProvider

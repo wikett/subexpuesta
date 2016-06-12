@@ -14,7 +14,6 @@ var mongoose = require('mongoose');
 var config = require('./config/environment');
 
 // Connect to database
-console.log('!!!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!! config.mongo.uri: '+config.mongo.uri+' config.mongo.options: '+config.mongo.options);
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Populate DB with sample data

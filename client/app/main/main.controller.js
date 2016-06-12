@@ -25,9 +25,12 @@ angular.module('subexpuestaV2App')
         $scope.listaEventos = [];
 
             function getEventos() {
-                Evento.query({}, function(eventos) {
-                    $scope.listaEventos = eventos;
-                   
+                var fechaHoy = new Date();
+                Evento.query({}, function(eventos) {                   
+                    $scope.listaEventos = _.filter(eventos, function(v){
+                    var aux = new Date(v.fecha);
+                    return aux > fechaHoy
+                });
                 });
 
 

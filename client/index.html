@@ -29,6 +29,11 @@
       <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
       <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css" />
+      <link rel="stylesheet" href="bower_components/jquery-timepicker-jt/jquery.timepicker.css" />
+      <link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/src/autocomplete.css" />
+      <link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.css" />
+      <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+      <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
       <!-- endbower -->
     <!-- endbuild -->
     
@@ -43,9 +48,11 @@
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
       <link rel="stylesheet" href="app/account/login/login.css">
+      <link rel="stylesheet" href="app/account/settings/settings.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/articulo/articulo.css">
+      <link rel="stylesheet" href="app/avisador/avisador.css">
       <link rel="stylesheet" href="app/contacto/contacto.css">
       <link rel="stylesheet" href="app/evento/evento.css">
       <link rel="stylesheet" href="app/localizaciones/localizaciones.css">
@@ -53,6 +60,7 @@
       <link rel="stylesheet" href="app/mejora/mejora.css">
       <link rel="stylesheet" href="app/postales/postales.css">
       <link rel="stylesheet" href="app/recomendaciones/recomendaciones.css">
+      <link rel="stylesheet" href="app/retos/retos.css">
       <link rel="stylesheet" href="app/sobremi/sobremi.css">
       <link rel="stylesheet" href="components/modal/modal.css">
       <!-- endinjector -->
@@ -110,7 +118,12 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
-      <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+      <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+      <script src="bower_components/markerclustererplus/src/markerclusterer.js"></script>
+      <script src="bower_components/google-maps-utility-library-v3-markerwithlabel/dist/markerwithlabel.js"></script>
+      <script src="bower_components/google-maps-utility-library-v3-infobox/dist/infobox.js"></script>
+      <script src="bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js"></script>
+      <script src="bower_components/js-rich-marker/src/richmarker.js"></script>
       <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
       <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
       <script src="bower_components/moment/moment.js"></script>
@@ -118,6 +131,15 @@
       <script src="bower_components/cloudinary_ng/js/angular.cloudinary.js"></script>
       <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
       <script src="bower_components/cloudinary-jquery/cloudinary-jquery.js"></script>
+      <script src="bower_components/ng-tasty/ng-tasty-tpls.min.js"></script>
+      <script src="bower_components/jquery-timepicker-jt/jquery.timepicker.js"></script>
+      <script src="bower_components/angular-jquery-timepicker/src/timepickerdirective.js"></script>
+      <script src="bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
+      <script src="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
+      <script src="bower_components/checklist-model/checklist-model.js"></script>
+      <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+      <script src="bower_components/angular-ui-router-uib-modal/angular-ui-router-uib-modal.js"></script>
+      <script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> 
@@ -136,7 +158,14 @@
   
   <!-- angular file upload -->
   
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,visualization,places"></script>
+  <!--
+    //Desistalamos <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+-->
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfYUAtiwSJdy2brPkcLzUvG_YZJ97vMOs&libraries=geometry,places">
+    </script>
 
 
 
@@ -162,6 +191,9 @@
           <script src="app/articulo/articulo.service.js"></script>
           <script src="app/articulo/articuloComentario.service.js"></script>
           <script src="app/articulo/listaarticulos.controller.js"></script>
+          <script src="app/avisador/avisador.controller.js"></script>
+          <script src="app/avisador/avisador.js"></script>
+          <script src="app/avisador/avisador.service.js"></script>
           <script src="app/contacto/contacto.controller.js"></script>
           <script src="app/contacto/contacto.js"></script>
           <script src="app/email/email.service.js"></script>
@@ -197,6 +229,17 @@
           <script src="app/postales/postales.js"></script>
           <script src="app/recomendaciones/recomendaciones.controller.js"></script>
           <script src="app/recomendaciones/recomendaciones.js"></script>
+          <script src="app/retos/admin/anyadir-localizacion.retos.js"></script>
+          <script src="app/retos/admin/crear-reto.controller.js"></script>
+          <script src="app/retos/admin/editar-localizacion-reto.controller.js"></script>
+          <script src="app/retos/admin/editar-reto.controller.js"></script>
+          <script src="app/retos/reto-individual.controller.js"></script>
+          <script src="app/retos/reto-localizacion.controller.js"></script>
+          <script src="app/retos/retos.controller.js"></script>
+          <script src="app/retos/retos.js"></script>
+          <script src="app/retos/retos.service.js"></script>
+          <script src="app/retos/retosLocalizacion.service.js"></script>
+          <script src="app/retos/retosUpdateLocalizacion.service.js"></script>
           <script src="app/seo/seo.filter.js"></script>
           <script src="app/seo/username.filter.js"></script>
           <script src="app/sobremi/sobremi.controller.js"></script>

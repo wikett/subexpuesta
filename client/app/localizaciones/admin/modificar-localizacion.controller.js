@@ -22,42 +22,80 @@ angular.module('subexpuestaV2App')
             name: 'Rechazada'
         }];
 
+        $scope.actualizarDirecciones = function() {
+            console.log('Actualizando...');
+            Localizacion.LocalizacionAPI.query(function(data){
+                for (var i = 0; i < data.length; i++) {
+                    //console.log(data[i]._id);
+                    obtenerDirecciones(data[i]._id);
+                }
+
+            
+            var contactCounter = 0;
+            (function addDot() {
+              setTimeout(function() {
+                if (contactCounter < data.length) {
+                  //$('#dots').append('.');
+                  console.log(contactCounter+'/'+data.length+' Actualizando ('+data[contactCounter].titulo+') ...');
+
+                  //////////////////////////////////////////////
+                if(data[contactCounter].direccion==="")
+                    obtenerDirecciones(data[contactCounter]._id);
+                    
+                
+
+                  ///////////////////////////////////////////////
+                  contactCounter++;
+                  addDot();
+                }
+                else
+                {
+                    console.log("Actualizacion terminada")
+                }
+              }, 2000);
+            })();
+
+
+            });
+        };
 
         function getListaLocalizciones() {
             $scope.listaLocalizaciones = Localizacion.LocalizacionAPI.query(function() {})
         };
 
-        $scope.obtenerDirecciones = function(idLocalizacion) {
+        function obtenerDirecciones(idLocalizacion) {
+            var geocoder = new google.maps.Geocoder;
 
-            $scope.actualizarLocalizacion = Localizacion.LocalizacionAPI.get({
+            Localizacion.LocalizacionAPI.get({
                 id: idLocalizacion
-            }, function() {
+            }, function(data) {
 
-                $http({
-                    method: 'GET',
-                    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.actualizarLocalizacion.latitud + ',' + $scope.actualizarLocalizacion.longitud,
-                    transformRequest: function(data, headersGetter) {
-                        var headers = headersGetter();
-                        delete headers['Authorization'];
-                        return headers;
-                    }
-                })
-                    .success(function(response) {
-                        //$log.debug('response: ' + JSON.stringify(response.results[0].formatted_address));
+                //console.log(data);
+                var latlng = {lat: parseFloat(data.latitud), lng: parseFloat(data.longitud)};
+                geocoder.geocode({'location': latlng}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
                         
-                        $scope.actualizarLocalizacion.direccion = response.results[0].formatted_address;
+                        var newLocalizacion = data;
+                        newLocalizacion.direccion =results[1].formatted_address; 
+                        //console.log(JSON.stringify(newLocalizacion, null, 4));
+                        newLocalizacion.$update().then(function(response){
+                            //console.log("Localizacion "+newLocalizacion.titulo+" actualizada correctamente");
+                        })
+                    }
+                    else{
+                     console.log('Direccion no encontrada');   
+                    }
+                });
 
-                        $scope.actualizarLocalizacion.$update().then(function(response) {
-                            getListaLocalizciones();
-                        });
-                    })
 
 
             });
 
+        };
 
-
-
+        $scope.actualizarIndividual = function(idLoca){
+            console.log('actualizarIndividual');
+            obtenerDirecciones(idLoca);
 
         };
 

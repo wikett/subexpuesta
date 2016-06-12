@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('ModificarEventoCtrl', function($scope, $rootScope, $log,$upload, uiGmapGoogleMapApi, Evento, Auth, $location,$stateParams) {
+    .controller('ModificarEventoCtrl', function($scope, $rootScope, $log, uiGmapGoogleMapApi, Evento, Auth, $location, $stateParams) {
 
         if (!Auth.isAdmin()) {
             $location.path('/');
@@ -10,11 +10,11 @@ angular.module('subexpuestaV2App')
             id: 0
         };
 
-        
+
         $scope.files = {};
         $scope.finalizado = false;
         $scope.mensajeError = "";
-        
+
         $scope.titulo = '';
         $scope.organizador = '';
         $scope.descripcion = '';
@@ -105,12 +105,12 @@ angular.module('subexpuestaV2App')
 
 
 
-    function getEvento() {
-           
+        function getEvento() {
+
             Evento.get({
                 id: $stateParams.id
             }, function(eventoData) {
-                $scope.evento = eventoData;   
+                $scope.evento = eventoData;
                 $scope.marker.coords.latitude = eventoData.latitud;
                 $scope.marker.coords.longitude = eventoData.longitud;
                 $scope.dt = eventoData.fecha;
@@ -120,8 +120,8 @@ angular.module('subexpuestaV2App')
 
 
         };
-      
-      getEvento();
+
+        getEvento();
 
 
         $scope.widget = $(".cloudinary_fileupload")
@@ -181,17 +181,40 @@ angular.module('subexpuestaV2App')
 
 
 
-            $scope.modificarEvento = function(){
-    
+        $scope.modificarEvento = function() {
+            $scope.evento.$update().then(function(response) {
+                $scope.eventoModificado = true;
+                $scope.mensajeError = "";
+            })
+        };
 
-                
+        $scope.clonarEvento = function() {
 
-       $scope.evento.$update().then(function(response){
-            $scope.eventoModificado = true;
-            $scope.mensajeError = "";   
-          })
+            $scope.eventoClonado = new Evento();
 
-       
-    };
+            $scope.eventoClonado.titulo = $scope.evento.titulo;
+            $scope.eventoClonado.organizador = $scope.evento.organizador;
+            $scope.eventoClonado.localidad = $scope.evento.localidad;
+            $scope.eventoClonado.direccion = $scope.evento.direccion;
+            $scope.eventoClonado.cloudinaryId = $scope.evento.cloudinaryId;
+            $scope.eventoClonado.descripcion = $scope.evento.descripcion;
+            $scope.eventoClonado.precio = $scope.evento.precio;
+            $scope.eventoClonado.web = $scope.evento.web;
+            $scope.eventoClonado.emailContacto = $scope.evento.emailContacto;
+            $scope.eventoClonado.categoria = $scope.evento.categoria;
+            $scope.eventoClonado.estado = $scope.evento.estado;
+            $scope.eventoClonado.capacidad = $scope.evento.capacidad;
+
+            $scope.eventoClonado.fecha = $scope.dt;
+            $scope.eventoClonado.longitud = $scope.marker.coords.longitude;
+            $scope.eventoClonado.latitud = $scope.marker.coords.latitude;
+            
+            //$log.debug('clonar  evento: ' + JSON.stringify($scope.eventoClonado, null, 4));
+            
+            $scope.eventoClonado.$save().then(function(response) {
+                $scope.eventoCreado = true;
+
+            });
+        };
 
     });

@@ -1,0 +1,35 @@
+<style>
+.angular-google-map-container { height: 400px; width: 700px;  }
+.angular-google-map-container input[type=text]{
+	width:400px;
+	color:navy;
+}
+</style>
+<div class="container">
+	<div class="row">
+		<form>
+			<div class="col-md-8 form-group">
+				<label>Nombre</label>
+				<input type="text" class="form-control" id="titulo"  ng-model="reto.nombre">
+			</div>
+			
+			<div class="col-md-8 form-group">
+				<label>Descripcion</label>
+				<textarea class="form-control" id="descripcion" ng-model="reto.descripcion"></textarea>
+			</div>
+			<div class="col-md-8 form-group">
+				<label>Imagen</label>
+				<textarea class="form-control" id="descripcion" ng-model="reto.imagen"></textarea>
+			</div>
+			
+			
+			<div class="col-md-12">
+				
+				<button class="btn btn-lg btn-success pull-right" type="button" ng-click="modificarReto()">Modificar Reto</button>
+			</div>
+			<h2 ng-show="retoModificado">Reto modificado correctamente</h2>
+		</form>
+
+		
+	</div>
+</div>

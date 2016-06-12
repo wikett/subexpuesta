@@ -18,7 +18,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<a ng-click="abrirImagen()"  href="#" ><cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image></a>
+			<a ng-click="abrirImagen()"  href="#" ><img src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{localizacion.cloudinaryId}}" width="340px" style="margin-bottom:40px;" ></a>
 			<div ng-if="showMap">
 				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
 				<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >

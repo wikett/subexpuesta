@@ -11,6 +11,17 @@ angular.module('subexpuestaV2App')
                     method: 'PUT'
                 }
             }),
+            LocalizacionReto: $resource('/api/localizaciones/retos/:id', {
+                id: '@_id'
+            }, {
+                getById: {
+                    method: 'GET',
+                    isArray: true,
+                    params: {
+                        id: '@autor'
+                    }
+                }
+            }),
             LocalizacionAutor: $resource('/api/localizaciones/autor/:autor', {
                 autor: '@_id'
             }, {

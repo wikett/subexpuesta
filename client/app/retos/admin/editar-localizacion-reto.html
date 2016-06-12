@@ -1,0 +1,51 @@
+<style>
+.angular-google-map-container { height: 400px; width: 700px;  }
+.angular-google-map-container input[type=text]{
+	width:400px;
+	color:navy;
+}
+</style>
+<div class="container">
+	<div class="row">
+	<h2>Editar Reto: <strong>{{reto.nombre}}</strong></h2>
+	<select ng-model="selectedLocalizacion" ng-change="cargarDatos()">
+<option ng-repeat="loca in reto.localizaciones" value="{{$index}}">{{loca.nombre}}</option>
+</select>
+		<form>
+			<div class="col-md-8 form-group">
+				<label>Nombre</label>
+				<input type="text" class="form-control" id="titulo"  ng-model="nuevaLocalizacion.nombre">
+			</div>
+			<div class="col-md-8 form-group">
+				<label>Descripcion</label>
+				<input class="form-control" id="organizador" ng-model="nuevaLocalizacion.descripcion"></input>
+			</div>
+			<div class="col-md-4 form-group">
+				<label>Codigo Reto</label>
+				<input class="form-control" id="capacidad"  ng-model="nuevaLocalizacion.codigoReto"></input>
+				Recibida: <input type="checkbox" ng-model="nuevaLocalizacion.recibida">
+			</div>
+			 
+			
+			<div class="row">
+				<div class="col-md-9 form-group">
+					<div ng-if="showMap">
+						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+						<!--<ui-gmap-search-box options="searchbox.options" template="searchbox.template"
+						events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>-->
+						<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+						</ui-gmap-marker>
+						</ui-gmap-google-map>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-12">
+				<button class="btn btn-lg btn-success pull-right" type="button" ng-click="editarLocalizacion()">Editar localizacion</button>
+			</div>
+			<h2 ng-show="retoModificado">Editado correctamente</h2>
+		</form>
+		
+		
+	</div>
+</div>

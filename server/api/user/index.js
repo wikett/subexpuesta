@@ -17,6 +17,7 @@ router.get('/enviaravisosmensual/:id',controller.enviarEmailAvisosMensual);
 router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.put('/:id/datos', auth.isAuthenticated(), controller.actualizarDatos);
 router.put('/addaviso/:id', controller.addAviso);
+router.put('/addcontactoaviso/:id', controller.addContactoAviso);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 router.post('/forgotten', controller.forgottenPassword);

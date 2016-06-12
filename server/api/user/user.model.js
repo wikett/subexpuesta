@@ -36,7 +36,8 @@ var UserSchema = new Schema({
   coordenadasAvisoLatitud: {type: Number, default:0},
   coordenadasAvisoLongitud: {type: Number, default:0},
   origen: String,
-  ganadorPostales:{type: Boolean, default:false}
+  ganadorPostales:{type: Boolean, default:false},
+  contactosAvisos:[{nombre: String, email:String}]
 });
 
 /**

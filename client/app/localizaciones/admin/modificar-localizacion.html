@@ -18,7 +18,7 @@
 
 				<div class="container">										
 					<section class="panel">
-					
+					<button type="text" class="btn btn-default" ng-click="actualizarDirecciones()">Actualizar Direcciones</button>
 						<div class="panel-body">
 							<table class="table table-no-more table-bordered table-striped mb-none">
 								<thead>
@@ -40,8 +40,7 @@
 										<td>
 											<select  ng-model="localizacion.estado" ng-options="item.id as item.name for item in items"></select>									
 										</td>
-										<td><button type="text" class="btn btn-default" ng-click="actualizarLocalizacion(localizacion._id, localizacion.estado)">Modificar</button>
-											<button type="text" class="btn btn-default" ng-click="obtenerDirecciones(localizacion._id)">Obtener direcciones</button>
+										<td><button type="text" class="btn btn-default" ng-click="actualizarIndividual(localizacion._id)">Obtener direcciones</button>
 										</td>
 									</tr>
 								</tbody>

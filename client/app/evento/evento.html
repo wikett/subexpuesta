@@ -26,23 +26,11 @@
 			<img src="/assets/images/evento-astrofotografia.png" width="20px"  title="Astrofotografía" style="margin:0px 10px; 0px 10px"  /><span>Astrofotografía</span>
 			<img src="/assets/images/evento-paisaje.png" width="20px"  title="Paisaje" style="margin:0px 10px; 0px 10px"  /><span>Paisaje</span>
 		</div>
-		<div class="row" style="margin-top:40px;margin-right:15px;">
-		<div class="col-md-5">
-
-		</div>
-		<!--<div  class="col-md-7 input-group" >
-
-		      <input type="text" class="form-control" ng-model='busqueda' placeholder="Busca por ciudad, por organizador, por descripcion...">
-		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-		      </span>
-		    </div>-->
-		    </div>
 		<div class="col-md-12">
 			<accordion ng-repeat="(key, value) in eventosAgrupados">
 				<h3 ng-show="(value | filter:busqueda).length > 0" style="color:#10066B">{{key | fechaEvento | filter:busqueda}}</h3>
 				<p ng-show="(value | filter:busqueda).length === 0 && $index===0">No se encontró ningún curso con tu búsqueda.</p>
-				<accordion-group is-open="evento.open" ng-repeat="evento in value | filter:busqueda  |  orderBy:'fecha'">
+				<accordion-group is-open="evento.open" ng-repeat="evento in value | filter:busqueda ">
 					<accordion-heading>
 						<img src="/assets/images/{{tipoEventos[evento.categoria]}}" style="margin-right:10px;" />{{evento.titulo}} por <strong>{{evento.organizador}}</strong><img ng-show="evento.estado==1" src="/assets/images/completo.png" width="75px" style="float:inherit;" /><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': evento.open, 'glyphicon-chevron-right': !evento.open}"></i>
 					</accordion-heading>

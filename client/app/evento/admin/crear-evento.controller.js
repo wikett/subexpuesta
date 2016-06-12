@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('CrearEventoCtrl', function($scope, $rootScope, $log,$upload, uiGmapGoogleMapApi, Evento, Auth, $location) {
+    .controller('CrearEventoCtrl', function($scope, $rootScope, $log, uiGmapGoogleMapApi, Evento, Auth, $location) {
 
         if (!Auth.isAdmin()) {
             $location.path('/');

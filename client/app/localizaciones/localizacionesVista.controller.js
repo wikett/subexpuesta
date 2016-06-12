@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location, Email, Lightbox) {
+    .controller('LocalizacionesVistaCtrl', function($scope, $rootScope, $log, Localizacion, $stateParams, uiGmapGoogleMapApi, Auth, Modal, $location, Email) {
 
         $scope.showMap = false;
 
@@ -126,10 +126,10 @@ angular.module('subexpuestaV2App')
                     }
 
                     //lightbox
-                    var imageLightbox = {};
-                    imageLightbox.url = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
-                    imageLightbox.thumbUrl = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
-                    $scope.images.push(imageLightbox);
+                    //var imageLightbox = {};
+                    //imageLightbox.url = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
+                    //imageLightbox.thumbUrl = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
+                    //$scope.images.push(imageLightbox);
  
                      
                    // $scope.imageLocalizacion.push(image);

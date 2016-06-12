@@ -24,51 +24,36 @@
 		<div class="col-md-7">
 		<div class="form-group" >
 					<label>Selecciona la localización exacta</label> <span ng-show="!marker.coords.latitude>0" style="color:red">*</span><small>(Haz click en el mapa para situar el punto sobre el mapa)</small>
+					<!--<div style="position:absolute;width:300px;top:40px;left:140px;z-index: 9999;">
+									<input type="text"  g-places-autocomplete class="input-group" placeholder="Buscador..." ng-model="place" style="width: 300px;" />
+									
+								</div>-->
 					<div class="row" ng-if="showMap">
-						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events" bounds="map.bounds">
-
-							<!--<ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-				                            events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>-->
-							
+						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events" bounds="map.bounds">							
 							<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
 							 </ui-gmap-marker>
 
 						</ui-gmap-google-map>
 					</div>
-					<!--<div id="searchBoxParent"></div>
-				    <div>
-				        <ui-gmap-google-map
-				                center="map.center"
-				                zoom="map.zoom"
-				                dragging="map.dragging"
-				                bounds="map.bounds"
-				                events="map.events"
-				                options="map.options"
-				                pan="true"
-				                control="map.control"
-				                >
-
-				            <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-				                            events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
-
-
-
-				            <ui-gmap-markers idkey="map.idkey" models="map.markers" coords="'self'" icon="'icon'"
-				                             click="'onClicked'"></ui-gmap-markers>
-				            <ui-gmap-window coords="selected" idkey="selected.place_id" templateurl="selected.templateurl"
-				                            templateparameter="selected.templateparameter" options="selected.options"
-				                            closeClick='selected.closeClick()' ng-cloak>
-
-				            </ui-gmap-window>
-
-
-				        </ui-gmap-google-map>
-				        <button type="button" ng-click="toggleMap()">Toggle Visibility</button>
-				        <span ng-bind="searchbox.options.visible"></span>
-				    </div>-->
 					<span style="color:red">*</span> Campos obligatorios
-					<p>Latitud Marker: {{marker.coords.latitude}}</p>
-					<p>Longitud Marker: {{marker.coords.longitude}}</p>
+					<div class="row">
+				<div class="col-md-7">
+					<h3 style="    margin-top: 30px;margin-bottom: 20px;">Reto</h3>
+					<p>¿Quieres incluir tu fotografía en alguno de los retos actuales?</p>
+					<select style="width: 100%;"
+  ng-model="retoSelected"
+  ng-options="x.nombre for x in listaRetos">
+  <option value="">Selecciona un reto</option>
+</select>
+
+					<br />
+					<select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
+  ng-model="localizacionSelected"
+  ng-options="xx.nombre for xx in listaLocalizaciones">
+  <option value="">Selecciona una localización</option>
+</select>
+				</div>
+			</div>
 				</div>
 			
 		</div>
@@ -151,13 +136,13 @@
 				</select>
 				</div>
 			</div>
-			<div class="row">
+			<!--<div class="row">
 				<div class="form-group" >
 					<label>Etiquetas</label> <small>Utiliza palabras clave para que tu localización sea más fácil de encontrar.</small>
 					<tags-input ng-model="tags" placeholder="Ejemplo: canon, mar, startrail, alicante">
 				    </tags-input>
 				</div>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="form-group" >
 					<label>Acceso</label> <span ng-show="!localizacion.acceso.length>0" style="color:red">*</span><small>(Se puede llegar con coche? solo a pie? el terreno es peligroso?)</small> <i data-toggle="tooltip" data-placement="top" title="Explica cómo está el acceso: si se puede llegar con coche, o hay que ir andando tantos minutos, si hay cerca zonas peligrosas, etc, etc..." class="fa fa-info-circle"></i>

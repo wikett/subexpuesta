@@ -116,6 +116,10 @@ exports.changePassword = function(req, res, next) {
     var newAvisoLon = Number(req.body.newAvisoLon);
     var newRadioAviso = Number(req.body.newRadioAviso);
     var newFrecuenciaAviso = Number(req.body.newFrecuenciaAviso);
+    var newContactoAvisoList = req.body.newContactoList;
+
+    console.log('changePassword: '+JSON.stringify(req.body));
+    console.log('changePanewContactoAvisoListssword: '+JSON.stringify(req.body.newContactoAvisoList));
 
     User.findById(userId, function(err, user) {
 
@@ -142,6 +146,8 @@ exports.changePassword = function(req, res, next) {
             user.coordenadasAvisoLatitud = newAvisoLat;
             user.coordenadasAvisoLongitud = newAvisoLon;
             user.frecuenciaAviso = newFrecuenciaAviso;
+            user.contactosAvisos = newContactoAvisoList;
+
             user.save(function(err) {
                 if (err) return validationError(res, err);
 
@@ -284,6 +290,38 @@ exports.addAviso = function(req, res) {
                 return res.json(200, usuario);
             } else {
                 console.log('Error addAviso  ' + err);
+                return handleError(res, err);
+            }
+        });
+
+};
+// add Aviso
+exports.addContactoAviso = function(req, res) {
+
+    var query = {
+        _id: req.params.id
+    };
+    var update = req.body;
+    var options = {
+        new: true
+    };
+    console.log('addContactoAviso -> req.body: ' + JSON.stringify(req.body));
+    User.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            $push: {
+                contactosAvisos: req.body
+            }
+        }, {
+            safe: true,
+            upsert: true
+        },
+        function(err, usuario) {
+            if (!err) {
+                console.log('Contacto Aviso anyadido correctamente');
+                return res.json(200, usuario);
+            } else {
+                console.log('Error addContactoAviso  ' + err);
                 return handleError(res, err);
             }
         });

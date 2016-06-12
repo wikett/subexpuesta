@@ -1,0 +1,137 @@
+<style>
+.angular-google-map-container { height: 350px; width: 533px;  }
+</style>
+<section class="page-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="breadcrumb">
+					<li><a href="/">Home</a></li>
+					<li class="active">Avisador</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Avisador</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<form class="form-horizontal form-bordered" name="form" novalidate>
+				<section class="panel">
+					<header class="panel-heading">
+						<h3 style="color:#337ab7;">Tus datos</h3>
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">¿Dónde vas a ir? <span ng-show="!avisador.donde.length>0" style="color:red">*</span></label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="name" ng-model="avisador.donde">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">¿Qué día? </label>
+							<div class="col-md-6">
+								<p class="input-group" style="width:200px;">
+									<input class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="dateOptions"  ng-required="true" close-text="Close" />
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+									</span>
+								</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">¿A qué hora vas a salir? <span ng-show="!avisador.horaSalida>0" style="color:red">*</span></label>
+							<div class="col-md-6">
+								<div class="input-group changethisone" style="width:130px;">
+									<input type="text" ng-model="avisador.horaSalida"  class="form-control" />
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">¿Sobre qué hora tienes pensado volver? <span ng-show="!avisador.horaLlegada>0" style="color:red">*</span></label>
+							<div class="col-md-6">
+								<div class="input-group changethisone" style="width:130px;">
+									<input type="text" ng-model="avisador.horaLlegada"  class="form-control" />
+									
+								</div>
+								
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault"><a href="/settings">¿A quién avisamos?</a> <span ng-show="!contanctoAdded" style="color:red">*</span><p>Selecciona de tu lista, o añade nuevos</p> </label>
+							<div class="col-md-6">
+								<p ng-hide="user.contactosAvisos.length > 0">Para gestionar tu lista de contactos habituales, agregalos en <a href="/settings">Ajustes de tu Cuenta</a></p>
+								<table ng-show="user.contactosAvisos.length > 0" class="table table-no-more table-bordered table-striped mb-none">
+									<thead>
+										<tr>
+											<th>Nombre</th>
+											<th>e-mail</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="contacto in user.contactosAvisos">
+											<td data-title="Fecha">{{contacto.nombre}}</td>
+											<td data-title="Mejroa">{{contacto.email}}</td>
+											<td><a href="" ng-click="modificarContactoAviso(contacto, $index)"><i ng-class="!contacto.seleccionado ? 'fa fa fa-square-o' : 'fa fa-check-square-o'"></i></a></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="input-group changethisone" >
+									<input type="text" class="form-control"  ng-model="nuevoContacto" placeholder="Añade nuevo correo para este aviso"  />
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" ng-class="nuevoContacto.length>0 ? '' : 'disabled'" ng-click="addNuevoContacto()">Añadir</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault"></label>
+							<div class="col-md-6">
+								
+								<input id="checkCopia" type="checkbox" ng-model="enviarCopia" ng-click="!enviarCopia;"> Quiero recibir una copia del aviso en mi e-mail</input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">¿Quieres añadir alguna cosa más en tu aviso</label>
+							<div class="col-md-6">
+								<textarea type="text" rows="4" class="form-control" name="web" ng-model="avisador.mensaje"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label" for="inputDefault">Indicanos donde será (aproximadamente) <span ng-show="!marker.coords.latitude>0" style="color:red">*</span></label>
+							<div class="col-md-6">
+								<!--<div style="position:absolute;width:100%;top:10px;left:140px;z-index: 9999;">
+									<input type="text"  g-places-autocomplete class="input-group" placeholder="Buscador..." ng-model="place" style="width: 300px;" />
+									
+								</div>-->
+								<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events" bounds="map.bounds">
+								<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+								</ui-gmap-marker>
+								</ui-gmap-google-map>
+							</div>
+						</div>
+						<div class="panel-body" >
+							<div class="col-md-9">
+							<alert type="success"  close="closeAlert($index)" ng-show="avisadorCreado"> Tu aviso ha sido enviado correctamente. Gracias por utilizarme, tu gente te lo agradecerá :)</alert>
+						<alert type="danger"  close="closeAlert($index)" ng-show="mensajeError.length>0"> {{ mensajeError }}</alert>
+						<button id="guardar" class="btn btn-lg btn-primary pull-right" type="submit" ng-class="avisadorCreado ? 'disabled': ''" ng-click="guardarAvisador(form,0)">Enviar</button>
+					</div>
+					
+					
+				</div>
+			</div>
+		</section>
+		
+		
+		
+	</form>
+</div>
+</div>
+</div>

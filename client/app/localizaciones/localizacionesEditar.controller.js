@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal) {
+  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, Reto) {
     
     $scope.getCurrentUser = Auth.getCurrentUser();
     
@@ -107,7 +107,43 @@ $scope.tags = [];
 
     });
 	
+        $scope.listaRetos = [];
+        $scope.listaLocalizaciones = [];
+        $scope.codigoRetoSeleccionado = "";
+        $scope.retoSelected = {};
+        $scope.localizacionSelected = {};
 
+        $scope.selectedItem = 0;
+        function getRetos(){
+            $scope.listaRetos = Reto.query(function(){
+               getLocalizacion();
+            })
+        };
+
+       getRetos();
+
+       $scope.$watch('retoSelected', function(newVal) {
+            if (newVal){
+                console.log(newVal);
+              $scope.listaLocalizaciones = newVal.localizaciones;
+              $scope.mostrarLocalizaciones = true;  
+            }
+            else{
+                console.log('Selecciona reto');
+                $scope.mostrarLocalizaciones = false; 
+                $scope.codigoRetoSeleccionado = "";
+            }
+        });
+
+       $scope.$watch('localizacionSelected', function(newVal) {
+            if (newVal){
+              console.log(newVal.codigoReto);
+              $scope.codigoRetoSeleccionado = newVal.codigoReto;  
+            } 
+            else{
+              $scope.codigoRetoSeleccionado = "";  
+            }
+        });
 
 
 
@@ -144,7 +180,7 @@ $scope.editarLocalizacion = function(){
     }
 		else{
 
-            	
+            	console.log("Editamos localizacion: "+$scope.codigoRetoSeleccionado);
 
         $scope.editarLocalizacion = Localizacion.LocalizacionAPI.get({id: $stateParams.id}, function(){
           $scope.editarLocalizacion.titulo = $scope.localizacion.titulo;
@@ -157,7 +193,8 @@ $scope.editarLocalizacion = function(){
           $scope.editarLocalizacion.notasAdicionales = $scope.localizacion.notasAdicionales;
           $scope.editarLocalizacion.latitud = $scope.marker.coords.latitude;
           $scope.editarLocalizacion.longitud = $scope.marker.coords.longitude;
-           $scope.editarLocalizacion.categoria = $scope.localizacion.categoria;
+          $scope.editarLocalizacion.categoria = $scope.localizacion.categoria;
+          $scope.editarLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
 
 
           $scope.editarLocalizacion.$update().then(function(response){
@@ -176,6 +213,7 @@ $scope.editarLocalizacion = function(){
             Localizacion.LocalizacionAPI.get({
                 id: $stateParams.id
             }, function(localizacionData) {
+                console.log(JSON.stringify(localizacionData, null, 4));
                 $scope.localizacion = localizacionData;
                 $scope.marker.coords.latitude = localizacionData.latitud;
                 $scope.marker.coords.longitude = localizacionData.longitud;
@@ -192,13 +230,26 @@ $scope.editarLocalizacion = function(){
                   listaTags.push(newTag);                  
                 })
               $scope.tags = listaTags;
+
+              _.each($scope.listaRetos, function(data){
+                _.each(data.localizaciones, function(loca){
+
+                  if(loca.codigoReto===localizacionData.codigoReto)
+                  {
+                      //console.log(loca.codigoReto);
+                      $scope.retoSelected = data;
+                      $scope.localizacionSelected = loca;
+                      return;
+                  }
+                })
+              })
                 
             });
 
 
         };
       
-      getLocalizacion();
+     
 
 
     });

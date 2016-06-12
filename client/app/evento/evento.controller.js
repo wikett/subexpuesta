@@ -37,8 +37,9 @@ angular.module('subexpuestaV2App')
             //$log.debug('fechaHoy: ' + fechaHoy);
             Evento.query({}, function(eventos) {
                 
+            $scope.listaOrdenada=$filter('orderBy')(eventos, "fecha");
                
-            $scope.listaEventos = _.filter(eventos, function(v){
+            $scope.listaEventos = _.filter($scope.listaOrdenada, function(v){
                     var aux = new Date(v.fecha);
                     return aux > fechaHoy
                 });
@@ -54,40 +55,6 @@ angular.module('subexpuestaV2App')
 
 
                 //$log.debug('groupedByMonth: ' + JSON.stringify($scope.eventosAgrupados, null, 4));
-
-                _.each(eventos, function(evento) {
-                    var newEvento = {
-                        "@context": "http://schema.org",
-                        "@type": "Event",
-                        "name": evento.titulo,
-                        "location": {
-                            "@type": "Place",
-                            "name": "Aula",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "addressLocality": evento.localidad,
-                                "streetAddress": evento.direccion
-                            }
-                        },
-                        "offers": {
-                            "@type": "AggregateOffer",
-                            "url": "http://www.subexpuesta.com/" + evento._id +"/"+ $filter('seo')(evento.titulo),
-                            "price": evento.precio,
-                            "lowprice": evento.precio
-                        },
-                        "startDate": evento.fecha,
-                        "url": "http://www.subexpuesta.com/" + evento._id +"/"+ $filter('seo')(evento.titulo),
-                        "organizer": {
-
-                            "name": evento.organizador,
-                            "url": evento.web
-                        }
-                    };
-					//$log.debug('newEvento: ' + JSON.stringify(newEvento, null, 4));                    
-                    $scope.listaSnippet.push(newEvento);
-
-                });
-				$('#json-ld-content').html(JSON.stringify($scope.listaSnippet));
 
             });
 

@@ -19,6 +19,14 @@ exports.index = function(req, res) {
 
 resetPasswordExpires: { $gt: Date.now() } 
 
+exports.getRetos = function(req, res){
+  console.log('obtenemos localizaciones con reto');
+  Localizaciones.find({codigoReto: {$ne:null}},function(err, localizaciones){
+    if(err) { return handleError(res, err); }
+    if(!localizaciones) { return res.send(404); }
+    return res.json(localizaciones);
+  })
+};
 
 // Get a list of localizaciones by User
 exports.getLocalizacionesByUser = function(req, res){

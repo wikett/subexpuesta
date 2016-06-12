@@ -1,0 +1,45 @@
+<div role="main" class="main">
+	<section class="page-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="breadcrumb">
+						<li><a href="/">Inicio</a></li>
+						<li class="active">Retos de fotografía nocturna</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Retos de fotografía nocturna</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="container">
+		<div class="row">
+			<div ng-repeat="reto in listaRetos" class="col-md-12" style="margin-top:40px;">
+				<h2>{{reto.nombre}}</h2>
+				<div class="col-md-4">
+					<a href="#"><img src="{{reto.imagen}}" width="300px"></a>
+				</div>
+				<div class="col-md-8">
+					<h4>Descripcion: </h4><p>{{reto.descripcion}}</p>
+					<h4>Completado: <strong>{{reto.porcentaje}}%</strong></h4>
+					<a href="/retos/{{reto.nombre | seo}}" style="text-align:right"><h4>Ver Mapa {{reto.nombre}}</h4></a>
+				</div>
+				
+				<!--<div class="c100 p80 normal">
+					<span>20%</span>
+					<div class="slice">
+						<div class="bar"></div>
+						<div class="fill"></div>
+					</div>
+				</div>-->
+			
+				<hr>
+			</div>
+
+		</div>
+	</div>
+</div>

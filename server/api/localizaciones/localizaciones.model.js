@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
@@ -22,7 +22,8 @@ var LocalizacionesSchema = new Schema({
   notasAdicionales: String,
   direccion: String,
   categoria: {type: Number, default: 0}, //Nocturnas: 0 Nocturna Paisaje, 1 Nocturna Urbana, 2 LightPainting 3 Atardecer-Amanecer, 4 Monumentos, 5 Ruinas, 6 Vehiculos-Maquinarias, 7 Mineria. No solo Nocturnas: 8 Paisaje, 9 Larga Exposicion Diurna, 10 Urbana 11 Costa
-  estado: {type: Number, default: 0} // 0->Pendiente de revisar 5-> Borrada
+  estado: {type: Number, default: 0}, // 0->Pendiente de revisar 5-> Borrada
+  codigoReto: String
 });
 
 module.exports = mongoose.model('Localizaciones', LocalizacionesSchema);

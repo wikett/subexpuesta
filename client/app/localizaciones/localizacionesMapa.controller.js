@@ -30,7 +30,42 @@ angular.module('subexpuestaV2App')
                 //$scope.filtroPmin = 0;
               // $scope.filtroPmax = 10;
 
-
+              $scope.resource = {
+                "header": [
+                  { "name": "Name" },
+                  { "star": "Star" },
+                  { "sf-Location": "SF Location" }
+                ],
+                "rows": [
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Ritual Coffee Roasters", "star": "★★★★★", "sf-location": "Hayes Valley"},
+                  { "name": "Flywheel Coffee Roasters", "star": "★★★★★", "sf-location": "Upper Haight" }
+                ]
+                
+              };
             $scope.map = {
                 center: {
                     latitude: 40.399995,
@@ -303,6 +338,7 @@ angular.module('subexpuestaV2App')
                 });
 
                 $scope.misLocalizacionesFiltradas = $scope.misLocalizaciones;
+                console.log(JSON.stringify($scope.misLocalizaciones[1]));
 
             })
         }; getLocalizaciones();

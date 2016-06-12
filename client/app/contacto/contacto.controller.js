@@ -72,5 +72,4 @@ angular.module('subexpuestaV2App')
 
         };
 
-
   });

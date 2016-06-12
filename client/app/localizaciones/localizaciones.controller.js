@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso) {
+    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso, Reto) {
 
         $scope.getCurrentUser = Auth.getCurrentUser();
 
@@ -121,211 +121,71 @@ angular.module('subexpuestaV2App')
             }
         };
 
-        $scope.searchbox = {
-            template: 'searchbox.tpl.html',
-            //position:'top-right',
-            position: 'top-left',
-            options: {
-                bounds: {},
-                visible: true
-            },
-            events: {
-                places_changed: function(searchBox) {
-
-                    var places = searchBox.getPlaces();
-                    //$log.debug('places total: ' + JSON.stringify(places, null, 4));
-                    //$log.debug('places total: ' + places.length);
-                    if (places.length == 0) {
-                        return;
-                    }
-                    // For each place, get the icon, place name, and location.
-                    var newMarkers = [];
-                    var bounds = new google.maps.LatLngBounds();
-                    for (var i = 0, place; place = places[i]; i++) {
-                        // Create a marker for each place.
-                        var marker = {
-                            id: i,
-                            place_id: place.place_id,
-                            name: place.name,
-                            latitude: place.geometry.location.lat(),
-                            longitude: place.geometry.location.lng(),
-                            options: {
-                                visible: false
-                            },
-                            templateurl: 'window.tpl.html',
-                            templateparameter: place
-                        };
-                        newMarkers.push(marker);
-
-                        bounds.extend(place.geometry.location);
-                    }
-
-                    $scope.map.bounds = {
-                        northeast: {
-                            latitude: bounds.getNorthEast().lat(),
-                            longitude: bounds.getNorthEast().lng()
-                        },
-                        southwest: {
-                            latitude: bounds.getSouthWest().lat(),
-                            longitude: bounds.getSouthWest().lng()
-                        }
-                    }
-
-                    _.each(newMarkers, function(marker) {
-
-                        marker.closeClick = function() {
-                            $scope.selected.options.visible = false;
-                            marker.options.visble = false;
-                            //$log.debug('click closeClick');
-                            return $scope.$apply();
-                        };
-                        marker.onClicked = function() {
-                            $scope.selected.options.visible = false;
-                            $scope.selected = marker;
-                            //$log.debug('click onClicked');
-                            $scope.selected.options.visible = true;
-                        };
-                    });
-                    //$log.debug('newMarkers '+JSON.stringify(newMarkers[0],null,4));
-
-                    //$scope.map.markers = newMarkers;
-                    //$scope.map.center.latitude = newMarkers[0].latitude;
-                    //$scope.map.center.latitude = newMarkers[0].longitude;
-                    //$scope.marker = newMarkers;
-                    $scope.map.zoom = 12;
-                }
-            }
-        }; // fin searchbox
 
         uiGmapGoogleMapApi.then(function(maps) {
             setTimeout(function() {
-               
-
-                //maps.visualRefresh = true;
-               
-
-
-                $scope.searchbox.options.bounds = new google.maps.LatLngBounds($scope.defaultBounds.getNorthEast(), $scope.defaultBounds.getSouthWest());
-
                 $scope.showMap = true;
                 $scope.$apply();
-
             }, 100);
         });
 
+        $scope.sliderChange = function() {
+            //console.log("slider value changed : ");
+            //$scope.map.circle
+            if (!_.isNull($scope.place))
+                if ($scope.place !== undefined && !_.isUndefined($scope.place.geometry.location)) {
+                    // $scope.map.circle.radius = $scope.sliderValue * 1000;
+                    console.log(JSON.stringify($scope.place.geometry.location));
 
-
-       /* angular.extend($scope, {
-            selected: {
-                options: {
-                    visible: false
-
-                },
-                templateurl: 'window.tpl.html',
-                templateparameter: {}
-            },
-            map: {
-                control: {},
-                center: {
-                    latitude: 40.74349,
-                    longitude: -73.990822
-                },
-                zoom: 12,
-                dragging: false,
-                bounds: {},
-                markers: [],
-                idkey: 'place_id',
-                events: {
-                    idle: function(map) {
-
-                    },
-                    dragend: function(map) {
-                        //update the search box bounds after dragging the map
-                        var bounds = map.getBounds();
-                        var ne = bounds.getNorthEast();
-                        var sw = bounds.getSouthWest();
-                        $scope.searchbox.options.bounds = new google.maps.LatLngBounds(sw, ne);
-                        //$scope.searchbox.options.visible = true;
+                    if (!_.isUndefined($scope.place.geometry.location.lat())) {
+                        $scope.marker.coords.latitude = $scope.place.geometry.location.lat();
+                        $scope.marker.coords.longitude = $scope.place.geometry.location.lng();
+                        $scope.map.center.latitude = $scope.place.geometry.location.lat();
+                        $scope.map.center.longitude = $scope.place.geometry.location.lng();
+                        $scope.map.zoom = 14;
                     }
                 }
-            },
-            searchbox: {
-                template: 'searchbox.tpl.html',
-                //position:'top-right',
-                position: 'top-left',
-                options: {
-                    bounds: {},
-                    visible: true
-                },
-                //parentdiv:'searchBoxParent',
-                events: {
-                    places_changed: function(searchBox) {
+        };
 
-                        var places = searchBox.getPlaces();
-                        $log.debug('places: ' + JSON.stringify(places, null, 4));
-                        if (places.length == 0) {
-                            return;
-                        }
-                        // For each place, get the icon, place name, and location.
-                        var newMarkers = [];
-                        var bounds = new google.maps.LatLngBounds();
-                        for (var i = 0, place; place = places[i]; i++) {
-                            // Create a marker for each place.
-                            var marker = {
-                                id: i,
-                                place_id: place.place_id,
-                                name: place.name,
-                                latitude: place.geometry.location.lat(),
-                                longitude: place.geometry.location.lng(),
-                                zoom: 12,
-                                options: {
-                                    visible: false
-                                },
-                                templateurl: 'window.tpl.html',
-                                templateparameter: place
-                            };
-                            newMarkers.push(marker);
+        $scope.$watch('place', function() {
+            $scope.sliderChange();
+        });
 
-                            bounds.extend(place.geometry.location);
-                        }
+        $scope.listaRetos = [];
+        $scope.listaLocalizaciones = [];
+        $scope.codigoRetoSeleccionado = "";
+         $scope.mostrarLocalizaciones = false; 
 
-                        $scope.map.bounds = {
-                            northeast: {
-                                latitude: bounds.getNorthEast().lat(),
-                                longitude: bounds.getNorthEast().lng()
-                            },
-                            southwest: {
-                                latitude: bounds.getSouthWest().lat(),
-                                longitude: bounds.getSouthWest().lng()
-                            }
-                        }
+        $scope.selectedItem = 0;
+        function getRetos(){
+            $scope.listaRetos = Reto.query(function(){
+            })
+        };
 
-                        _.each(newMarkers, function(marker) {
+       getRetos();
 
-                            marker.closeClick = function() {
-                                $scope.selected.options.visible = false;
-                                marker.options.visble = false;
-                                $log.debug('click closeClick');
-                                return $scope.$apply();
-                            };
-                            marker.onClicked = function() {
-                                $scope.selected.options.visible = false;
-                                $scope.selected = marker;
-                                $log.debug('click onClicked');
-                                $scope.selected.options.visible = true;
-                            };
-                        });
-
-                        $scope.map.markers = newMarkers;
-                        $scope.map.zoom = 12;
-                    }
-                }
+       $scope.$watch('retoSelected', function(newVal) {
+            if (newVal){
+                console.log(newVal);
+              $scope.listaLocalizaciones = newVal.localizaciones;
+              $scope.mostrarLocalizaciones = true;  
+            }
+            else{
+                console.log('Selecciona reto');
+                $scope.mostrarLocalizaciones = false; 
+                $scope.codigoRetoSeleccionado = "";
             }
         });
-*/
 
-
-
+       $scope.$watch('localizacionSelected', function(newVal) {
+            if (newVal){
+              console.log(newVal.codigoReto);
+              $scope.codigoRetoSeleccionado = newVal.codigoReto;  
+            } 
+            else{
+              $scope.codigoRetoSeleccionado = "";  
+            }
+        });
 
 
         $scope.crearLocalizacion = function() {
@@ -389,6 +249,7 @@ angular.module('subexpuestaV2App')
                     $scope.nuevaLocalizacion.latitud = $scope.marker.coords.latitude;
                     $scope.nuevaLocalizacion.longitud = $scope.marker.coords.longitude;
                     $scope.nuevaLocalizacion.categoria = $scope.localizacion.categoria;
+                    $scope.nuevaLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
 
 
 

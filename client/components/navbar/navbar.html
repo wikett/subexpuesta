@@ -1,111 +1,117 @@
 <header id="header" ng-controller="NavbarCtrl">
-        <div class="container">
-
-          <div class="logo">
-            <!--<a href="index.html">
-              <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="img/logo.png">
-            </a>-->
-            <!-- <h1><a href="/">Subexpuesta.com</a></h1>-->
-            <h1><a href="/"><img src="/assets/images/subexpuesta-logo.png" alt="Subexpuesta.com" width="304px" /></a></h1> 
-          </div>
-          <!--<div class="search">
-            <form id="searchForm" action="page-search-results.html" method="get">
-              <div class="input-group">
-                <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                </span>
-              </div>
-            </form>
-          </div>-->
-          <ul class="social-icons" style="margin-right: 77px;">
-            <li class="facebook"><a href="https://www.facebook.com/subexpuesta" target="_blank" title="Facebook">Facebook</a></li>
-            <li class="twitter"><a href="https://twitter.com/subexpuesta_com" target="_blank" title="Twitter">Twitter</a></li>
-            <li class="instagram"><a href="https://instagram.com/subexpuesta_com/" target="_blank" title="Instagram">Instagram</a></li>
-          </ul>
-          <nav>
-            <ul class="nav nav-pills nav-top">
-            
-              <li>
-                <a href="/sobrenosotros"><i class="fa fa-angle-right"></i>Sobre Nosotros</a>
-              </li>
-              <li>
-                <a href="/mejora"><i class="fa fa-angle-right"></i>Mejora la Web</a>
-              </li>
-            </ul>
-          </nav>
-          <!--<button class="btn btn-responsive-nav btn-inverse" ng-click="abrirMenu()" data-toggle="collapse" data-target=".nav-main-collapse">
-            <i class="fa fa-bars"></i>
-          </button>-->
-          <button class="btn btn-responsive-nav btn-inverse" ng-click="swapMenu()">
-            <i class="fa fa-bars"></i>
-          </button>
+  <div class="container">
+    <div class="logo">
+      <!--<a href="index.html">
+        <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="img/logo.png">
+      </a>-->
+      <!-- <h1><a href="/">Subexpuesta.com</a></h1>-->
+      <h1><a href="/"><img src="/assets/images/subexpuesta-logo.png" alt="Subexpuesta.com" width="304px" /></a></h1>
+    </div>
+    <!--<div class="search">
+      <form id="searchForm" action="page-search-results.html" method="get">
+        <div class="input-group">
+          <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+          </span>
         </div>
-        <div ng-class="menuExpandido ? 'navbar-collapse nav-main-collapse collapse in' : 'navbar-collapse nav-main-collapse collapse'">
-          <div class="container">
-            <nav class="nav-main mega-menu" style="width:540px;">
-              <ul class="nav nav-pills nav-main" >
-                
-                <li>
-                  <a class="dropdown-toggle" ng-click="cerrarMenu()" href="/">
-                    Inicio</a>
-                </li>
-                <li>
-                  <a href="/localizaciones-fotografia-nocturna" ng-click="cerrarMenu()">Mapa</a>
-                </li>
-                <li>
-                  <a href="/cursos-sobre-fotografia-nocturna-y-paisaje" ng-click="cerrarMenu()">Cursos</a>
-                </li>
-                <li>
-                  <a href="/blog" ng-click="cerrarMenu()">Blog</a>
-                </li>
-                <li>
-                  <a href="/contacto" ng-click="cerrarMenu()">Contacto</a>
-                </li>
-                <li >
-                  <a ng-show="!isLoggedIn()" href="/login" style="color:#444;" ng-click="cerrarMenu()"><i class="fa fa-user"></i> Iniciar Sesión</a>
-                </li>
-                <li ng-show="isLoggedIn()"  class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
-                  <a class="dropdown-toggle " href="page-login.html">
-                    <i class="fa fa-user"></i> {{getCurrentUser().username}}
-                    <i class="fa fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <div class="mega-menu-content">
-                        <div class="row">
-                          <div class="col-md-7">
-                            <div class="user-avatar">
-                              <div class="img-thumbnail">
-                                <img ng-src="{{getCurrentUser().avatar}}" />
-                              </div>
-                              <p><strong>{{getCurrentUser().username}}</strong><i class="fa fa-camera"></i> <a href="/tus-localizaciones/{{getCurrentUser().username}}" ng-click="cerrarMenu()">Tus localizaciones</a></p>
-                              <p ng-if="isAdmin()"> <i class="fa fa-cog"></i> <a href="/admin">Admin</a></p>
-                            </div>
-                          </div>
-                          <div class="col-md-5">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fa fa-cloud-upload"></i> <a href="/crear-localizaciones" ng-click="cerrarMenu()">Crear Localización</a>
-                              </li>
-                              <li>
-                                <i class="fa fa-cog"></i> <a href="/settings" ng-click="cerrarMenu()">Mi Cuenta</a>
-                              </li>
-                              <li>
-                               <i class="fa fa-sign-out"></i> <a href="" ng-click="logout()" ng-click="cerrarMenu()">Cerrar Sesión</a>
-                              </li>
-                            </ul>
-                          </div>
+      </form>
+    </div>-->
+    <ul class="social-icons" style="margin-right: 77px;">
+      <li class="facebook"><a href="https://www.facebook.com/subexpuesta" target="_blank" title="Facebook">Facebook</a></li>
+      <li class="twitter"><a href="https://twitter.com/subexpuesta_com" target="_blank" title="Twitter">Twitter</a></li>
+      <li class="instagram"><a href="https://instagram.com/subexpuesta_com/" target="_blank" title="Instagram">Instagram</a></li>
+    </ul>
+    <nav>
+      <ul class="nav nav-pills nav-top">
+        
+        <li>
+          <a href="/sobrenosotros"><i class="fa fa-angle-right"></i>Sobre Nosotros</a>
+        </li>
+        <li>
+          <a href="/mejora"><i class="fa fa-angle-right"></i>Mejora la Web</a>
+        </li>
+      </ul>
+    </nav>
+    <!--<button class="btn btn-responsive-nav btn-inverse" ng-click="abrirMenu()" data-toggle="collapse" data-target=".nav-main-collapse">
+    <i class="fa fa-bars"></i>
+    </button>-->
+    <button class="btn btn-responsive-nav btn-inverse" ng-click="swapMenu()">
+    <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div ng-class="menuExpandido ? 'navbar-collapse nav-main-collapse collapse in' : 'navbar-collapse nav-main-collapse collapse'">
+    <div class="container">
+      <nav class="nav-main mega-menu" style="width:650px;">
+        <ul class="nav nav-pills nav-main" >
+          
+          <li>
+            <a class="dropdown-toggle" ng-click="cerrarMenu()" href="/">
+            Inicio</a>
+          </li>
+          <li>
+            <a href="/localizaciones-fotografia-nocturna" ng-click="cerrarMenu()">Mapa</a>
+          </li>
+          <li>
+            <a href="/cursos-sobre-fotografia-nocturna-y-paisaje" ng-click="cerrarMenu()">Cursos</a>
+          </li>
+          <li>
+            <a href="/retos" ng-click="cerrarMenu()">Retos</a>
+          </li>
+          <li>
+            <a href="/blog" ng-click="cerrarMenu()">Blog</a>
+          </li>
+          <li>
+            <a href="/contacto" ng-click="cerrarMenu()">Contacto</a>
+          </li>
+          <li >
+            <a ng-show="!isLoggedIn()" href="/login" style="color:#444;" ng-click="cerrarMenu()"><i class="fa fa-user"></i> Iniciar Sesión</a>
+          </li>
+          <li ng-show="isLoggedIn()"  class="dropdown mega-menu-item mega-menu-signin signin logged" id="headerAccount">
+            <a class="dropdown-toggle " href="page-login.html">
+              <i class="fa fa-user"></i> {{getCurrentUser().username}}
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="mega-menu-content">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="user-avatar">
+                        <div class="img-thumbnail">
+                          <img ng-src="{{getCurrentUser().avatar}}" />
+                        </div>
+                        <p><strong>{{getCurrentUser().username}}</strong><i class="fa fa-camera"></i>
+                          <a href="/tus-localizaciones/{{getCurrentUser().username}}" ng-click="cerrarMenu()">Tus localizaciones</a>
+                          <i class="fa fa-bell-o"></i>
+                          <a href="/avisador" ng-click="cerrarMenu()">Avisador</a>
+                        </p>
+                          <p ng-if="isAdmin()"> <i class="fa fa-cog"></i> <a href="/admin">Admin</a></p>
                         </div>
                       </div>
-                    </li>
-                  </ul>
+                      <div class="col-md-5">
+                        <ul class="list-unstyled">
+                          <li>
+                            <i class="fa fa-cloud-upload"></i> <a href="/crear-localizaciones" ng-click="cerrarMenu()">Crear Localización</a>
+                          </li>
+                          <li>
+                            <i class="fa fa-cog"></i> <a href="/settings" ng-click="cerrarMenu()">Mi Cuenta</a>
+                          </li>
+                          <li>
+                            <i class="fa fa-sign-out"></i> <a href="" ng-click="logout()" ng-click="cerrarMenu()">Cerrar Sesión</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </li>
-              
-                
-                
               </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+            </li>
+            
+            
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>

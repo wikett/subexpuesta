@@ -70,18 +70,23 @@
 		</div>
 	</div>
 	
-	<div ng-if="busqueda.length>0 || filtroPaisaje || filtroUrbana || filtroLightpainting || filtroAtardecer || filtroMonumento || filtroRuinas || filtroVehiculo || filtroMineria"  class="row" style="margin-top:5px;">
-
-		<div class="col-md-12">
-			<h5>{{misLocalizacionesFiltradas.length}} localizaciones</h5>
-			<div ng-repeat="localizacion in misLocalizacionesFiltradas | filter:busqueda  | filter:{estado:'!2'}| orderBy: fechaSubida" style="width:80px; float:left;">
+	<div ng-hide="busqueda.length>0 || filtroPaisaje || filtroUrbana || filtroLightpainting || filtroAtardecer || filtroMonumento || filtroRuinas || filtroVehiculo || filtroMineria" class="col-md-12" style="margin-top:30px;">
+			<h5>Ultimas localizaciones creadas</h5>
+			<div ng-repeat="localizacion in misLocalizacionesFiltradas | orderBy: '-fechaSubida' | limitTo: 39 | filter:{estado:'!2'}" style="width:80px; float:left;">
 				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,q_44,w_80/v1438939574/{{localizacion.idFoto}}" title="{{localizacion.titulo | seo}}"  /></a>
 				
 			</div>
 		</div>
 
+	<div ng-if="busqueda.length>0 || filtroPaisaje || filtroUrbana || filtroLightpainting || filtroAtardecer || filtroMonumento || filtroRuinas || filtroVehiculo || filtroMineria"  class="row" style="margin-top:5px;">
 
-
+		<div class="col-md-12">
+			<h5>{{misLocalizacionesFiltradas.length}} localizaciones</h5>
+			<div ng-repeat="localizacion in misLocalizacionesFiltradas | filter:busqueda  | filter:{estado:'!2'}| orderBy: 'fechaSubida'" style="width:80px; float:left;">
+				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,q_44,w_80/v1438939574/{{localizacion.idFoto}}" title="{{localizacion.titulo | seo}}"  /></a>
+				
+			</div>
+		</div>
 	</div>
 </div>
 </div>

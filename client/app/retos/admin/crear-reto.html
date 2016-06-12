@@ -1,0 +1,65 @@
+<style>
+.angular-google-map-container { height: 400px; width: 700px;  }
+.angular-google-map-container input[type=text]{
+	width:400px;
+	color:navy;
+}
+</style>
+<div class="container">
+<div class="row" style="margin-top:20px;">
+		<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<thead>
+					<tr>
+						<th width="200px">Nombre</th>
+						<th>Descripcion</th>
+						<th>Imagen</th>
+						<th  width="200px">Localizaciones</th>
+						<th>Acciones</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="reto in listaRetos" class="gradeX">
+						<td>{{reto.nombre}}</td>
+						<td>{{reto.descripcion}}</td>
+						<td>{{reto.imagen}}</td>
+						<td width="200px">
+							<ul>
+								<li ng-repeat="localizacion in reto.localizaciones">{{localizacion._id}} {{localizacion.nombre}} ({{localizacion.recibida}})</li>
+							</ul>
+						</td>
+						<td><a href="/admin/anyadir-localizacion-retos/{{reto._id}}/">Anyadir localizacion</a> / <a href="/admin/editar-localizacion-retos/{{reto._id}}/">Editar localizacion</a></td>
+						<td><a href="/admin/editar-reto/{{reto._id}}/">Editar Reto</a></td>
+					</tr>
+				</tbody>
+		</table>
+		
+	</div>
+	<div class="row">
+		<form>
+			<div class="col-md-8 form-group">
+				<label>Nombre</label>
+				<input type="text" class="form-control" id="titulo"  ng-model="reto.nombre">
+			</div>
+			
+			<div class="col-md-8 form-group">
+				<label>Descripcion</label>
+				<textarea class="form-control" id="descripcion" ng-model="reto.descripcion"></textarea>
+			</div>
+
+			<div class="col-md-8 form-group">
+				<label>Imagen</label>
+				<textarea class="form-control" id="descripcion" ng-model="reto.imagen"></textarea>
+			</div>
+			
+			
+			<div class="col-md-12">
+				
+				<button class="btn btn-lg btn-success pull-right" type="button" ng-click="crearReto()" ng-disabled="localizacionCreada">Crear Reto</button>
+			</div>
+			<h2 ng-show="retoCreado">Reto creado correctamente</h2>
+		</form>
+
+		
+	</div>
+</div>

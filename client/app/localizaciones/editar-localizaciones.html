@@ -29,11 +29,28 @@
 					</div>
 					<span style="color:red">*</span> Campos obligatorios
 				</div>
-			
+			<div class="row">
+				<div class="col-md-7">
+					<h3 style="    margin-top: 30px;margin-bottom: 20px;">Reto</h3>
+					<p>¿Quieres incluir tu fotografía en alguno de los retos actuales?</p>
+					<select style="width: 100%;"
+  ng-model="retoSelected"
+  ng-options="x.nombre for x in listaRetos">
+  <option value="">Selecciona un reto</option>
+</select>
+
+					<br />
+					<select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
+  ng-model="localizacionSelected"
+  ng-options="xx.nombre for xx in listaLocalizaciones">
+  <option value="">Selecciona una localización</option>
+</select>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-5">
 			<div class="row">
-				<cl-image public-id="{{localizacion.cloudinaryId}}" class="thumbnail inline" crop="fit" width="340" format="jpg" ></cl-image>
+				<img class="thumbnail inline" src="http://res.cloudinary.com/djhqderty/image/upload/c_fit,w_440/{{localizacion.cloudinaryId}}" width="440px" style="margin-bottom:40px;" >
 				
 			</div>
 			<div class="row">
@@ -88,12 +105,12 @@
 				</select>
 				</div>
 			</div>
-			<div class="row">
+			<!--<div class="row">
 				<div class="form-group" >
 					<label>Etiquetas</label>
 					<tags-input ng-model="tags" placeholder="Ejemplo: luna, urbana"></tags-input>
 				</div>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="form-group" >
 					<label>Acceso</label> <span ng-show="!localizacion.acceso.length>0" style="color:red">*</span><small>(Se puede llegar con coche? solo a pie? el terreno es peligroso?)</small> <i data-toggle="tooltip" data-placement="top" title="Explica cómo está el acceso: si se puede llegar con coche, o hay que ir andando tantos minutos, si hay cerca zonas peligrosas, etc, etc..." class="fa fa-info-circle"></i>

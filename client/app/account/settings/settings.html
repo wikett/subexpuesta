@@ -1,5 +1,5 @@
 <style>
-  .angular-google-map-container { height: 350px; width: 533px;  }
+.angular-google-map-container { height: 350px; width: 533px;  }
 </style>
 <section class="page-top">
   <div class="container">
@@ -42,7 +42,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="inputDefault">Web Personal</label>
               <div class="col-md-6">
-                <input type="text" class="form-control" name="web" ng-model="user.web" placeholder="http://www.subexpuesta.com"> 
+                <input type="text" class="form-control" name="web" ng-model="user.web" placeholder="http://www.subexpuesta.com">
               </div>
             </div>
             <div class="form-group">
@@ -82,223 +82,302 @@
                 </div>
               </div>
             </div>
-
             <div class="form-group">
               <a href="" class="col-md-3 control-label" for="inputDefault" ng-click="isCollapsed = !isCollapsed">Editar Avatar <i ng-class="isCollapsed ? 'fa fa-chevron-right' : 'fa fa-chevron-down'"></i></a>
-             
-                <div class="col-md-6">
-              <div collapse="isCollapsed">
-            
-               
-              <input type="file" id="fileInput" class="form-control" />
-              <div style="background: #E4E4E4;overflow: hidden;width:538px;height:350px; margin-top:15px;">
-                <img-crop image="myImage" area-type="square" result-image="myCroppedImage" result-image-size="120"></img-crop>
-              </div>
-              <div>Imagen final:</div>
-              <div><img ng-src="{{myCroppedImage}}" /></div>
-              </div>
-              </div>
-            </div>
-
-            <div class="panel-body" >            
-            
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Tu contraseña<span style="color:red">*</span></label>
+              
               <div class="col-md-6">
-                <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
-                mongoose-error required/>
-                <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
-              </div>
-
-            </div>   
-            <div class="col-md-9">         
-            <alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==0"> {{message}}</alert>
-            <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
-            <button id="guardar" class="btn btn-lg btn-primary pull-right" type="submit" ng-click="actualizarDatos(form,0)">Guardar</button>
-            </div>
-            
-            
-          </div>
-
-
-          </div>
-        </section>
-
-        
-        <section class="panel">
-          <header class="panel-heading">
-            <div class="panel-actions">
-            </div>
-            <h3 style="color:#ed9c28;">Avisos</h3>
-          </header>
-          <div class="panel-body">
-             <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">¿Cerca de dónde?</label>
-              <div class="col-md-6">
-                
-                <div ng-if="showMap">
-                  <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
-              <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
-               </ui-gmap-marker>
-               <ui-gmap-circle center="map.circle.center"
-                        radius="map.circle.radius"
-                        fill="map.circle.fill"
-                        stroke="map.circle.stroke"
-                        clickable="map.circle.clickable"
-                        draggable="map.circle.draggable"
-                        editable="map.circle.editable"
-                        visible="map.circle.visible"
-                        events="map.circle.events">
-        </ui-gmap-circle>
-
-            </ui-gmap-google-map>
-            <span ng-show="user.coordenadasAvisoLatitud>0">Latitud: {{user.coordenadasAvisoLatitud}} Longitud: {{user.coordenadasAvisoLongitud}}</span>
-                </div>
-              </div>
-            </div>
- 
-            <div class="form-group" ng-show="marker.coords.latitude>0">
-              <label class="col-md-3 control-label" for="inputDefault">Radio (en kilometros)</label>
-              <div class="col-md-6">
-                <!--<input type="text" name="radioAvi" class="form-control" ng-model="user.radioAviso">
-                <div range-slider min="0" max="600" model-min="demo2.range.min" model-max="demo2.range.max" pin-handle="min"  disabled="false" style="margin-bottom:0px;"></div> -->
-                <div range-slider on-handle-up="sliderChange()" min="0" max="500" model-max="sliderValue" pin-handle="min"  style="margin-bottom:0px;"></div>
-                <div class="row">
-
-                  <div class="col-md-12">
-                  <p ng-show="sliderValue>0" class="text-right">{{sliderValue}}km</p>
-                   
+                <div collapse="isCollapsed">
+                  
+                  
+                  <input type="file" id="fileInput" class="form-control" />
+                  <div style="background: #E4E4E4;overflow: hidden;width:538px;height:350px; margin-top:15px;">
+                    <img-crop image="myImage" area-type="square" result-image="myCroppedImage" result-image-size="120"></img-crop>
                   </div>
+                  <div>Imagen final:</div>
+                  <div><img ng-src="{{myCroppedImage}}" /></div>
                 </div>
-
               </div>
-
-            </div>       
-            <div class="form-group" ng-show="sliderValue>0">
-              <label class="col-md-3 control-label" for="inputDefault">Frecuencia de aviso</label>
-              <div class="col-md-6">
-                
-                <select  ng-model="user.frecuenciaAviso" ng-options="item.id as item.name for item in items"></select> 
-              </div>
-            </div>    
-            <!--<div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Cancelar avisos</label>
-              <div class="col-md-6">
-                
-               <input type="checkbox" id="cancelarAvisos" ng-model="cancelarAvisos">
-              </div>
-            </div>  -->
-            
-            <div class="form-group" ng-show="user.frecuenciaAviso>-1">
-              <label class="col-md-3 control-label" for="inputDefault"></label>
-              <div class="col-md-6">
-                
-               
-              </div>
-            </div> 
-            <div class="panel-body" ng-show="user.frecuenciaAviso>0">            
-            
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Tu contraseña<span style="color:red">*</span></label>
-              <div class="col-md-6">
-                <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
-                mongoose-error required/>
+            </div>
+            <div class="panel-body" >
+              
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="inputDefault">Tu contraseña<span style="color:red">*</span></label>
+                <div class="col-md-6">
+                  <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
+                  mongoose-error required/>
                 <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
               </div>
-
-            </div>   
-            <div class="col-md-9">         
-            <alert type="warning"  close="closeAlert($index)" ng-show="numeroGuardar==1"> {{message}}</alert>
-            <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
-            <button id="guardar" class="btn btn-lg btn-warning pull-right" type="submit" ng-click="actualizarDatos(form,1)">Guardar</button>
             </div>
-            
-            
-          </div>       
-          </div>
-        </section>
+            <div class="col-md-9">
+            <alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==0"> {{message}}</alert>
+          <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+          <button id="guardar" class="btn btn-lg btn-primary pull-right" type="submit" ng-click="actualizarDatos(form,0)">Guardar</button>
+        </div>
         
         
-        <section class="panel">
-          <header class="panel-heading">
-            <div class="panel-actions">
-            </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="panel">
+    <header class="panel-heading">
+      <div class="panel-actions">
+      </div>
+      <h3 style="color:#ed9c28;">Avisos <a href="https://www.youtube.com/watch?v=HlH9BwH7OoA" style="margin-left: 5px;font-size: 12px;" target="_blank"><img src="/assets/images/youtube.png" width="30px" />VideoTutorial para crear Avisos</a></h3>
+    </header>
+    <div class="panel-body">
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="inputDefault">¿Cerca de dónde?</label>
+        <div class="col-md-6">
+          
+          <div ng-if="showMap">
+            <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
+            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+            </ui-gmap-marker>
+            <ui-gmap-circle center="map.circle.center"
+            radius="map.circle.radius"
+            fill="map.circle.fill"
+            stroke="map.circle.stroke"
+            clickable="map.circle.clickable"
+            draggable="map.circle.draggable"
+            editable="map.circle.editable"
+            visible="map.circle.visible"
+            events="map.circle.events">
+            </ui-gmap-circle>
+            </ui-gmap-google-map>
             
-            <h3 style="color:#47a447;">Cambiar contraseña</h3>
-          </header>
-          <div class="panel-body">
-            
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Nueva contraseña</label>
-              <div class="col-md-6">
-                
-                <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                ng-minlength="6" />
-                <p class="help-block"
-                  ng-show="form.newPassword.$error.minlength && (form.newPassword.$dirty || submitted)">
-                  La contraseña debe tener al menos 6 caracteres.
-                </p>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Repetir nueva contraseña</label>
-              <div class="col-md-6">
-                <input type="password" name="renewPassword" class="form-control" ng-model="renewPassword">
-              </div>
-            </div>
-            <div class="col-md-9">  
-             <alert type="danger"  close="closeAlert()" ng-show="errors.passwordIguales.length>0"> {{ errors.passwordIguales }}</alert>
-            </div>
-                        
           </div>
-          <div class="panel-body">            
-            
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Tu actual contraseña<span style="color:red">*</span></label>
-              <div class="col-md-6">
-                <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
-                mongoose-error required/>
-                <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
-              </div>
+        </div>
+      </div>
+      
+      <div class="form-group" ng-show="marker.coords.latitude>0">
+        <label class="col-md-3 control-label" for="inputDefault">Radio (en kilometros)</label>
+        <div class="col-md-6">
+          <!--<input type="text" name="radioAvi" class="form-control" ng-model="user.radioAviso">
+          <div range-slider min="0" max="600" model-min="demo2.range.min" model-max="demo2.range.max" pin-handle="min"  disabled="false" style="margin-bottom:0px;"></div> -->
 
-            </div>   
-            <div class="col-md-9">         
-            <alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==2"> {{message}}</alert>
-            <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
-            <button id="guardar" class="btn btn-lg btn-success pull-right" type="submit" ng-click="actualizarDatos(form,2)">Guardar</button>
+          <!--<div range-slider on-handle-up="sliderChange()" min="0" max="150" model-max="sliderValue" pin-handle="min"  style="margin-bottom:0px;"></div>-->
+          <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+          <input type="number" name="radioAvi" class="form-control" ng-model="sliderValue" max="599" min="0">
+          <div class="row">
+            <div class="col-md-12">
+              <p ng-show="user.radioAviso>0" class="text-right">{{slider.value}}km</p>              
             </div>
-            
-            
           </div>
-        </section>
-        <!--<section class="panel">
-          <header class="panel-heading">
-            <div class="panel-actions">
-            </div>
-            
-            <h2 class="panel-title">Vuelve a introducir tu contraseña</h2>
-          </header>
-          <div class="panel-body">            
-            
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="inputDefault">Tu actual contraseña<span style="color:red">*</span></label>
-              <div class="col-md-6">
-                <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
-                mongoose-error required/>
-                <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
-              </div>
+        </div>
+      </div>
+      <div class="form-group" ng-show="sliderValue>0">
+        <label class="col-md-3 control-label" for="inputDefault">Frecuencia de aviso</label>
+        <div class="col-md-6">
+          
+        <select  ng-model="user.frecuenciaAviso" ng-options="item.id as item.name for item in items"></select>
+      </div>
+    </div>
+    <!--<div class="form-group">
+      <label class="col-md-3 control-label" for="inputDefault">Cancelar avisos</label>
+      <div class="col-md-6">
+        
+        <input type="checkbox" id="cancelarAvisos" ng-model="cancelarAvisos">
+      </div>
+    </div>  -->
+    
+    <div class="form-group" ng-show="user.frecuenciaAviso>-1">
+      <label class="col-md-3 control-label" for="inputDefault"></label>
+      <div class="col-md-6">
+        
+        
+      </div>
+    </div>
+    <div class="panel-body" ng-show="user.frecuenciaAviso>0">
+      
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="inputDefault">Tu contraseña<span style="color:red">*</span></label>
+        <div class="col-md-6">
+          <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
+          mongoose-error required/>
+        <alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
+      </div>
+    </div>
+    <div class="col-md-9">
+    <alert type="warning"  close="closeAlert($index)" ng-show="numeroGuardar==1"> {{message}}</alert>
+  <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+  <button id="guardar" class="btn btn-lg btn-warning pull-right" type="submit" ng-click="actualizarDatos(form,1)">Guardar</button>
+</div>
 
-            </div>   
-            <div class="col-md-9">         
-            <alert type="success"  close="closeAlert($index)" ng-show="message.length>0"> {{message}}</alert>
-            <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
-            <button id="guardar" class="btn btn-lg btn-success pull-right" type="submit">Guardar</button>
-            </div>
-            
-            
+
+</div>
+</div>
+</section>
+<section class="panel">
+<header class="panel-heading">
+<div class="panel-actions">
+</div>
+
+<h3 style="color:#47a447;">Avisador</h3>
+<p>Prepara el listado de las personas que normalmente avisas a la hora de salir a hacer fotos</p>
+</header>
+<div class="panel-body">
+
+<div class="form-group">
+<label class="col-md-3 control-label" for="inputDefault">Tu lista de contactos</label>
+<div class="col-md-6">
+  
+  <div class="panel-body">
+    <h4 ng-hide="user.contactosAvisos.length > 0" class="text-success" style="margin-top: -14px;"> No tienes todavía ningún contacto añadido</h4>
+    <table ng-show="user.contactosAvisos.length > 0" class="table table-no-more table-bordered table-striped mb-none" style="margin-top: -30px;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>e-mail</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="contacto in user.contactosAvisos">
+          <td data-title="Fecha">{{contacto.nombre}}</td>
+          <td data-title="Mejroa">{{contacto.email}}</td>
+          <td><a href="" ng-click="modificarContactoAviso(contacto, $index)"><i class="fa fa-pencil"></i></a> <a href="#" ng-click="borrarContacto(contacto, $index)"><i class="fa fa-trash-o"></i></a> </td>
+        </tr>
+      </tbody>
+    </table>
+<div ng-show="borrarContactoNuevo" class="row form-group">
+    <p>¿Seguro que quiere borrar de su lista de contactos a <strong>{{contactoNuevo.nombre}}</strong> ({{contactoNuevo.email}}) ?</p>
+        <label class="col-md-3 control-label" for="inputDefault">Tu contraseña <span style="color:red">*</span></label>
+        <div class="col-md-9">
+          <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual">
+          <alert type="danger"  close="closeAlert($index)" ng-show="errors.contactoNuevo.length>0" style="margin-top: 20px;">{{errors.contactoNuevo}}</alert>
+        </div>
+        <div class="col-md-9 pull-right">
+
+          <alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==2"> {{message}}</alert>
+          <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+          
+          <button id="cancelarContacto" class="btn btn-info pull-right" style="margin-top: 10px;margin-left: 10px;" type="submit" ng-click="cancelarBorrarContacto()">Cancelar</button>
+          <button id="removeContacto" class="btn btn-danger pull-right" style="margin-top: 10px;margin-left: 10px;" type="submit" ng-click="removeContacto(form)">Borrar</button>
           </div>
-        </section>-->
-      </form>
+        </div>
+    <div class="row">
+
+    <p class="pull-right"><a href="#" ng-click="expandirNuevoContacto()">[<span ng-hide="isCollapsedAvisador">+</span><span ng-show="isCollapsedAvisador">-</span>] Añadir contacto</a>
+    
+    </p>
+    </div>
+    <div collapse="!isCollapsedAvisador" >
+      <div class="row form-group">
+        <label class="col-md-3 control-label" for="inputDefault">Nombre <span style="color:red">*</span></label>
+        <div class="col-md-9">
+          <input type="text" name="contactoNuevoNombre" class="form-control" ng-model="contactoNuevo.nombre">
+        </div>
+         </div>
+         <div class="row form-group">
+        <label class="col-md-3 control-label" for="inputDefault">e-mail <span style="color:red">*</span></label>
+        <div class="col-md-9">
+          <input type="email" name="contactoNuevoEmail" class="form-control" ng-model="contactoNuevo.email">
+        </div>
+        </div>
+         <div class="row form-group">
+        <label class="col-md-3 control-label" for="inputDefault">Tu contraseña <span style="color:red">*</span></label>
+        <div class="col-md-9">
+          <input type="password" name="passwordActual" class="form-control" ng-model="passwordActual">
+          <alert type="danger"  close="closeAlert($index)" ng-show="errors.contactoNuevo.length>0" style="margin-top: 20px;">{{errors.contactoNuevo}}</alert>
+        </div>
+        </div>
+        <div class="col-md-9 pull-right">
+          <alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==2"> {{message}}</alert>
+          <alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+          <button ng-hide="editandoContacto" id="guardar" class="btn btn-success " type="submit" ng-click="addContactoAviso(form)">Guardar</button>
+          <button ng-show="editandoContacto" id="editar" class="btn btn-success " type="submit" ng-click="changeContactoAviso(form)">Guardar</button>
+          <button ng-show="editandoContacto" id="cancelarEdicion" class="btn btn-info"  type="submit" ng-click="cancelarEdicionContacto()">Cancelar</button>
+          </div>
+     
     </div>
   </div>
+</div>
+</div>
+
+
+
+</section>
+
+
+<section class="panel">
+<header class="panel-heading">
+<div class="panel-actions">
+</div>
+
+<h3 style="color:#47a447;">Cambiar contraseña</h3>
+</header>
+<div class="panel-body">
+
+<div class="form-group">
+<label class="col-md-3 control-label" for="inputDefault">Nueva contraseña</label>
+<div class="col-md-6">
+
+<input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
+ng-minlength="6" />
+<p class="help-block"
+ng-show="form.newPassword.$error.minlength && (form.newPassword.$dirty || submitted)">
+La contraseña debe tener al menos 6 caracteres.
+</p>
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-3 control-label" for="inputDefault">Repetir nueva contraseña</label>
+<div class="col-md-6">
+<input type="password" name="renewPassword" class="form-control" ng-model="renewPassword">
+</div>
+</div>
+<div class="col-md-9">
+<alert type="danger"  close="closeAlert()" ng-show="errors.passwordIguales.length>0"> {{ errors.passwordIguales }}</alert>
+</div>
+
+</div>
+<div class="panel-body">
+
+<div class="form-group">
+<label class="col-md-3 control-label" for="inputDefault">Tu actual contraseña<span style="color:red">*</span></label>
+<div class="col-md-6">
+<input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
+mongoose-error required/>
+<alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
+</div>
+</div>
+<div class="col-md-9">
+<alert type="success"  close="closeAlert($index)" ng-show="numeroGuardar==2"> {{message}}</alert>
+<alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+<button id="guardar" class="btn btn-lg btn-success pull-right" type="submit" ng-click="actualizarDatos(form,2)">Guardar</button>
+</div>
+
+
+</div>
+</section>
+<!--<section class="panel">
+<header class="panel-heading">
+<div class="panel-actions">
+</div>
+
+<h2 class="panel-title">Vuelve a introducir tu contraseña</h2>
+</header>
+<div class="panel-body">
+
+<div class="form-group">
+<label class="col-md-3 control-label" for="inputDefault">Tu actual contraseña<span style="color:red">*</span></label>
+<div class="col-md-6">
+<input type="password" name="passwordActual" class="form-control" ng-model="passwordActual"
+mongoose-error required/>
+<alert type="danger"  ng-show="form.passwordActual.$error.required && submitted" style="margin-top:10px;"> Debes indicar tu contraseña actual</alert>
+</div>
+</div>
+<div class="col-md-9">
+<alert type="success"  close="closeAlert($index)" ng-show="message.length>0"> {{message}}</alert>
+<alert type="danger"  close="closeAlert($index)" ng-show="errors.other.length>0"> {{ errors.other }}</alert>
+<button id="guardar" class="btn btn-lg btn-success pull-right" type="submit">Guardar</button>
+</div>
+
+
+</div>
+</section>-->
+</form>
+</div>
+</div>
 </div>
