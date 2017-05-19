@@ -63,7 +63,8 @@
 			<div class="text-right" ng-show="fotoActual.idClodinary.length>0">
 				
 
-				<cl-image public-id="{{fotoActual.idClodinary}}" class="thumbnail inline"  crop="fit" width="380" format="jpg" title="Fotografia por: {{fotoActual.autor}}" style="margin-bottom:0px;margin-top:18px;"></cl-image>
+				
+			<img src="http://res.cloudinary.com/djhqderty/image/upload/c_fit,w_380,q_50/{{fotoActual.idClodinary}}"  style="margin-bottom:0px;margin-top:18px;" title="Fotografia por: {{fotoActual.autor}}"  alt="{{fotoActual.titulo}}" style="margin-bottom:50px;" />
 				<p class="text-right"><a href="/localizaciones/{{fotoActual._id}}/{{fotoActual.titulo | seo}}">Ver detalle</a></p>
 			</div>
 			 

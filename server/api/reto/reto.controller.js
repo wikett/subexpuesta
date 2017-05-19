@@ -89,39 +89,58 @@ exports.addLocalizacionReto = function(req, res) {
 // update Localizacion Reto
 exports.updateLocalizacionReto = function(req, res) {
 
-    var query = {
-        _id: req.params.id
-    };
-    var update = req.body;
-    var options = {
-        new: true
-    };
     console.log('updateLocalizacionReto -> req.body: ' + JSON.stringify(req.body));
     //Reto.update({localizaciones._id: req.body._id}, {})
-    Reto.update({
-            'localizaciones._id': req.params.id
-        }, {
+    if(!_.isUndefined(req.body.nombre))
+    {
+        Reto.update({
+                'localizaciones._id': req.params.id
+            }, {
+                $set: {
+                    'localizaciones.$.nombre': req.body.nombre,
+                    'localizaciones.$.descripcion': req.body.descripcion,
+                    'localizaciones.$.codigoReto': req.body.codigoReto,
+                    'localizaciones.$.longitud': req.body.longitud,
+                    'localizaciones.$.latitud': req.body.latitud,
+                    'localizaciones.$.recibida': req.body.recibida,
+                    'localizaciones.$.comunidad': req.body.comunidad
+                }
+            }, {
+                safe: true,
+                upsert: true
+            },
+            function(err, reto) {
+                if (!err) {
+                    console.log('Localizacion editada correctamente');
+                    return res.json(200, reto);
+                } else {
+                    console.log('Error updateLocalizacionReto  ' + err);
+                    return handleError(res, err);
+                }
+            });//fin update
+    }
+    else{
+        console.log('editamos solo recibida')
+        Reto.update({
+            'localizaciones._id':req.params.id
+        },{
             $set: {
-                'localizaciones.$.nombre': req.body.nombre,
-                'localizaciones.$.descripcion': req.body.descripcion,
-                'localizaciones.$.codigoReto': req.body.codigoReto,
-                'localizaciones.$.longitud': req.body.longitud,
-                'localizaciones.$.latitud': req.body.latitud,
-                'localizaciones.$.recibida': req.body.recibida
+                'localizaciones.$.recibida': true
             }
         }, {
             safe: true,
             upsert: true
         },
-        function(err, reto) {
-            if (!err) {
-                console.log('Localizacion editada correctamente');
-                return res.json(200, reto);
-            } else {
-                console.log('Error updateLocalizacionReto  ' + err);
-                return handleError(res, err);
-            }
-        });
+        function(err, reto){
+             if (!err) {
+                    console.log('Localizacion editada correctamente');
+                    return res.json(200, reto);
+                } else {
+                    console.log('Error updateLocalizacionReto  ' + err);
+                    return handleError(res, err);
+                }
+            });//fin update
+    }
 
 };
 

@@ -28,11 +28,11 @@ angular.module('subexpuestaV2App')
 
         $scope.opened = false;
         $scope.selectedLocalizacion = '';
+        $scope.selectedComunidad = '';
         $scope.showMap = false;
 
         $scope.tags = [];
-
-
+        $scope.comunidades = [{nombre: 'Cataluña', numero: 1}, {nombre: 'Comunidad Valenciana', numero: 2},{nombre: 'Murcia', numero: 3},{nombre: 'Andalucía', numero: 4}, {nombre: 'Galicia', numero: 5}, {nombre: 'Asturias', numero: 6}, {nombre: 'Cantabria', numero: 7}, {nombre: 'Pais Vasco', numero: 8},{nombre: 'Canarias', numero: 9}, {nombre: 'Islas Baleares', numero: 10}, {nombre: 'Ceuta', numero: 11}, {nombre: 'Melilla', numero: 12}];
 
         $scope.open = function($event) {
             $event.preventDefault();
@@ -112,6 +112,7 @@ angular.module('subexpuestaV2App')
 
         }
 
+
         function getReto() {
 
             Reto.get({
@@ -141,15 +142,12 @@ angular.module('subexpuestaV2App')
             localizacionReto.descripcion = $scope.nuevaLocalizacion.descripcion;
             localizacionReto.codigoReto = $scope.nuevaLocalizacion.codigoReto;
             localizacionReto.recibida = $scope.nuevaLocalizacion.recibida;
+            localizacionReto.comunidad = $scope.selectedComunidad;
             
-            //$scope.reto.localizaciones[$scope.selectedLocalizacion]=$scope.localizacionReto;
-
-            console.log('localizacionReto: '+JSON.stringify(localizacionReto));
-
-            //RetoUpdateLocalizacion.update({id: localizacionReto._id}, localizacionReto);
+        //RetoUpdateLocalizacion.update({id: localizacionReto._id}, localizacionReto);
             
            RetoUpdateLocalizacion.update({id: $scope.objectoSelected._id}, localizacionReto);
-            //$scope.retoModificado = true;
+            $scope.retoModificado = true;
         };
 
 

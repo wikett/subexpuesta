@@ -21,7 +21,7 @@ resetPasswordExpires: { $gt: Date.now() }
 
 exports.getRetos = function(req, res){
   console.log('obtenemos localizaciones con reto');
-  Localizaciones.find({codigoReto: {$ne:null}},function(err, localizaciones){
+  Localizaciones.find({codigoReto: {$ne:null}, estado: {$ne:2}}, function(err, localizaciones){
     if(err) { return handleError(res, err); }
     if(!localizaciones) { return res.send(404); }
     return res.json(localizaciones);

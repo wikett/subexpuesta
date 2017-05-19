@@ -4,6 +4,7 @@ angular.module('subexpuestaV2App')
     .controller('RetoLocalizacionCtrl', function($scope, $rootScope, $log, $stateParams, Reto, $filter) {
         $scope.localizacion = {};
 
+        console.log('parametro: '+$stateParams.localizacion);
         function getListaRetos() {
             Reto.query(function(data) {
                 $scope.listaRetos = data;
@@ -14,6 +15,7 @@ angular.module('subexpuestaV2App')
                         var listaLocalizaciones = $scope.reto.localizaciones;
                         for (var i = 0; i < listaLocalizaciones.length; i++) {
                             var localizacion = $filter('seo')(listaLocalizaciones[i].nombre);
+                            console.log('localizacion: '+localizacion+ ' parametro: '+$stateParams.localizacion);
                             if(localizacion===$stateParams.localizacion){
                                  $scope.localizacion = listaLocalizaciones[i];
                                  console.log('reto: '+JSON.stringify($scope.localizacion));

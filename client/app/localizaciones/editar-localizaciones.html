@@ -40,10 +40,45 @@
 </select>
 
 					<br />
-					<select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
-  ng-model="localizacionSelected"
-  ng-options="xx.nombre for xx in listaLocalizaciones">
+  <select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
+  ng-model="localizacionSelected">
   <option value="">Selecciona una localización</option>
+    <optgroup label="Cataluña">
+   		 <option ng-repeat="lista in otraLista[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+    <optgroup label="Comunidad Valenciana">
+    	<option ng-repeat="lista in otraLista2[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Murcia">
+    	<option ng-repeat="lista in otraListaMurcia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Andalucia">
+    	<option ng-repeat="lista in otraListaAndalucia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Galicia">
+    	<option ng-repeat="lista in otraListaGalicia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Asturias">
+    	<option ng-repeat="lista in otraListaAsturias[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Cantabria">
+    	<option ng-repeat="lista in otraListaCantabria[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Pais Vasco">
+    	<option ng-repeat="lista in otraListaPaisVasco[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Canarias">
+    	<option ng-repeat="lista in otraListaCanarias[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Islas Baleares">
+    	<option ng-repeat="lista in otraListaIslasBaleares[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Ceuta">
+    	<option ng-repeat="lista in otraListaCeuta[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Melilla">
+    	<option ng-repeat="lista in otraListaMelilla[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+
 </select>
 				</div>
 			</div>

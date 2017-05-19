@@ -98,7 +98,29 @@ angular.module('subexpuestaV2App')
 
         $scope.usuario = '';
 
-        $scope.calcular = function(){
+        $scope.calcularNuevo = function(){
+           // $log.debug('entro en calcular: '+$scope.topUsuariosMensual.length);
+            $scope.ganadores = [];
+            $scope.participantes = [];
+            var i=0;
+            while(i<$scope.topUsuariosMensual.length){
+                
+                //$log.debug('usuario: '+JSON.stringify($scope.topUsuariosMensual[i], null, 4));
+
+                if($scope.topUsuariosMensual[i].autor!=="Mónica")
+                {
+                    $scope.ganadores.push($scope.topUsuariosMensual[i].autor);
+                }
+                
+                i++;
+            }
+            $scope.ganadores.push("Mónica");
+            
+
+            $log.debug(JSON.stringify($scope.ganadores));
+        }
+
+        /*$scope.calcular = function(){
            // $log.debug('entro en calcular: '+$scope.topUsuariosMensual.length);
             $scope.ganadores = [];
             $scope.participantes = [];
@@ -114,7 +136,7 @@ angular.module('subexpuestaV2App')
             }
             $log.debug(JSON.stringify($scope.participantes));
             var maximo = 0;
-            while(maximo<25){
+            while(maximo<21){
                 var numeroAleatorio = Math.floor(Math.random()*$scope.participantes.length);
                 $log.debug('numero Aleatorio: '+numeroAleatorio);
                 var item = $scope.participantes[numeroAleatorio];
@@ -134,16 +156,16 @@ angular.module('subexpuestaV2App')
             }
 
             $log.debug(JSON.stringify($scope.ganadores));
-        }
+        }*/
 
         $scope.establecerGanador = function() {
                 $log.debug('establecerGanador');
 
                 for (var i = 0; i < $scope.ganadores.length; i++) {
                     var usu = _.findWhere($scope.listaUsuarios, {username: $scope.ganadores[i]});
-                   // $log.debug(JSON.stringify(usu._id));
+                    $log.debug(JSON.stringify(usu._id));
                      $http.get('/api/users/actualizarconcurso/' + usu._id).success(function(result) {
-                        //$log.debug('Ganador establecido correctamente');
+                        $log.debug('Ganador establecido correctamente');
                     })
 
                 };

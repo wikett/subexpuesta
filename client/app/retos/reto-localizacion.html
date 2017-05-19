@@ -1,43 +1,125 @@
-<div role="main" class="main">
-	<section class="page-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="breadcrumb">
-						<li><a href="/">Inicio</a></li>
-						<li class="active">Retos de fotografía nocturna</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h1>{{localizacionReto.nombre}}</h1>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="page-top">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Mapa {{localizacionReto.nombre}}</h2>
-				<div class="col-md-6">
-					 <div id="map"></div>
-				</div>
-				<div class="col-md-6">
-					<h4>Descripcion: </h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere, elit iaculis rhoncus pulvinar, urna eros tempus nisi, nec suscipit metus felis a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pretium massa nunc.</p>
-					<h4>Completado: <strong>20%</strong></h4>
-					<a href="#" style="text-align:right"><h4>Aporta tu fotografia</h4></a>
-				</div>
-				
-				<!--<div class="c100 p80 normal">
-					<span>20%</span>
-					<div class="slice">
-						<div class="bar"></div>
-						<div class="fill"></div>
-					</div>
-				</div>-->
+				<ul class="breadcrumb">
+					<li><a href="/">Home</a></li>
+					<li class="active">Localizaciones</li>
+				</ul>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h1>{{localizacion.titulo}}</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<a ng-click="abrirImagen()"  href="#" ><img src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{localizacion.cloudinaryId}}" width="340px" style="margin-bottom:40px;" ></a>
+			<div ng-if="showMap">
+				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+				<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
+				</ui-gmap-marker>
+				</ui-gmap-google-map>
+			</div>
+			<p> <a href="#" ng-click="isCollapsed=!isCollapsed">Reportar ubicacion <span style="font-size: 10px;" ng-class="isCollapsed ? 'glyphicon glyphicon-menu-right' : 'glyphicon glyphicon-menu-up'" aria-hidden="true"></span></a></p>
+			<div collapse="isCollapsed">
+			<div class="form-group" style="margin-top:20px; padding: 0px 130px 0px 20px;font-size: 11px;">
+					<p>Si crees que hay una errata en la ubicación o conoces bien la zona y la localización no está exactamente en el lugar indicado, indícanos el problema. Gracias!</p>
+					<textarea cols="50" ng-model="textoReporte"></textarea> 	
+						<div class="text-right" style=" margin-right: -16px;">
+						<p style="color:green" ng-show="enviado">Reporte guardado correctamente. Gracias por avisar. </p>
+						<p style="color:red" ng-show="mostrarError">Hubo un problema inesperado. Por favor, intentelo pasados unos minutos. Gracias </p>
+						<strong  ng-show="enviando" style="font-size:20px;"><i class="fa fa-spinner fa-pulse"></i></strong>
+						<button class="btn btn-warning" type="button" ng-disabled="textoReporte.length===0" ng-click="guardarReporte()">Reportar</button>
+						</div>
+						
+					</div>
+		</div>
+		</div>
+		<div class="col-md-7">
+			<div class="portfolio-info">
+				<div class="row">
+					<div class="col-md-12 center">
+						<ul>
+							
+							<li>
+								<i class="fa fa-calendar"></i> {{localizacion.fechaToma | date:'dd MMMM yyyy'}}
+							</li>
+							<li>
+								<i class="fa fa-globe"></i> <strong>Latitud:</strong> {{localizacion.latitud}} <strong>Longuitud:</strong> {{localizacion.longitud}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<h4>Acceso</h4>
+			<p class="taller">{{localizacion.acceso}}</p>
+			
+			
+			<a ng-click="abrirImagen()" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a>
+			<a href="/editar-localizaciones/{{localizacion._id}}/" class="btn btn-warning btn-icon" ng-if="mostrarEditar"><i class="fa fa-pencil"></i>Editar localizacion</a>
+			<a href="#" class="btn btn-danger btn-icon" ng-click="delete(localizacion)" ng-if="mostrarEditar"><i class="fa fa-trash-o"></i>Eliminar localizacion</a>
+			<ul class="portfolio-details">
+				<li>
+					<p><strong>Tags:</strong></p>
+					<ul class="list list-skills icons list-unstyled list-inline">
+						<li ng-repeat="etiqueta in localizacion.tags"><i class="fa fa-check-circle"></i> {{etiqueta}}</li>
+					</ul>
+				</li>
+				<li>
+					<p><strong>Coordenadas:</strong></p>
+					<p>Latitud: {{localizacion.latitud}} </p>
+					<p>Longuitud: {{localizacion.longitud}} </p>
+				</li>
+				<li ng-if="localizacion.notasAdicionales.length>0">
+					<p><strong>Notas adicionales:</strong></p>
+					<p>{{localizacion.notasAdicionales}} </p>
+				</li>
+				<li>
+					<p><strong>Peligrosidad de la zona:</strong></p>
+					<p>{{localizacion.peligrosidad}}/10</p>
+				</li>
+				<li>
+					<p><strong>Contaminacion Luminica:</strong></p>
+					<p>{{localizacion.contaminacionLuminica}}/10</p>
+				</li>
+				<li>
+					<p><strong>Categoria:</strong></p>{{$scope.arrayCategorias[0]}}
+					<p>{{arrayCategorias[localizacion.categoria]}}</p>
+				</li>
+				<li>
+					<p><strong>Autor:</strong></p>
+					<p><a href="/tus-localizaciones/{{localizacion.autor}}">{{localizacion.autor}}</a></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<h2 style="margin: 32px 0 0px 18px;">Localizaciones más cercanas</h2>
+		
+		<ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
+			<li ng-repeat="loca in localizacionesCercanas | filter:{estado:'!2'} |  orderBy:'distanciakm' | limitTo:4 " class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
+				<div class="portfolio-item img-thumbnail">
+					<a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
+						<img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">
+						<span class="thumb-info-title">
+							<span class="thumb-info-inner">{{loca.titulo}}</span>
+							<span style="margin-left: 12px;font-size: 15px;font-weight: 100;">A {{loca.distanciakm}} km</span>
+							<span class="thumb-info-type">Ver</span>
+							
+						</span>
+						<span class="thumb-info-action">
+							<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+		
 		
 	</div>
 </div>

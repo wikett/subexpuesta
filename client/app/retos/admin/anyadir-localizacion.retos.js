@@ -2,7 +2,10 @@
 
 angular.module('subexpuestaV2App')
     .controller('AnyadirLocalizacionRetosCtrl', function($scope, $rootScope, $log, uiGmapGoogleMapApi, Reto, Auth, $location, $stateParams, RetoLocalizacion) {
+ $scope.selectedComunidad = '';
+        $scope.comunidades = [{nombre: 'Cataluña', numero: 1}, {nombre: 'Comunidad Valenciana', numero: 2},{nombre: 'Murcia', numero: 3},{nombre: 'Andalucia', numero: 4}, {nombre: 'Galicia', numero: 5}, {nombre: 'Asturias', numero: 6}, {nombre: 'Cantabria', numero: 7}, {nombre: 'Pais Vasco', numero: 8},{nombre: 'Gran Canarias', numero: 9}, {nombre: 'Palma de Mallorca', numero: 10}, {nombre: 'Ceuta', numero: 11},{nombre: 'Melilla', numero: 12}];
 
+       
         if (!Auth.isAdmin()) {
             $location.path('/');
         }
@@ -10,7 +13,56 @@ angular.module('subexpuestaV2App')
             id: 0
         };
 
-        
+var marker;
+function placeMarker(location) {
+    marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  
+}
+$scope.posicionLocalizacion = {};
+function cargarMapa() {
+            console.log('cargamos mapa...');
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 39.397,
+                    lng: -3.644
+                },
+                zoom: 5
+            });
+};
+function initMap() {
+            var mapOptions = {
+            zoom: 8, // The initial zoom level when your map loads (0-20)
+            center: {
+                    lat: 39.397,
+                    lng: -3.644
+                }
+
+        }
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+map.addListener('click', function(e) {
+   placeMarkerAndPanTo(e.latLng, map);
+    //placeMarker(e.latLng);
+  });
+}
+
+function placeMarkerAndPanTo(latLng, map) {
+  marker = new google.maps.Marker({
+    position: latLng,
+    map: map
+  });
+  $scope.posicionLocalizacion.latitud = latLng.lat();
+  $scope.posicionLocalizacion.longitud = latLng.lng();
+  console.log($scope.posicionLocalizacion);
+  //map.panTo(latLng);
+}
+google.maps.event.addListener(map, 'click', function(event) {
+  placeMarker(event.latLng);
+});
+
 
         $scope.files = {};
         $scope.finalizado = false;
@@ -26,78 +78,6 @@ angular.module('subexpuestaV2App')
 
         
 
-        $scope.opened = false;
-
-        $scope.showMap = false;
-
-        $scope.tags = [];
-
-
-
-        $scope.open = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            $scope.opened = true;
-        };
-
-        $scope.map = {
-            center: {
-                latitude: 40.399995,
-                longitude: -4.087896
-            },
-
-            zoom: 6,
-            scaleControl: true,
-            events: {
-                click: function(map, eventName, handlerArgs) {
-
-                    $scope.$apply(function() {
-                        //$log.log('click event');
-                        //$log.log('latitud: ' + handlerArgs[0].latLng.lat());
-                        
-                        $scope.marker.coords.latitude = handlerArgs[0].latLng.lat();
-                        $scope.marker.coords.longitude = handlerArgs[0].latLng.lng();
-                        $scope.marker.icon = 'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png';
-                        $log.log('$scope.marker.coords.latitude: ' + $scope.marker.coords.latitude);
-                    });
-
-                    //$log.log('longitud: '+marker.getPosition().lng());
-                }
-            }
-
-        };
-
-        $scope.marker = {
-            id: 0,
-            icon: 'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png',
-            coords: {
-                latitude: 0,
-                longitude: 0
-            },
-            options: {
-                draggable: true
-            },
-            events: {
-                dragend: function(marker, eventName, args) {
-                    //$log.log('marker dragend');
-                    var lat = marker.getPosition().lat();
-                    var lon = marker.getPosition().lng();
-
-                }
-
-            }
-        };
-
-
-
-        uiGmapGoogleMapApi.then(function(maps) {
-            setTimeout(function() {
-                $scope.showMap = true;
-                $scope.$apply();
-            }, 100);
-        });
-
 
 
         function getReto() {
@@ -105,6 +85,7 @@ angular.module('subexpuestaV2App')
             Reto.get({
                 id: $stateParams.id
             }, function(retoData) {
+                initMap();
                 $scope.reto = retoData;
                 //$scope.marker.coords.latitude = eventoData.latitud;
                 //$scope.marker.coords.longitude = eventoData.longitud;
@@ -119,12 +100,15 @@ angular.module('subexpuestaV2App')
         getReto();
 
         $scope.anyadirLocalizacion = function() {
+            console.log('Comunidad: '+$scope.selectedComunidad);
             $scope.localizacionReto = {};
-            $scope.localizacionReto.longitud = $scope.marker.coords.longitude;
-            $scope.localizacionReto.latitud = $scope.marker.coords.latitude;
+            $scope.localizacionReto.longitud =$scope.posicionLocalizacion.longitud;
+            $scope.localizacionReto.latitud =  $scope.posicionLocalizacion.latitud;
             $scope.localizacionReto.nombre = $scope.nuevaLocalizacion.nombre;
             $scope.localizacionReto.descripcion = $scope.nuevaLocalizacion.descripcion;
             $scope.localizacionReto.codigoReto = $scope.nuevaLocalizacion.codigoReto;
+            $scope.localizacionReto.comunidad=$scope.selectedComunidad;
+
             
             $scope.reto.localizaciones.push($scope.localizacionReto);
             

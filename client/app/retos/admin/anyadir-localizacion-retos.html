@@ -10,6 +10,7 @@
 	<h2>Reto: <strong>{{reto.nombre}}</strong></h2>
 		<form>
 			<div class="col-md-8 form-group">
+			<div id="map" ></div>
 				<label>Nombre</label>
 				<input type="text" class="form-control" id="titulo"  ng-model="nuevaLocalizacion.nombre">
 			</div>
@@ -22,17 +23,20 @@
 				<input class="form-control" id="capacidad"  ng-model="nuevaLocalizacion.codigoReto"></input>
 			</div>
 			
-			
 			<div class="row">
+			Comunidad
+				<select ng-model="selectedComunidad" >
+			<option ng-repeat="comunidad in comunidades" value="{{comunidad.numero}}">{{comunidad.nombre}} </option>
+			</select>
+			
 				<div class="col-md-9 form-group">
-					<div ng-if="showMap">
+					<!--<div ng-if="showMap">
 						<ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events">
-						<!--<ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-						events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>-->
 						<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
 						</ui-gmap-marker>
 						</ui-gmap-google-map>
-					</div>
+					</div>-->
+					
 				</div>
 			</div>
 			

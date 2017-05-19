@@ -22,7 +22,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-7">
-		<div class="form-group" >
+		<div class="form-group">
 					<label>Selecciona la localización exacta</label> <span ng-show="!marker.coords.latitude>0" style="color:red">*</span><small>(Haz click en el mapa para situar el punto sobre el mapa)</small>
 					<!--<div style="position:absolute;width:300px;top:40px;left:140px;z-index: 9999;">
 									<input type="text"  g-places-autocomplete class="input-group" placeholder="Buscador..." ng-model="place" style="width: 300px;" />
@@ -47,11 +47,76 @@
 </select>
 
 					<br />
-					<select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
+					<!--<select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
   ng-model="localizacionSelected"
   ng-options="xx.nombre for xx in listaLocalizaciones">
+<option value="">Selecciona una localización</option>
+</select>-->
+
+  
+  <select ng-show="mostrarLocalizaciones" style="width: 100%;margin-top: 30px;"
+  ng-model="localizacionSelected">
   <option value="">Selecciona una localización</option>
+    <optgroup label="Cataluña">
+   		 <option ng-repeat="lista in otraLista[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+    <optgroup label="Comunidad Valenciana">
+    	<option ng-repeat="lista in otraLista2[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Murcia">
+    	<option ng-repeat="lista in otraListaMurcia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Andalucia">
+    	<option ng-repeat="lista in otraListaAndalucia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Galicia">
+    	<option ng-repeat="lista in otraListaGalicia[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Asturias">
+    	<option ng-repeat="lista in otraListaAsturias[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Cantabria">
+    	<option ng-repeat="lista in otraListaCantabria[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Pais Vasco">
+    	<option ng-repeat="lista in otraListaPaisVasco[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Canarias">
+    	<option ng-repeat="lista in otraListaCanarias[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Islas Baleares">
+    	<option ng-repeat="lista in otraListaIslasBaleares[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Ceuta">
+    	<option ng-repeat="lista in otraListaCeuta[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+  	<optgroup label="Melilla">
+    	<option ng-repeat="lista in otraListaMelilla[0].localizacion" value="{{lista.codigoReto}}">{{lista.nombre}}</option>
+  	</optgroup>
+
 </select>
+
+
+
+  <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                	<li class="dropdown-header">Dropdown header 1</li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+      				<li class="dropdown-header">Dropdown header 2</li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                </ul>-->
 				</div>
 			</div>
 				</div>
@@ -90,7 +155,7 @@
 			<div class="row">
 				<div class="col-md-7" style="margin-left: -15px;">
 					<div class="form-group">
-						<label>Subir fotografía</label> <span ng-show="!finalizado" style="color:red">*</span>
+						<label>Subir fotografía</label> <span ng-show="!finalizado" style="color:red">*</span><span style="font-size:10px">(máximo 5MB)</span>
 						
 						<input type="file" name="file" class="cloudinary_fileupload" multiple ng-model="$parent.files">
 						<div class="file" ng-repeat="file in files">
@@ -107,10 +172,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-5">
-					<div class="file" ng-repeat="file in files">
-						<cl-image public-id="{{file.result.public_id}}" class="thumbnail inline" crop="fit" height="150" width="150" format="jpg"/>
-					</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<img ng-show="localizacion.cloudinaryId.length>0" src="http://res.cloudinary.com/djhqderty/image/upload/c_fit,w_370,q_50/{{localizacion.cloudinaryId}}"  style="margin-bottom:10px;" />
 				</div>
 			</div>
 			<div class="row">

@@ -9,7 +9,12 @@
 	<div class="row">
 	<h2>Editar Reto: <strong>{{reto.nombre}}</strong></h2>
 	<select ng-model="selectedLocalizacion" ng-change="cargarDatos()">
-<option ng-repeat="loca in reto.localizaciones" value="{{$index}}">{{loca.nombre}}</option>
+<option ng-repeat="loca in reto.localizaciones" value="{{$index}}">{{loca.nombre}} ({{loca.codigoReto}})</option>
+</select>
+<br />
+Comunidad
+	<select ng-model="selectedComunidad" >
+<option ng-repeat="comunidad in comunidades" value="{{comunidad.numero}}">{{comunidad.nombre}} </option>
 </select>
 		<form>
 			<div class="col-md-8 form-group">

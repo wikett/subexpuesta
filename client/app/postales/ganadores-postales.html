@@ -34,9 +34,8 @@
 		
 	
 			<h5>Localizaciones participantes en el sorteo</h5>
-			<div ng-repeat="localizacion in listaLocalizaciones | filter:monthMatch(11) | filter:{estado:'!2'}| orderBy: fechaSubida" style="width:80px; float:left;">
-				
-				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,w_80/v1438939574/{{localizacion.cloudinaryId}}" title="{{localizacion.titulo | seo}}"  /></a>
+			<div ng-repeat="localizacion in misLocalizacionesFiltradas | orderBy: '-fechaSubida' | limitTo: 80 | filter:{estado:'!2'}" style="width:80px; float:left;">
+				<a href="/localizaciones/{{localizacion._id}}/{{localizacion.titulo | seo}}" alt="{{localizacion.titulo | seo}}"><img src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_80,q_44,w_80/v1438939574/{{localizacion.idFoto}}" title="{{localizacion.titulo | seo}}"  /></a>
 				
 			</div>
 		</div>
@@ -71,7 +70,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="usu in listadoGanadores.slice(listadoGanadores.lenght-5,listadoGanadores.lenght)">
+						<tr ng-repeat="usu in listadoGanadores.slice(listadoGanadores.lenght-1,listadoGanadores.lenght)">
 							<th scope="row">{{$index+1}}</th>
 							<td><a href="/tus-localizaciones/{{usu.username}}">{{usu.username}}</a></td>
 						</tr>

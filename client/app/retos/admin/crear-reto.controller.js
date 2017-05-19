@@ -8,7 +8,7 @@ angular.module('subexpuestaV2App')
         }
         $scope.reto = new Reto();
         $scope.finalizado = false;
-
+       
         $scope.mensajeError = "";
 
         $scope.listaRetos = [];

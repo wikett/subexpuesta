@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso, Reto) {
+    .controller('LocalizacionesCtrl', function($scope, $rootScope, $http, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, $filter, Usuario, User, UsuarioAviso, Reto, Email, RetoUpdateLocalizacion) {
 
         $scope.getCurrentUser = Auth.getCurrentUser();
 
@@ -22,7 +22,7 @@ angular.module('subexpuestaV2App')
         $scope.max = 10;
         $scope.isReadonly = false;
         $scope.showMap = false;
-
+        var geocoder = new google.maps.Geocoder;
 
         $scope.hoveringOver = function(value) {
             $scope.overStar = value;
@@ -155,6 +155,7 @@ angular.module('subexpuestaV2App')
         $scope.listaLocalizaciones = [];
         $scope.codigoRetoSeleccionado = "";
          $scope.mostrarLocalizaciones = false; 
+         $scope.retoSeleccionado = {};
 
         $scope.selectedItem = 0;
         function getRetos(){
@@ -164,10 +165,67 @@ angular.module('subexpuestaV2App')
 
        getRetos();
 
+       $(".dropdown-menu li a").click(function(){
+
+          var selText = $(this).text();
+          console.log(selText);
+          //$(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+        });
+
+       $scope.retoSeleccionado = "";
        $scope.$watch('retoSelected', function(newVal) {
             if (newVal){
-                console.log(newVal);
+                $scope.retoFaroSeleccionado = newVal;
+                $scope.retoSeleccionado = newVal.nombre;
               $scope.listaLocalizaciones = newVal.localizaciones;
+              //var listaAgrupada = _.groupBy($scope.listaLocalizaciones, 'comunidad');
+                var listaAgrupada=_.chain($scope.listaLocalizaciones)
+                .groupBy('comunidad')
+                .map(function(value, key) {
+                    return {
+                        comunidad: key,
+                        localizacion: value
+                    }
+                })
+                .value();
+              
+              $scope.otraLista = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 1;
+              });
+              $scope.otraLista2 = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 2;
+              });
+              $scope.otraListaMurcia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 3;
+              });
+              $scope.otraListaAndalucia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 4;
+              });
+              $scope.otraListaGalicia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 5;
+              });
+              $scope.otraListaAsturias = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 6;
+              });
+              $scope.otraListaCantabria = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 7;
+              });
+              $scope.otraListaPaisVasco = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 8;
+              });
+              $scope.otraListaCanarias = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 9;
+              });
+              $scope.otraListaIslasBaleares = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 10;
+              });
+              $scope.otraListaCeuta = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 11;
+              });
+              $scope.otraListaMelilla = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 12;
+              });
+              //console.log(JSON.stringify($scope.otraLista));
               $scope.mostrarLocalizaciones = true;  
             }
             else{
@@ -177,10 +235,11 @@ angular.module('subexpuestaV2App')
             }
         });
 
+
        $scope.$watch('localizacionSelected', function(newVal) {
             if (newVal){
-              console.log(newVal.codigoReto);
-              $scope.codigoRetoSeleccionado = newVal.codigoReto;  
+              console.log(newVal);              
+              $scope.codigoRetoSeleccionado = newVal;  
             } 
             else{
               $scope.codigoRetoSeleccionado = "";  
@@ -250,47 +309,22 @@ angular.module('subexpuestaV2App')
                     $scope.nuevaLocalizacion.longitud = $scope.marker.coords.longitude;
                     $scope.nuevaLocalizacion.categoria = $scope.localizacion.categoria;
                     $scope.nuevaLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
+                    $scope.nuevaLocalizacion.nombreReto = $scope.retoSeleccionado;
+                    
 
-
-
-
-                    //$log.debug('$scope.nuevaLocalizacion: '+JSON.stringify($scope.nuevaLocalizacion));
-
-                    //$http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452')
-                    //$http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+$scope.nuevaLocalizacion.latitud+','+$scope.nuevaLocalizacion.longitud)
-                    $http({
-                        method: 'GET',
-                        url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + $scope.nuevaLocalizacion.latitud + ',' + $scope.nuevaLocalizacion.longitud,
-                        //url: 'http://ws.spotify.com/search/1/artist.json?q=mecano',
-
-                        transformRequest: function(data, headersGetter) {
-                            var headers = headersGetter();
-                            //$log.debug('header: '+JSON.stringify(headers));
-                            delete headers['Authorization'];
-                            //delete headers['X-Requested-With'];
-                            //res.header("Access-Control-Allow-Origin", "*");
-                            //res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-                            //res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-                            //headers['Accept']='text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*';
-                            //headers['Access-Control-Allow-Origin']='*';
-                            //headers['Access-Control-Allow-Headers']='*';
-                            //headers['Access-Control-Allow-Methods']='GET, PUT, POST';
-                            //$log.debug('header AFTER: '+JSON.stringify(headers));
-                            //$log.debug('header AFTER: '+JSON.stringify(headers));
-                            return headers;
+                    var latlng = {lat: parseFloat($scope.nuevaLocalizacion.latitud), lng: parseFloat($scope.nuevaLocalizacion.longitud)};
+                      geocoder.geocode({'location': latlng}, function(results, status) {
+                        if (status === google.maps.GeocoderStatus.OK) {
+                          if (results[1]) {
+                            //console.log('Geocoder: '+JSON.stringify(results[1].formatted_address));
+                            $scope.nuevaLocalizacion.direccion = results[1].formatted_address;
+                          } else {
+                            console.log('No results found');
+                          }
+                        } else {
+                          console.log('Geocoder failed due to: ' + status);
                         }
-                    })
-                        .success(function(result) {
-                            //$log.debug('response: '+JSON.stringify(result));
-                            if (result.results.length > 0) {
-                                //$log.debug('La llamada termindo exitosa: ' + result.results[0].formatted_address);
-                                $scope.nuevaLocalizacion.direccion = result.results[0].formatted_address;
-                            }
-
-                        })
-                        .finally(function() {
-                            //$log.debug('Entro en finally');
-                            $scope.nuevaLocalizacion.$save().then(function(response) {
+                        $scope.nuevaLocalizacion.$save().then(function(response) {
                                 $scope.localizacionCreada = true;
                                 //Agregar aviso
                                 User.query({}, function(usuarios) {
@@ -317,17 +351,34 @@ angular.module('subexpuestaV2App')
                                     });
                                 });
 
+                                //Actualizar reto
+                                if($scope.nuevaLocalizacion.codigoReto!=="")
+                                {
+                                    console.log('Editamos localizacion del reto');
+                                   /* var objetoUpadte = _.filter($scope.retoFaroSeleccionado.localizaciones, function(item){
+                                      return item.codigoReto == $scope.codigoRetoSeleccionado;
+                                   });
+                                   //console.log('objetoUpadte: '+JSON.stringify(objetoUpadte[0]._id));
+                                    var objetoLocalizacion = {};
+                                    objetoLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
+
+                                    RetoUpdateLocalizacion.update({id: objetoUpadte[0]._id}, objetoLocalizacion);*/
 
 
-
-
-
+                                    
+                                    Email.EmailEnviarContacto.enviarMailContacto({
+                                    direccion: 'enrique.ac9@gmail.com',
+                                    nombre: 'Quique',
+                                    asunto: 'Reto Subexpuesta.com',
+                                    mensaje: 'Fotografia subida para el reto'+$scope.codigoRetoSeleccionado
+                                    },function(mensaje) {
+                                        $log.debug('mensaje: '+JSON.stringify(mensaje));                                    
+                                    });
+                                }
                                 $location.path('/localizacion-creada/' + response._id + '/' + $filter('seo')(response.titulo));
-                            });
-                        });
-
-
-
+                            });//save localizacion
+                        
+                      });                       
                 }
         };
 
@@ -386,6 +437,7 @@ angular.module('subexpuestaV2App')
                     }
                 };
                 $scope.status = "Finalizado correctamente";
+                //console.log('data: '+JSON.stringify(data.result, null, 4));
                 $scope.result = data.result;
                 $scope.localizacion.cloudinaryId = $scope.result.public_id;
                 var name = data.files[0].name;

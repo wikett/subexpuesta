@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, Reto) {
+  .controller('LocalizacionesEditarCtrl', function ($scope, $stateParams, $log, $location, Localizacion, uiGmapGoogleMapApi, Auth, Modal, Reto, Email, RetoUpdateLocalizacion) {
     
     $scope.getCurrentUser = Auth.getCurrentUser();
     
@@ -112,6 +112,7 @@ $scope.tags = [];
         $scope.codigoRetoSeleccionado = "";
         $scope.retoSelected = {};
         $scope.localizacionSelected = {};
+        $scope.retoSeleccionado = {};
 
         $scope.selectedItem = 0;
         function getRetos(){
@@ -122,23 +123,74 @@ $scope.tags = [];
 
        getRetos();
 
-       $scope.$watch('retoSelected', function(newVal) {
+             $scope.$watch('retoSelected', function(newVal) {
             if (newVal){
-                console.log(newVal);
+                $scope.retoFaroSeleccionado = newVal;
+                $scope.retoSeleccionado = newVal.nombre;
+               // console.log('retoFaroSeleccionado: '+newVal);
               $scope.listaLocalizaciones = newVal.localizaciones;
+              //var listaAgrupada = _.groupBy($scope.listaLocalizaciones, 'comunidad');
+                var listaAgrupada=_.chain($scope.listaLocalizaciones)
+                .groupBy('comunidad')
+                .map(function(value, key) {
+                    return {
+                        comunidad: key,
+                        localizacion: value
+                    }
+                })
+                .value();
+              
+              $scope.otraLista = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 1;
+              });
+              $scope.otraLista2 = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 2;
+              });
+              $scope.otraListaMurcia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 3;
+              });
+              $scope.otraListaAndalucia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 4;
+              });
+              $scope.otraListaGalicia = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 5;
+              });
+              $scope.otraListaAsturias = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 6;
+              });
+              $scope.otraListaCantabria = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 7;
+              });
+              $scope.otraListaPaisVasco = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 8;
+              });
+              $scope.otraListaCanarias = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 9;
+              });
+              $scope.otraListaIslasBaleares = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 10;
+              });
+              $scope.otraListaCeuta = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 11;
+              });
+              $scope.otraListaMelilla = _.filter(listaAgrupada, function(item){
+                return item.comunidad == 12;
+              });
+              //console.log(JSON.stringify($scope.otraLista));
               $scope.mostrarLocalizaciones = true;  
             }
             else{
-                console.log('Selecciona reto');
+                //console.log('Selecciona reto');
                 $scope.mostrarLocalizaciones = false; 
                 $scope.codigoRetoSeleccionado = "";
             }
         });
 
+
        $scope.$watch('localizacionSelected', function(newVal) {
             if (newVal){
-              console.log(newVal.codigoReto);
-              $scope.codigoRetoSeleccionado = newVal.codigoReto;  
+             // console.log('localizacionSelected: '+newVal);
+              $scope.codigoRetoSeleccionado = newVal;  
             } 
             else{
               $scope.codigoRetoSeleccionado = "";  
@@ -180,7 +232,7 @@ $scope.editarLocalizacion = function(){
     }
 		else{
 
-            	console.log("Editamos localizacion: "+$scope.codigoRetoSeleccionado);
+            	//console.log("Editamos localizacion: "+$scope.codigoRetoSeleccionado);
 
         $scope.editarLocalizacion = Localizacion.LocalizacionAPI.get({id: $stateParams.id}, function(){
           $scope.editarLocalizacion.titulo = $scope.localizacion.titulo;
@@ -194,11 +246,39 @@ $scope.editarLocalizacion = function(){
           $scope.editarLocalizacion.latitud = $scope.marker.coords.latitude;
           $scope.editarLocalizacion.longitud = $scope.marker.coords.longitude;
           $scope.editarLocalizacion.categoria = $scope.localizacion.categoria;
-          $scope.editarLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
+          if($scope.codigoRetoSeleccionado!==null && typeof $scope.codigoRetoSeleccionado!=="object")
+          {
+            $scope.editarLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;  
+          }
+          
 
 
           $scope.editarLocalizacion.$update().then(function(response){
             $scope.localizacionEditada = true;
+            if($scope.codigoRetoSeleccionado!==null && typeof $scope.codigoRetoSeleccionado!=="object")
+                                {
+                                  //console.log('$scope.retoFaroSeleccionado.localizaciones: '+JSON.stringify($scope.retoFaroSeleccionado.localizaciones));
+                                   //console.log('$scope.retoSeleccionado.codigoReto: '+JSON.stringify($scope.codigoRetoSeleccionado));
+                                   /*var objetoUpadte = _.filter($scope.retoFaroSeleccionado.localizaciones, function(item){
+                                      return item.codigoReto == $scope.codigoRetoSeleccionado;
+                                   });
+                                   //console.log('objetoUpadte: '+JSON.stringify(objetoUpadte[0]._id));
+                                    var objetoLocalizacion = {};
+                                    objetoLocalizacion.codigoReto = $scope.codigoRetoSeleccionado;
+
+                                    RetoUpdateLocalizacion.update({id: objetoUpadte[0]._id}, objetoLocalizacion);*/
+                                    
+                                    Email.EmailEnviarContacto.enviarMailContacto({
+                                    direccion: 'enrique.ac9@gmail.com',
+                                    nombre: 'Quique',
+                                    asunto: 'Reto Subexpuesta.com',
+                                    mensaje: 'Fotografia subida para el reto: '+$scope.codigoRetoSeleccionado
+                                    },function(mensaje) {
+                                        $log.debug('mensaje: '+JSON.stringify(mensaje));                                    
+                                    });
+                                }
+
+
           })
         })
 

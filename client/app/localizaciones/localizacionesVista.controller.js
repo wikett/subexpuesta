@@ -5,18 +5,21 @@ angular.module('subexpuestaV2App')
 
         $scope.showMap = false;
 
-        $scope.arrayCategorias = ['Nocturna Paisaje','Nocturna Urbana', 'LightPainting', 'Atardecer-Amanecer','Monumentos', 'Ruinas', 'Vehiculos-Maquinarias', 'Mineria','Paisaje','Larga Exposicion Diurna','Urbana', 'Costa'];
-       // $scope.imageLocalizacion = [];
+        $scope.arrayCategorias = ['Nocturna Paisaje', 'Nocturna Urbana', 'LightPainting', 'Atardecer-Amanecer', 'Monumentos', 'Ruinas', 'Vehiculos-Maquinarias', 'Mineria', 'Paisaje', 'Larga Exposicion Diurna', 'Urbana', 'Costa'];
+        // $scope.imageLocalizacion = [];
 
         $scope.localizacion = {};
         $scope.listaLocalizaciones = {};
         $scope.localizacionesCercanas = [];
+        $scope.localizacionRetoFiltrada = [];
 
-            $scope.isCollapsed = true;
-    $scope.mejoraCreada = false;
-    $scope.textoReporte = '';
+        $scope.isCollapsed = true;
+        $scope.mejoraCreada = false;
+        $scope.localizacionDeReto = false;
+        $scope.textoReporte = '';
 
-    $scope.images = [];
+        $scope.images = [];
+
 
 
         $scope.miObjeto = {
@@ -67,35 +70,33 @@ angular.module('subexpuestaV2App')
 
         });
 
-        
 
 
 
-        $scope.guardarReporte = function(){
-            
+
+        $scope.guardarReporte = function() {
+
             $scope.enviando = true;
             Email.EmailEnviarContacto.enviarMailContacto({
                 direccion: 'subexpuestaweb@gmail.com',
                 nombre: 'Wikett',
                 asunto: 'Reporte Localizacion',
-                mensaje: JSON.stringify($scope.localizacion, null, 4)+"Comentario: "+ $scope.textoReporte
-            },function(mensaje) {
+                mensaje: JSON.stringify($scope.localizacion, null, 4) + "Comentario: " + $scope.textoReporte
+            }, function(mensaje) {
 
-                if(mensaje.message==='success'){
-                $scope.enviado = true;  
-                }
-                else
-                {
+                if (mensaje.message === 'success') {
+                    $scope.enviado = true;
+                } else {
                     $scope.mostrarError = true;
                 }
                 $scope.enviando = false;
-                
-                
+
+
 
             });
         }
 
-        $scope.abrirImagen = function(){
+        $scope.abrirImagen = function() {
             Lightbox.openModal($scope.images, 0);
         }
 
@@ -115,6 +116,7 @@ angular.module('subexpuestaV2App')
                 if (localizacionData.estado == 2) {
                     $location.path('/');
                 } else {
+                    console.log('localizacion: ' + JSON.stringify(localizacionData));
                     $scope.localizacion = localizacionData;
                     $scope.marker.coords.latitude = localizacionData.latitud;
                     $scope.marker.coords.longitude = localizacionData.longitud;
@@ -130,9 +132,9 @@ angular.module('subexpuestaV2App')
                     //imageLightbox.url = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
                     //imageLightbox.thumbUrl = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
                     //$scope.images.push(imageLightbox);
- 
-                     
-                   // $scope.imageLocalizacion.push(image);
+
+
+                    // $scope.imageLocalizacion.push(image);
 
                     // title & meta tags
                     $rootScope.title = localizacionData.titulo + ' por: ' + localizacionData.autor;
@@ -141,6 +143,29 @@ angular.module('subexpuestaV2App')
                     $rootScope.titleFB = $rootScope.title;
                     $rootScope.descriptionFB = $rootScope.metaDescription;
                     $rootScope.imageFB = 'http://res.cloudinary.com/djhqderty/image/upload/v1429114149/' + localizacionData.cloudinaryId + '.jpg';
+
+                    if(!_.isUndefined(localizacionData.codigoReto))
+                    {
+                        $scope.localizacionDeReto = true;
+                        Localizacion.LocalizacionReto.getById({
+                            id: 3
+                        }, function(localizaciones) {
+                            $scope.listaLocalizacionesReto = localizaciones;
+                            console.log('listaLocalizaciones: '+JSON.stringify($scope.listaLocalizacionesReto.length));
+
+                            $scope.localizacionRetoFiltrada = _.filter($scope.listaLocalizacionesReto, function(item){
+                                return item.codigoReto === localizacionData.codigoReto;
+                            });
+                            console.log('localizacionRetoFiltrada: '+JSON.stringify($scope.localizacionRetoFiltrada.length));
+
+                            });
+                    }
+
+
+
+
+
+
                 }
                 var loc1 = new google.maps.LatLng(localizacionData.latitud, localizacionData.longitud);
                 Localizacion.LocalizacionAPI.query().$promise.then(function(result) {

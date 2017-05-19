@@ -324,7 +324,7 @@ angular.module('subexpuestaV2App')
                                     $scope.fotoActual.notas = handlerArgs.notas;
 
 
-                                    //$log.log('$scope.marker.coords.latitude: '+$scope.marker.coords.latitude);
+                                    //$log.log('$scope.fotoActual '+JSON.stringify($scope.fotoActual));
                                     //  $scope.marker.coords.latitude = handlerArgs[0].latLng.lat();
                                     //$scope.marker.coords.longitude = handlerArgs[0].latLng.lng();
                                 });

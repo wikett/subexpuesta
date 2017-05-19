@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('subexpuestaV2App')
-    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window, Evento, User) {
+    .controller('MainCtrl', function($scope, $rootScope, Auth, $log, Localizacion, uiGmapGoogleMapApi, Modal, $filter, $location, $window, Evento, User, Reto) {
         $scope.isLoggedIn = Auth.isLoggedIn;
 
 
@@ -21,6 +21,7 @@ angular.module('subexpuestaV2App')
         $scope.fotoActual = {};
         $scope.fechaHoy = new Date();
         $scope.meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        $scope.listaRetos = {};
 
         $scope.listaEventos = [];
 
@@ -60,6 +61,27 @@ angular.module('subexpuestaV2App')
         uiGmapGoogleMapApi.then(function(maps) {
 
         });
+
+            
+
+    function getListaRetos(){
+     Reto.query(function(data){
+        $scope.listaRetos = data;
+        for (var i = 0; i < $scope.listaRetos.length; i++) {
+           var total = data[i].localizaciones.length;
+           var recibidas = _.filter(data[i].localizaciones, function(dataL){
+                    return dataL.recibida===true;
+                });
+            recibidas = recibidas.length;
+            var porcentaje = recibidas * 100 / total; 
+            $scope.listaRetos[i].porcentaje = Math.round(porcentaje * 100) / 100;
+        }
+
+        });
+        
+    };
+    
+
 
 
 
@@ -171,6 +193,7 @@ angular.module('subexpuestaV2App')
         getLocalizaciones();
         getEventos();
         getUsuarios();
+        getListaRetos();
 
         $scope.status = {
             isFirstOpen: true,

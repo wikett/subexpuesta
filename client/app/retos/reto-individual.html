@@ -19,16 +19,29 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Mapa {{reto.nombre}}</h2>
+				<h2>{{reto.nombre}}</h2>
 				<div class="col-md-6">
 					 <div id="map"></div>
 				</div>
 				<div class="col-md-6">
-					<h4>Descripcion: </h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere, elit iaculis rhoncus pulvinar, urna eros tempus nisi, nec suscipit metus felis a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In pretium massa nunc.</p>
-					<h4>Completado: <strong>20%</strong></h4>
-					<a href="#" style="text-align:right"><h4>Aporta tu fotografia</h4></a>
+					<h4>Descripcion: </h4><p>{{reto.descripcion}}</p>
+					<h4>Completado: <strong>{{porcentajeCompletado | number:2}}%</strong></h4>
+					<a href="/aportar-reto" style="text-align:right;"><h4 style="color:green">Aporta tu fotografia</h4></a>
 				</div>
-				
+				<div class="col-md-6">
+					<h5>Filtros</p><br />
+					<label ng-repeat="fruitName in fruits" style="margin-right: 46px;
+">
+  <input
+    type="checkbox"
+    name="selectedFruits[]"
+    value="{{$index}}"
+    ng-checked="selection.indexOf(fruitName) > -1"
+    ng-click="toggleSelection(fruitName)"
+  > {{fruitName}}
+</label>
+					
+				</div>
 				<!--<div class="c100 p80 normal">
 					<span>20%</span>
 					<div class="slice">
@@ -39,25 +52,14 @@
 			</div>
 		</div>
 		    <div class="row">
-      <h2 style="margin: 32px 0 32px 18px;">Últimas localizaciones subidas</h2>
-      <ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
-        <li ng-repeat="loca in listaLocalizaciones | filter:{estado:'!2'} |  orderBy:'-fechaSubida' | limitTo:4 " class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
-          <div class="portfolio-item img-thumbnail">
-            <a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
-              <img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">
-              <span class="thumb-info-title">
-                <span class="thumb-info-inner">{{loca.titulo}}</span>
-                <span class="thumb-info-type">Ver</span>
-                
-              </span>
-              <span class="thumb-info-action">
-                <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
-              </span>
-            </a>
-          </div>
-        </li>
-        
-        
-      </ul>
+            <h2 style="margin: 32px 0 32px 18px;">Total localizaciones de faros: {{localizacionesPresentadas.length}} <span> / {{totalLocalizaciones}}</span></h2>
+     
+      	<a ng-repeat="loca in localizacionesPresentadas track by $index" href="{{loca.url}}" title="{{loca.titulo}}" ><img  src="http://res.cloudinary.com/djhqderty/image/upload/c_thumb,h_100,q_50/{{loca.cloudinaryId}}" title="{{loca.titulo}}"  alt="{{loca.titulo}}" style="margin-bottom:50px; margin-left: 30px;" /></a>
+
+
+
+     
+     
+
 	</div>
 </div>

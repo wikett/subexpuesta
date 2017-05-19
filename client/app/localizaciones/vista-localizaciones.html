@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox-plus-jquery.min.js"></script>
 <section class="page-top">
 	<div class="container">
 		<div class="row">
@@ -18,7 +19,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
-			<a ng-click="abrirImagen()"  href="#" ><img src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{localizacion.cloudinaryId}}" width="340px" style="margin-bottom:40px;" ></a>
+		<a class="example-image-link"  href="http://res.cloudinary.com/djhqderty/image/upload/{{localizacion.cloudinaryId}}"  data-lightbox="example-1"><img class="example-image" src="http://res.cloudinary.com/djhqderty/image/upload/c_fit,w_370/{{localizacion.cloudinaryId}}"  alt="image-1" style="margin-bottom:50px;" /></a>
 			<div ng-if="showMap">
 				<ui-gmap-google-map center='map.center' zoom='map.zoom'>
 				<ui-gmap-marker coords="marker.coords" options="marker.options" idkey="marker.id" icon="{url:'http://res.cloudinary.com/djhqderty/image/upload/v1430472337/icono-mapa_xnqyqd.png' }" >
@@ -60,7 +61,7 @@
 			<p class="taller">{{localizacion.acceso}}</p>
 			
 			
-			<a ng-click="abrirImagen()" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Ver en grande</a>
+			<a class="btn btn-primary btn-icon example-image-link"  href="http://res.cloudinary.com/djhqderty/image/upload/{{localizacion.cloudinaryId}}" data-lightbox="{{localizacion.titulo}}"  ><i class="fa fa-external-link"></i>Ver en grande</a>
 			<a href="/editar-localizaciones/{{localizacion._id}}/" class="btn btn-warning btn-icon" ng-if="mostrarEditar"><i class="fa fa-pencil"></i>Editar localizacion</a>
 			<a href="#" class="btn btn-danger btn-icon" ng-click="delete(localizacion)" ng-if="mostrarEditar"><i class="fa fa-trash-o"></i>Eliminar localizacion</a>
 			<ul class="portfolio-details">
@@ -83,13 +84,17 @@
 					<p><strong>Peligrosidad de la zona:</strong></p>
 					<p>{{localizacion.peligrosidad}}/10</p>
 				</li>
-				<li>
+				<li>      
 					<p><strong>Contaminacion Luminica:</strong></p>
 					<p>{{localizacion.contaminacionLuminica}}/10</p>
 				</li>
 				<li>
 					<p><strong>Categoria:</strong></p>{{$scope.arrayCategorias[0]}}
 					<p>{{arrayCategorias[localizacion.categoria]}}</p>
+				</li>
+				<li ng-show="localizacionDeReto">
+					<p><strong>Reto:</strong></p>
+					<p><a href="/retos/{{localizacion.nombreReto | seo}}">{{localizacion.nombreReto}}</a></p>
 				</li>
 				<li>
 					<p><strong>Autor:</strong></p>
@@ -98,6 +103,27 @@
 			</ul>
 		</div>
 	</div>
+	<!--<div class="row" ng-show="localizacionDeReto">
+		<h2 style="margin: 32px 0 0px 18px;">Fotografías del reto</h2>
+		
+		<ul class="portfolio-list sort-destination" data-sort-id="portfolio" data-plugin-options='{"delegate": "a", "type": "image", "gallery": {"enabled": true}}'>
+			<li ng-repeat="loca in localizacionRetoFiltrada" class="col-md-3 col-sm-6 col-xs-12 isotope-item websites">
+				<div class="portfolio-item img-thumbnail">
+					<a href="/localizaciones/{{loca._id}}/{{loca.titulo | seo}}" class="thumb-info">
+						<img alt="{{loca.titulo}}" class="img-responsive" src="http://res.cloudinary.com/djhqderty/image/upload/c_fill,h_447,w_447/{{loca.cloudinaryId}}">
+						<span class="thumb-info-title">
+							<span class="thumb-info-inner">{{loca.titulo}}</span>
+							<span class="thumb-info-type">Ver</span>
+							
+						</span>
+						<span class="thumb-info-action">
+							<span title="Universal" class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+	</div>-->
 	<div class="row">
 		<h2 style="margin: 32px 0 0px 18px;">Localizaciones más cercanas</h2>
 		
@@ -119,7 +145,5 @@
 				</div>
 			</li>
 		</ul>
-		
-		
 	</div>
 </div>

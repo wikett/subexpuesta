@@ -37,14 +37,14 @@ angular.module('subexpuestaV2App')
         templateUrl: 'app/retos/reto-individual.html',
         controller: 'RetoIndividualCtrl'
       })
+      .state('retoaportar', {
+        url: '/aportar-reto',
+        templateUrl: 'app/retos/reto-aportar.html',
+        controller: 'RetoAportarCtrl'
+      })
       .state('retolocalizacion', {
-        url: '/reto-localizacion/:nombre/:localizacion',
+        url: '/reto/:nombre/:localizacion',
         templateUrl: 'app/retos/reto-localizacion.html',
         controller: 'RetoLocalizacionCtrl'
       })
-      .state('reto', {
-        url: '/reto/:id',
-        templateUrl: 'app/retos/reto-individual.html',
-        controller: 'RetoIndividualCtrl'
-      });
   });

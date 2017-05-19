@@ -44,7 +44,7 @@ exports.enviarEmail = function(req, res) {
 exports.enviarEmailContacto = function(req, res) {
 
   //console.log('enviarEmail!!!!!!!!!!!!!!!: '+JSON.stringify(req.body, null, 4));
-  console.log('enviarEmail!!!!!!!!!!!!!!!: '+JSON.stringify(req.body.organizador, null, 4));
+  console.log('enviarEmail!!!!!!!!!!!!!!!: '+JSON.stringify(req.body, null, 4));
   /*var direccionesMail;
   if(!_.isUndefined(req.body.organizador))
   {
@@ -56,7 +56,7 @@ exports.enviarEmailContacto = function(req, res) {
   }*/
   var mailer = nodemailer.createTransport(sgTransport(options));
   var email = {
-      to: req.body.organizador,
+      to: 'enrique.ac9@gmail.com',
       from: req.body.direccion,
       bcc: 'subexpuestaweb@gmail.com',
       subject: req.body.asunto+' ('+req.body.nombre+')',
